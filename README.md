@@ -19,7 +19,7 @@ Import only sites and assets you own or have permission to use. React/Vite sourc
 
 ## Download and install
 
-1. Download the installable `tahmir-ai-free-1.0.7.zip` from [Releases](https://github.com/hireawais/tahmir-ai-free/releases/latest).
+1. Download the installable `tahmir-ai-free-1.0.8.zip` from [Releases](https://github.com/hireawais/tahmir-ai-free/releases/latest).
 2. In WordPress, open **Plugins → Add New Plugin → Upload Plugin**.
 3. Upload the ZIP, install it and activate **Tahmir AI — AI to WP Website Converter**.
 4. Open **Tahmir AI → Import** and choose a public URL or HTML ZIP.

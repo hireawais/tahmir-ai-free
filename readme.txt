@@ -4,7 +4,7 @@ Tags: html to wordpress, lovable to wordpress, ai website, website import, websi
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,9 +64,14 @@ The plugin checks dash.tahmir.com for releases and downloads updates from the Ta
 
 Free and Pro store submitted form entries in your WordPress database. Free sends the site administrator a notification; Pro may send notifications or webhooks according to your configuration. Include appropriate information in your site's privacy policy.
 
-Website privacy policy: https://tahmir.ai/privacy/
+Website privacy policy: https://tahmir.com/privacy-policy-tahmir-ai/
 
 == Changelog ==
+
+= 1.0.8 =
+
+* Updated the remaining legacy privacy link to the official Tahmir.com policy.
+
 
 = 1.0.7 =
 
