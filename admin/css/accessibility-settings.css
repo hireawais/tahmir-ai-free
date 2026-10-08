@@ -1,0 +1,320 @@
+.ug-accessibility-settings {
+    max-width: 1320px;
+}
+
+.ug-accessibility-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.ug-accessibility-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.ug-accessibility-options {
+    display: grid;
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.ug-accessibility-option-group {
+    display: grid;
+    gap: 10px;
+}
+
+.ug-accessibility-option-group h3 {
+    margin: 0;
+    color: #1d2327;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.ug-accessibility-option-group__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+}
+
+.ug-accessibility-option {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    min-height: 78px;
+    padding: 14px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.ug-accessibility-option input {
+    margin-top: 2px;
+}
+
+.ug-accessibility-option strong,
+.ug-accessibility-option em {
+    display: block;
+}
+
+.ug-accessibility-option strong {
+    color: #1d2327;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.ug-accessibility-option em {
+    margin-top: 4px;
+    color: #646970;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1.45;
+}
+
+.ug-accessibility-preview {
+    position: relative;
+    min-height: 242px;
+    background: linear-gradient(180deg, #f6f7f7 0%, #fff 100%);
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ug-accessibility-preview::before,
+.ug-accessibility-preview::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 999px;
+}
+
+.ug-accessibility-preview::before {
+    top: 50px;
+}
+
+.ug-accessibility-preview::after {
+    top: 82px;
+    width: 55%;
+}
+
+.ug-accessibility-preview__corner {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border: 1px dashed #c3c4c7;
+    border-radius: 8px;
+}
+
+.ug-accessibility-preview__corner--top-left {
+    top: 14px;
+    left: 14px;
+}
+
+.ug-accessibility-preview__corner--top-right {
+    top: 14px;
+    right: 14px;
+}
+
+.ug-accessibility-preview__corner--middle-left {
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+}
+
+.ug-accessibility-preview__corner--middle-right {
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+}
+
+.ug-accessibility-preview__corner--bottom-left {
+    bottom: 14px;
+    left: 14px;
+}
+
+.ug-accessibility-preview__corner--bottom-right {
+    right: 14px;
+    bottom: 14px;
+}
+
+.ug-accessibility-preview__trigger {
+    position: absolute;
+    display: inline-flex;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    background: #2271b1;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(34, 113, 177, 0.25);
+    font-weight: 700;
+}
+
+.ug-accessibility-preview[data-position="bottom_right"] .ug-accessibility-preview__trigger {
+    right: 15px;
+    bottom: 15px;
+}
+
+.ug-accessibility-preview[data-position="bottom_left"] .ug-accessibility-preview__trigger {
+    bottom: 15px;
+    left: 15px;
+}
+
+.ug-accessibility-preview[data-position="top_right"] .ug-accessibility-preview__trigger {
+    top: 15px;
+    right: 15px;
+}
+
+.ug-accessibility-preview[data-position="top_left"] .ug-accessibility-preview__trigger {
+    top: 15px;
+    left: 15px;
+}
+
+.ug-accessibility-preview[data-position="middle_right"] .ug-accessibility-preview__trigger {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+.ug-accessibility-preview[data-position="middle_left"] .ug-accessibility-preview__trigger {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.ug-accessibility-submit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ug-accessibility-result {
+    font-weight: 600;
+}
+
+.ug-accessibility-detection__header,
+.ug-accessibility-detection__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ug-accessibility-detection__header {
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.ug-accessibility-detection__header h2 {
+    margin-bottom: 4px;
+}
+
+.ug-accessibility-detection__actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ug-accessibility-detection__result {
+    padding: 16px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+}
+
+.ug-accessibility-detection__result.is-loading {
+    color: #646970;
+}
+
+.ug-accessibility-scan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.ug-accessibility-scan-stat {
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+}
+
+.ug-accessibility-scan-stat strong,
+.ug-accessibility-scan-stat span {
+    display: block;
+}
+
+.ug-accessibility-scan-stat strong {
+    color: #1d2327;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.ug-accessibility-scan-stat span {
+    margin-top: 6px;
+    color: #646970;
+    font-size: 12px;
+}
+
+.ug-accessibility-option-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.ug-accessibility-option-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+}
+
+.ug-accessibility-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ug-accessibility-badge--show {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.ug-accessibility-badge--hidden {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.ug-accessibility-badge--disabled {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+@media (max-width: 960px) {
+    .ug-accessibility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ug-accessibility-detection__header,
+    .ug-accessibility-detection__actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}

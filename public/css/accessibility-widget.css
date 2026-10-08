@@ -1,0 +1,472 @@
+.ugentic-a11y {
+    position: fixed;
+    z-index: 999998;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #1d2327;
+}
+
+body.ugentic-sf-mode .ugentic-a11y,
+body.ugentic-edit-active .ugentic-a11y,
+body.ugentic-editing .ugentic-a11y,
+body.ugentic-editor-active .ugentic-a11y {
+    display: none !important;
+}
+
+.ugentic-a11y--bottom-right {
+    right: 20px;
+    bottom: 20px;
+}
+
+.ugentic-a11y--bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.ugentic-a11y--top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.ugentic-a11y--top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.ugentic-a11y--middle-right {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.ugentic-a11y--middle-left {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.ugentic-a11y__trigger {
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #111827;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    font: 700 17px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+}
+
+.ugentic-a11y--preparing .ugentic-a11y__trigger,
+.ugentic-a11y:not(.ugentic-a11y--ready) .ugentic-a11y__trigger {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(4px);
+}
+
+.ugentic-a11y__trigger:hover,
+.ugentic-a11y__trigger:focus-visible {
+    background: #2271b1;
+    outline: 3px solid #fbbf24;
+    outline-offset: 3px;
+}
+
+.ugentic-a11y__panel {
+    position: absolute;
+    width: min(320px, calc(100vw - 32px));
+    max-height: min(560px, calc(100vh - 96px));
+    overflow: auto;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+}
+
+.ugentic-a11y--bottom-right .ugentic-a11y__panel,
+.ugentic-a11y--top-right .ugentic-a11y__panel {
+    right: 0;
+}
+
+.ugentic-a11y--bottom-left .ugentic-a11y__panel,
+.ugentic-a11y--top-left .ugentic-a11y__panel {
+    left: 0;
+}
+
+.ugentic-a11y--bottom-right .ugentic-a11y__panel,
+.ugentic-a11y--bottom-left .ugentic-a11y__panel {
+    bottom: 64px;
+}
+
+.ugentic-a11y--top-right .ugentic-a11y__panel,
+.ugentic-a11y--top-left .ugentic-a11y__panel {
+    top: 64px;
+}
+
+.ugentic-a11y--middle-right .ugentic-a11y__panel {
+    top: 50%;
+    right: 64px;
+    transform: translateY(-50%);
+}
+
+.ugentic-a11y--middle-left .ugentic-a11y__panel {
+    top: 50%;
+    left: 64px;
+    transform: translateY(-50%);
+}
+
+.ugentic-a11y__panel[hidden],
+.ugentic-a11y [hidden] {
+    display: none !important;
+}
+
+.ugentic-a11y__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.ugentic-a11y__header h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.ugentic-a11y__status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+.ugentic-a11y__close {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    color: #374151;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.ugentic-a11y__close:hover,
+.ugentic-a11y__close:focus-visible {
+    background: #f3f4f6;
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+.ugentic-a11y__body {
+    display: grid;
+    gap: 10px;
+    padding: 14px;
+}
+
+.ugentic-a11y__group,
+.ugentic-a11y__toggle,
+.ugentic-a11y__reset {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.ugentic-a11y__group {
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+}
+
+.ugentic-a11y__label {
+    color: #111827;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ugentic-a11y__stepper {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    gap: 8px;
+    align-items: center;
+}
+
+.ugentic-a11y__control,
+.ugentic-a11y__toggle,
+.ugentic-a11y__reset {
+    min-height: 42px;
+    cursor: pointer;
+    font: 600 13px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ugentic-a11y__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+.ugentic-a11y__value {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ugentic-a11y__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    color: #111827;
+    text-align: left;
+}
+
+.ugentic-a11y__switch {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    flex: 0 0 auto;
+    background: #d1d5db;
+    border-radius: 999px;
+}
+
+.ugentic-a11y__switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.16s ease;
+}
+
+.ugentic-a11y__toggle[aria-pressed="true"] {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.ugentic-a11y__toggle[aria-pressed="true"] .ugentic-a11y__switch {
+    background: #2271b1;
+}
+
+.ugentic-a11y__toggle[aria-pressed="true"] .ugentic-a11y__switch::after {
+    transform: translateX(16px);
+}
+
+.ugentic-a11y__control:hover,
+.ugentic-a11y__toggle:hover,
+.ugentic-a11y__reset:hover {
+    border-color: #8c8f94;
+}
+
+.ugentic-a11y__control:focus-visible,
+.ugentic-a11y__toggle:focus-visible,
+.ugentic-a11y__reset:focus-visible {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+.ugentic-a11y__reset {
+    width: 100%;
+    padding: 10px 12px;
+    background: #111827;
+    color: #fff;
+    border-color: #111827;
+}
+
+html {
+    --ug-a11y-filter-grayscale: grayscale(0);
+    --ug-a11y-filter-saturation: saturate(1);
+}
+
+html.ug-a11y-text-medium :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, label, legend, caption, td, th, dt, dd, a, button, summary) {
+    font-size: calc(1em * 1.12) !important;
+}
+
+html.ug-a11y-text-large :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, label, legend, caption, td, th, dt, dd, a, button, summary) {
+    font-size: calc(1em * 1.25) !important;
+}
+
+html.ug-a11y-line-height :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(p, li, blockquote, figcaption, label, legend, caption, td, th, dt, dd) {
+    line-height: 1.75 !important;
+}
+
+html.ug-a11y-line-height :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(h1, h2, h3, h4, h5, h6) {
+    line-height: 1.35 !important;
+}
+
+html.ug-a11y-text-spacing :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, label, legend, caption, td, th, dt, dd, a, button, summary) {
+    letter-spacing: 0.045em !important;
+    word-spacing: 0.08em !important;
+}
+
+html.ug-a11y-readable-font :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, label, legend, caption, td, th, dt, dd, a, button, summary) {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+html.ug-a11y-underline-links :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) a {
+    background: rgba(251, 191, 36, 0.22) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.18em !important;
+    text-decoration-thickness: 0.1em !important;
+}
+
+html.ug-a11y-grayscale {
+    --ug-a11y-filter-grayscale: grayscale(1);
+}
+
+html.ug-a11y-saturation {
+    --ug-a11y-filter-saturation: saturate(1.55);
+}
+
+html.ug-a11y-contrast :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) {
+    --ugv2-ink: #0b1220;
+    --ugv2-muted: #1f2937;
+    --ugv2-primary: #003f88;
+    --ugv2-contrast: #ffffff;
+}
+
+html.ug-a11y-grayscale :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer),
+html.ug-a11y-saturation :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) {
+    filter: var(--ug-a11y-filter-grayscale, grayscale(0)) var(--ug-a11y-filter-saturation, saturate(1)) !important;
+}
+
+html.ug-a11y-contrast :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, label, legend, caption, td, th, dt, dd) {
+    color: #0b1220 !important;
+    text-shadow: none !important;
+}
+
+html.ug-a11y-contrast :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) a {
+    color: #003f88 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.18em !important;
+    text-decoration-thickness: 0.12em !important;
+    text-shadow: none !important;
+}
+
+html.ug-a11y-contrast :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], .ugp-btn-primary, .ugp-btn-secondary, [class*="btn"]) {
+    background: #0f172a !important;
+    border-color: #0f172a !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.ug-a11y-hide-images :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(img, picture, video, iframe, canvas) {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+html.ug-a11y-hide-images :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :is(figure, .ugentic-generated-visual, [style*="background-image"], [class*="image"], [class*="gallery"]) {
+    background-image: none !important;
+}
+
+html.ug-a11y-pause-animations {
+    scroll-behavior: auto !important;
+}
+
+html.ug-a11y-pause-animations :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer),
+html.ug-a11y-pause-animations :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *,
+html.ug-a11y-pause-animations :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *::before,
+html.ug-a11y-pause-animations :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+}
+
+html.ug-a11y-focus-highlight :is(#ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :focus-visible {
+    outline: 3px solid #fbbf24 !important;
+    outline-offset: 3px !important;
+}
+
+.ugentic-a11y-reading-guide {
+    position: fixed;
+    top: 38vh;
+    right: 0;
+    left: 0;
+    z-index: 999997;
+    display: none;
+    height: 38px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(251, 191, 36, 0), rgba(251, 191, 36, 0.28) 18%, rgba(251, 191, 36, 0.28) 82%, rgba(251, 191, 36, 0));
+    border-top: 2px solid rgba(146, 64, 14, 0.24);
+    border-bottom: 2px solid rgba(146, 64, 14, 0.24);
+    box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.04);
+    transform: translateY(-50%);
+}
+
+html.ug-a11y-reading-guide .ugentic-a11y-reading-guide {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .ugentic-a11y {
+        max-width: calc(100vw - 32px);
+    }
+
+    .ugentic-a11y--middle-right,
+    .ugentic-a11y--middle-left {
+        top: auto;
+        bottom: 16px;
+        transform: none;
+    }
+
+    .ugentic-a11y--middle-right {
+        right: 16px;
+        left: auto;
+    }
+
+    .ugentic-a11y--middle-left {
+        right: auto;
+        left: 16px;
+    }
+
+    .ugentic-a11y__panel {
+        width: calc(100vw - 32px);
+    }
+
+    .ugentic-a11y--middle-right .ugentic-a11y__panel,
+    .ugentic-a11y--middle-left .ugentic-a11y__panel {
+        top: auto;
+        right: 0;
+        bottom: 64px;
+        left: auto;
+        transform: none;
+    }
+
+    .ugentic-a11y--middle-left .ugentic-a11y__panel {
+        right: auto;
+        left: 0;
+    }
+}

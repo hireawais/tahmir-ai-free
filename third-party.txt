@@ -1,0 +1,11 @@
+# Third-party assets
+
+Font Awesome Free 6.5.1 is bundled in public/vendor/font-awesome. Its original
+license and a file-by-file source URL and SHA-256 manifest are included there.
+The CSS is MIT licensed and fonts use SIL OFL 1.1. Unminified all.css is included.
+Source: https://github.com/FortAwesome/Font-Awesome/tree/6.5.1
+
+Other styling and scripts are the existing Tahmir source. Imported customer
+content and its asset licenses remain the importing administrator's responsibility.
+
+Lucide Static 0.468.0 is bundled under public/vendor/lucide. Original license, unminified CSS, archive source and checksum are included. Source: https://github.com/lucide-icons/lucide

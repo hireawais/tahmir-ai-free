@@ -1,0 +1,447 @@
+/*
+ * Tahmir AI WordPress Admin v2
+ * Final branded layer for Tahmir plugin pages only. All selectors remain
+ * inside the plugin's .ugentic-wrap root, so WordPress media modals, notices,
+ * list tables, CodeMirror, and third-party screens retain their native UI.
+ */
+body[class*="_page_ugentic"] {
+    --ug-admin-accent: var(--ta-ui-accent);
+    --ug-admin-accent-hover: var(--ta-ui-accent-hover);
+    --ug-admin-text: var(--ta-ui-text);
+    --ug-admin-muted: var(--ta-ui-text-muted);
+    --ug-admin-border: var(--ta-ui-border);
+    background: #f3f5f9;
+}
+
+body[class*="_page_ugentic"] #wpcontent {
+    padding-left: 24px;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap {
+    position: relative;
+    max-width: 1440px;
+    margin: 18px 24px 48px 0;
+    color: var(--ta-ui-text);
+    font-family: var(--ta-ui-font);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap::before {
+    content: "";
+    width: 156px;
+    height: 48px;
+    margin: 0 0 14px;
+    display: block;
+    background: #fff url("../../public/images/tahmir-brand.png") center / 142px auto no-repeat;
+    border: 1px solid var(--ta-ui-border);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap > h1,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .wp-heading-inline {
+    margin: 0 0 6px;
+    padding: 0;
+    color: var(--ta-ui-text);
+    font: 750 30px/38px var(--ta-ui-font);
+    letter-spacing: -0.035em;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap > p,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .description {
+    color: var(--ta-ui-text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab-wrapper {
+    margin: 22px 0 18px;
+    padding: 5px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    background: #e9ecf2;
+    border: 1px solid var(--ta-ui-border);
+    border-radius: 12px;
+    scrollbar-width: thin;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab-wrapper::after {
+    display: none;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab {
+    flex: 0 0 auto;
+    min-height: 38px;
+    margin: 0;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    color: var(--ta-ui-text-secondary);
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    font: 680 12px/16px var(--ta-ui-font);
+    text-decoration: none;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab:hover,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab:focus-visible {
+    color: var(--ta-ui-text);
+    background: rgba(255, 255, 255, 0.62);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab-active,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .nav-tab[aria-selected="true"] {
+    color: var(--ta-ui-accent-strong);
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(22, 27, 38, 0.12);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .ugentic-card,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .postbox,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .card {
+    max-width: none;
+    margin: 0 0 16px;
+    padding: 22px;
+    color: var(--ta-ui-text);
+    background: #fff;
+    border: 1px solid var(--ta-ui-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-shadow-card);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .ugentic-card h2,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .ugentic-card h3,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .postbox h2 {
+    color: var(--ta-ui-text);
+    font-family: var(--ta-ui-font);
+    letter-spacing: -0.015em;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .ugentic-card h2 {
+    margin: 0 0 18px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .form-table {
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .form-table th {
+    width: 220px;
+    padding: 11px 18px 11px 0;
+    color: var(--ta-ui-text-secondary);
+    font: 670 13px/18px var(--ta-ui-font);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .form-table td {
+    padding: 5px 0;
+    color: var(--ta-ui-text-secondary);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap :is(
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="search"],
+    select,
+    textarea
+) {
+    min-height: 40px;
+    margin: 0;
+    padding: 8px 11px;
+    color: var(--ta-ui-text);
+    background: #fff;
+    border: 1px solid var(--ta-ui-border-strong);
+    border-radius: 8px;
+    box-shadow: none;
+    font: 520 13px/20px var(--ta-ui-font);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap select {
+    padding-right: 34px;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap textarea {
+    min-height: 108px;
+    line-height: 1.55;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap :is(input, select, textarea):focus {
+    border-color: var(--ta-ui-accent);
+    box-shadow: 0 0 0 3px rgba(91, 80, 230, 0.14);
+    outline: 0;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap :is(.button, button):not(.nav-tab) {
+    min-height: 38px;
+    padding: 0 14px;
+    border-radius: 8px;
+    font: 680 12px/16px var(--ta-ui-font);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap :is(.button-primary, .ugentic-btn-primary) {
+    color: #fff;
+    background: var(--ta-ui-accent);
+    border-color: var(--ta-ui-accent);
+    box-shadow: 0 4px 12px rgba(91, 80, 230, 0.18);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap :is(.button-primary, .ugentic-btn-primary):hover {
+    color: #fff;
+    background: var(--ta-ui-accent-hover);
+    border-color: var(--ta-ui-accent-hover);
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap code {
+    padding: 3px 6px;
+    color: #4335a3;
+    background: var(--ta-ui-accent-soft);
+    border-radius: 6px;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .ugentic-tab-content {
+    padding-top: 0;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .notice,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .updated,
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .error {
+    border-radius: 10px;
+}
+
+@media (max-width: 782px) {
+    body[class*="_page_ugentic"] #wpcontent {
+        padding-left: 12px;
+    }
+
+    body[class*="_page_ugentic"] .wrap.ugentic-wrap {
+        margin-right: 12px;
+    }
+
+    body[class*="_page_ugentic"] .wrap.ugentic-wrap .form-table th,
+    body[class*="_page_ugentic"] .wrap.ugentic-wrap .form-table td {
+        width: auto;
+        padding: 6px 0;
+        display: block;
+    }
+}
+/* Tahmir dashboard authority layer */
+body[class*="_page_ugentic"] .wrap.ugentic-wrap .ugentic-card {
+    border-radius: 14px !important;
+    box-shadow: var(--ta-shadow-card) !important;
+}
+
+body[class*="_page_ugentic"] .wrap.ugentic-wrap.ugentic-dashboard-v2 {
+    max-width: 1440px !important;
+    min-height: auto !important;
+    margin: 18px 24px 48px 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .dashboard-header {
+    min-height: 88px;
+    margin: 0 0 18px !important;
+    padding: 20px 22px !important;
+    background:
+        radial-gradient(circle at 92% -50%, rgba(91, 80, 230, 0.16), transparent 46%),
+        #fff !important;
+    border: 1px solid var(--ta-ui-border) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--ta-shadow-card) !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .header-left {
+    gap: 10px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .header-left h1 {
+    margin: 0 !important;
+    color: var(--ta-ui-text) !important;
+    font: 760 28px/36px var(--ta-ui-font) !important;
+    letter-spacing: -0.035em;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .header-left h1 .dashicons-layout {
+    display: none !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .version-badge {
+    padding: 4px 9px;
+    color: var(--ta-ui-accent-strong);
+    background: var(--ta-ui-accent-soft);
+    border: 1px solid rgba(91, 80, 230, 0.16);
+    border-radius: 999px;
+    font: 700 11px/16px var(--ta-ui-font);
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .header-right {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .header-right .button {
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    gap: 7px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .button-hero {
+    background: var(--ta-ui-accent) !important;
+    border: 1px solid var(--ta-ui-accent) !important;
+    box-shadow: 0 6px 16px rgba(91, 80, 230, 0.2) !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stats-grid {
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stat-card {
+    min-width: 0;
+    padding: 20px !important;
+    gap: 14px;
+    background: #fff !important;
+    border: 1px solid var(--ta-ui-border) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.055) !important;
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stat-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: var(--ta-ui-border-strong) !important;
+    box-shadow: 0 2px 4px rgba(16, 24, 40, 0.05), 0 14px 30px rgba(16, 24, 40, 0.08) !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stat-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    background: var(--ta-ui-accent-soft) !important;
+    border: 1px solid rgba(91, 80, 230, 0.14);
+    border-radius: 12px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stat-icon .dashicons {
+    color: var(--ta-ui-accent) !important;
+    font-size: 23px;
+    width: 23px;
+    height: 23px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stat-number {
+    overflow: hidden;
+    color: var(--ta-ui-text) !important;
+    font: 760 26px/31px var(--ta-ui-font);
+    letter-spacing: -0.025em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stat-label,
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .page-date,
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .no-pages {
+    color: var(--ta-ui-text-muted) !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .dashboard-grid {
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .dashboard-panel {
+    padding: 22px !important;
+    background: #fff !important;
+    border: 1px solid var(--ta-ui-border) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--ta-shadow-card) !important;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .dashboard-panel h2 {
+    margin: 0 0 16px;
+    color: var(--ta-ui-text);
+    font: 720 16px/22px var(--ta-ui-font);
+    letter-spacing: -0.015em;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .dashboard-panel h2 .dashicons,
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .action-item .dashicons {
+    color: var(--ta-ui-accent);
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .action-list {
+    gap: 9px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .action-item,
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .page-item {
+    min-height: 48px;
+    padding: 11px 13px;
+    color: var(--ta-ui-text-secondary);
+    background: var(--ta-ui-surface-subtle);
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .action-item:hover,
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .action-item:focus-visible {
+    color: var(--ta-ui-accent-strong);
+    background: var(--ta-ui-accent-soft);
+    border-color: rgba(91, 80, 230, 0.16);
+    outline: 0;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .page-info strong {
+    color: var(--ta-ui-text);
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .button-link {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ta-ui-text-muted);
+    border-radius: 8px;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .button-link:hover,
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .button-link:focus-visible {
+    color: var(--ta-ui-accent);
+    background: var(--ta-ui-accent-soft);
+    outline: 0;
+}
+
+body[class*="_page_ugentic"] .ugentic-dashboard-v2 .ugentic-notice {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--ta-ui-border);
+    border-radius: 16px;
+    box-shadow: var(--ta-shadow-card);
+}
+
+@media (max-width: 900px) {
+    body[class*="_page_ugentic"] .ugentic-dashboard-v2 .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    body[class*="_page_ugentic"] .ugentic-dashboard-v2 .header-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 620px) {
+    body[class*="_page_ugentic"] .ugentic-dashboard-v2 .stats-grid,
+    body[class*="_page_ugentic"] .ugentic-dashboard-v2 .action-list {
+        grid-template-columns: 1fr;
+    }
+}

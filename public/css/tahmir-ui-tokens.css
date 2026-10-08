@@ -1,0 +1,43 @@
+/*
+ * Tahmir AI product-interface tokens.
+ *
+ * These variables style Tahmir's editor and WordPress admin surfaces only.
+ * Editable website design tokens intentionally use a different namespace.
+ */
+:root {
+    --ta-ui-accent: #f25a2b;
+    --ta-ui-accent-hover: #d94716;
+    --ta-ui-accent-strong: #9a3412;
+    --ta-ui-accent-soft: #fff2ec;
+    --ta-ui-ai: #102038;
+    --ta-ui-ai-soft: #eef2f7;
+
+    --ta-ui-text: #102038;
+    --ta-ui-text-secondary: #34445f;
+    --ta-ui-text-muted: #66738a;
+    --ta-ui-surface: #ffffff;
+    --ta-ui-surface-subtle: #f7f8fb;
+    --ta-ui-surface-raised: #fbfcfe;
+    --ta-ui-border: #dde1e8;
+    --ta-ui-border-strong: #c8ced8;
+
+    --ta-ui-success: #0f7a68;
+    --ta-ui-danger: #b4233b;
+    --ta-ui-warning: #9a5b00;
+    --ta-ui-focus: rgba(242, 90, 43, 0.24);
+
+    --ta-space-1: 4px;
+    --ta-space-2: 8px;
+    --ta-space-3: 12px;
+    --ta-space-4: 16px;
+    --ta-space-5: 20px;
+    --ta-space-6: 24px;
+
+    --ta-radius-control: 8px;
+    --ta-radius-card: 12px;
+    --ta-radius-panel: 16px;
+    --ta-shadow-panel: -16px 0 42px rgba(22, 27, 38, 0.1);
+    --ta-shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.045);
+
+    --ta-ui-font: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

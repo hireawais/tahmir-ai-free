@@ -1,0 +1,323 @@
+/**
+ * Tahmir AI Blank Canvas — Structural & Reset Styles
+ *
+ * Extracted from blank-template.php for cacheability.
+ * This file contains ONLY structural resets and isolation rules.
+ * Imported page CSS has full visual control.
+ *
+ * @package Tahmir AI
+ * @since   1.5.0
+ */
+
+/* ==========================================================================
+   1. ACCESSIBILITY — Skip Link
+   ========================================================================== */
+
+.ugentic-skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-decoration: none;
+    z-index: 100001;
+    /* above admin bar (100000) */
+    border-radius: 0 0 4px 4px;
+    transition: top 0.15s ease;
+}
+
+.ugentic-skip-link:focus {
+    top: 0;
+    outline: 3px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   2. STRUCTURAL RESETS — No Visual Overrides
+   Let the imported site's CSS fully control appearance.
+   ========================================================================== */
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    /* CRITICAL: WordPress global styles inject display:flex on body.
+       Force block layout to prevent imported content from shifting left
+       or elements rendering horizontally instead of vertically. */
+    display: block !important;
+}
+
+html {
+    /* Only zero side/bottom margins — admin bar sets margin-top: 32px which must be preserved */
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Neutralize ALL WordPress block editor layout wrappers.
+   WP injects flex/grid on these, which breaks imported page layouts. */
+.wp-site-blocks,
+.entry-content,
+.post-content,
+.page-content,
+.site-content,
+.site-main,
+.wp-block-post-content,
+.wp-block-group,
+.wp-block-template-part {
+    display: block !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* ==========================================================================
+   3. THEME HEADER/FOOTER SUPPRESSION
+   ========================================================================== */
+
+/* CRITICAL: Hide WordPress theme header/footer that might get injected
+   NEVER hide headers/footers inside our own wrappers */
+body>#site-header:not(#ugentic-global-header *):not(#ugentic-page-content *),
+body>.site-header:not(#ugentic-global-header *):not(#ugentic-page-content *),
+body>#site-footer:not(#ugentic-global-footer *):not(#ugentic-page-content *),
+body>.site-footer:not(#ugentic-global-footer *):not(#ugentic-page-content *),
+.elementor-location-header:not(#ugentic-global-header *):not(#ugentic-page-content *),
+.elementor-location-footer:not(#ugentic-global-footer *):not(#ugentic-page-content *),
+body>#masthead:not(#ugentic-global-header):not(#ugentic-page-content *),
+body>#colophon:not(#ugentic-global-footer):not(#ugentic-page-content *),
+.wp-site-blocks>header:first-child:not(#ugentic-global-header):not(#ugentic-page-content header),
+.wp-site-blocks>footer:last-child:not(#ugentic-global-footer):not(#ugentic-page-content footer) {
+    display: none !important;
+}
+
+body.ugentic-blank-canvas>header:not(#ugentic-global-header):not(#ugentic-page-content header),
+body.ugentic-blank-canvas>footer:not(#ugentic-global-footer):not(#ugentic-page-content footer) {
+    display: none !important;
+}
+
+/* ==========================================================================
+   4. GLOBAL HEADER/FOOTER WRAPPERS
+   ========================================================================== */
+
+/* Ensure our global header/footer wrappers are ALWAYS visible and full-width */
+#ugentic-global-header,
+#ugentic-global-footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    position: relative !important;
+}
+
+#ugentic-page-shell,
+.ugentic-page-shell {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Force the imported header/footer content to also span full width */
+#ugentic-global-header>*,
+#ugentic-global-footer>* {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   5. DROPDOWN / SUB-MENU BEHAVIOR (DRY — shared with :is())
+   ========================================================================== */
+
+:is(.ugentic-page-content, #ugentic-global-header) .mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .sub-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+}
+
+:is(.ugentic-page-content, #ugentic-global-header) li:hover>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) li:hover>.sub-menu,
+:is(.ugentic-page-content, #ugentic-global-header) li:hover>.dropdown-menu,
+:is(.ugentic-page-content, #ugentic-global-header) li:focus-within>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) li:focus-within>.sub-menu,
+:is(.ugentic-page-content, #ugentic-global-header) li:focus-within>.dropdown-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .mega-menu-trigger:hover>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .mega-menu-trigger:focus-within>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .open>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .open>.sub-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .open>.dropdown-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .show>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .show>.sub-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .show>.dropdown-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .active>.mega-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .active>.sub-menu,
+:is(.ugentic-page-content, #ugentic-global-header) .active>.dropdown-menu {
+    display: block;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   6. PAGE CONTENT WRAPPER
+   ========================================================================== */
+
+.ugentic-page-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Isolation — Reset all elements inside the page content wrapper so imported CSS takes full control */
+:is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *,
+:is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *::before,
+:is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *::after {
+    box-sizing: border-box;
+}
+
+/* Prevent WordPress block editor defaults from affecting imported content */
+.ugentic-page-content .wp-block-post-content,
+.ugentic-page-content .entry-content {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}
+
+/* Ensure images are responsive by default */
+.ugentic-page-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Constrain WordPress emoji images to match surrounding text size */
+:is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) img.emoji {
+    width: 1em;
+    height: 1em;
+    margin: 0 0.05em 0 0.1em;
+    vertical-align: -0.1em;
+    display: inline;
+    max-width: none;
+    padding: 0;
+    border: none;
+}
+
+/* FORCE all body direct children to be full-width (catches unknown WP wrappers)
+   Exclude builder UI overlays (comment panel, bottom bar, sidebar, etc.) */
+body.ugentic-blank-canvas>*:not(.ugentic-sf-comment-panel):not(.ugentic-sf-bottom-bar):not(.ugentic-sf-pin):not(#ugentic-builder):not(#wpadminbar):not(script):not(link):not(style) {
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* The page content wrapper must ALWAYS be full-width and block */
+#ugentic-page-content,
+.ugentic-page-content {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Also force direct children of #ugentic-page-content to be full-width */
+#ugentic-page-content>* {
+    max-width: 100% !important;
+}
+
+/* ==========================================================================
+   7. ACCESSIBILITY — Focus & Motion
+   ========================================================================== */
+
+/* Visible focus outlines for keyboard navigation */
+:is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) :focus-visible {
+    outline: 3px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    :is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *,
+    :is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *::before,
+    :is(.ugentic-page-content, #ugentic-global-header, #ugentic-global-footer) *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================================================
+   8. PRINT STYLES
+   ========================================================================== */
+
+@media print {
+
+    #wpadminbar,
+    .ugentic-skip-link,
+    .ugentic-sf-comment-panel,
+    .ugentic-sf-bottom-bar,
+    .ugentic-sf-pin,
+    #ugentic-builder {
+        display: none !important;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .ugentic-page-content img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    .ugentic-page-content {
+        color: #000 !important;
+        background: #fff !important;
+    }
+}
+.ugentic-blog-post-featured-image-widget img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ugentic-blog-post-featured-image-widget.ratio-16-9 { aspect-ratio: 16 / 9; overflow: hidden; }
+.ugentic-blog-post-featured-image-widget.ratio-4-3 { aspect-ratio: 4 / 3; overflow: hidden; }
+.ugentic-blog-post-featured-image-widget.ratio-1-1 { aspect-ratio: 1 / 1; overflow: hidden; }
+.ugentic-blog-post-featured-image-widget.is-rounded,
+.ugentic-blog-post-featured-image-widget.is-rounded img { border-radius: 12px; }
+.ugentic-blog-post-content.has-drop-cap > p:first-child::first-letter {
+    float: left;
+    font-size: 3.5em;
+    line-height: .8;
+    margin: .08em .12em 0 0;
+}
+.ugentic-blog-post-navigation-widget.layout-stacked .post-navigation,
+.ugentic-blog-post-navigation-widget.layout-stacked .nav-links { display: grid; gap: 1rem; }
+.ugentic-blog-post-navigation-widget.layout-compact { font-size: .9em; }
+.ugentic-blog-comments-widget.style-card .ugentic-comments-section {
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 1px solid rgba(127, 127, 127, .22);
+    border-radius: 12px;
+}
+.ugentic-blog-comments-widget.style-minimal .ugentic-comments-section {
+    border: 0;
+    padding-inline: 0;
+}

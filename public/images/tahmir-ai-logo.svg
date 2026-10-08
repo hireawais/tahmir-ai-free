@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">Tahmir AI</title>
+  <desc id="desc">Tahmir AI builder mark</desc>
+  <defs>
+    <linearGradient id="tahmir-gradient" x1="6" y1="5" x2="43" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset=".52" stop-color="#6D5EF7"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#tahmir-gradient)"/>
+  <path d="M13 14.5h22v6H27v15h-6v-15h-8z" fill="#fff"/>
+  <path d="m35.2 7.8 1.15 3.15 3.15 1.15-3.15 1.15-1.15 3.15-1.15-3.15-3.15-1.15 3.15-1.15z" fill="#fff"/>
+</svg>

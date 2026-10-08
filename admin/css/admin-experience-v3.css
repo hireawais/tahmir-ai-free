@@ -1,0 +1,1574 @@
+/*
+ * Tahmir AI Admin Experience v3
+ * Final layout authority for Tahmir-owned wp-admin screens.
+ */
+
+body.tahmir-admin-page {
+    --ta-admin-accent: #f25a2b;
+    --ta-admin-accent-hover: #d94716;
+    --ta-admin-accent-soft: #fff2ec;
+    --ta-admin-text: #102038;
+    --ta-admin-text-secondary: #34445f;
+    --ta-admin-muted: #66738a;
+    --ta-admin-border: #dce3ee;
+    --ta-admin-border-strong: #c7d1e0;
+    --ta-admin-surface: #ffffff;
+    --ta-admin-canvas: #f4f6fa;
+    --ta-admin-danger: #d92d20;
+    --ta-admin-danger-soft: #fff1f0;
+    --ta-admin-success: #15803d;
+    --ta-admin-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 10px 28px rgba(16, 24, 40, 0.055);
+    background: var(--ta-admin-canvas);
+}
+
+body.tahmir-admin-page #wpcontent {
+    padding-left: 24px;
+}
+
+body.tahmir-admin-page #wpbody-content {
+    padding-bottom: 52px;
+}
+
+body.tahmir-admin-page .tahmir-admin-workspace,
+body.tahmir-admin-page .wrap.ugentic-wrap,
+body.tahmir-admin-page .wrap.ugentic-asset-conflicts,
+body.tahmir-admin-page .uf-forms-page {
+    width: auto;
+    max-width: 1440px;
+    box-sizing: border-box;
+    font-family: var(--ta-ui-font, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}
+
+body.tahmir-admin-page .tahmir-admin-workspace {
+    margin: 18px 24px 0 0;
+    overflow: hidden;
+    background: var(--ta-admin-surface);
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 16px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+.tahmir-admin-workspace__top {
+    min-height: 70px;
+    padding: 10px 12px 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.tahmir-admin-workspace__brand {
+    min-width: 220px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ta-admin-text);
+    text-decoration: none;
+}
+
+.tahmir-admin-workspace__brand:focus {
+    box-shadow: none;
+    outline: 2px solid var(--ta-admin-accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+.tahmir-admin-workspace__brand img {
+    width: 128px;
+    height: auto;
+    display: block;
+}
+
+.tahmir-admin-workspace__brand > span {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding-left: 12px;
+    border-left: 1px solid var(--ta-admin-border);
+}
+
+.tahmir-admin-workspace__brand strong {
+    color: var(--ta-admin-text);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 750;
+}
+
+.tahmir-admin-workspace__brand small {
+    color: var(--ta-admin-muted);
+    font-size: 10px;
+    line-height: 14px;
+}
+
+.tahmir-admin-workspace__primary {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex: 1;
+}
+
+.tahmir-admin-workspace__primary a,
+.tahmir-admin-workspace__secondary a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ta-admin-text-secondary);
+    border-radius: 8px;
+    font-weight: 680;
+    text-decoration: none;
+    transition: color 150ms ease, background 150ms ease;
+}
+
+.tahmir-admin-workspace__primary a {
+    min-height: 38px;
+    padding: 0 13px;
+    font-size: 12px;
+}
+
+.tahmir-admin-workspace__primary a:hover,
+.tahmir-admin-workspace__primary a:focus-visible,
+.tahmir-admin-workspace__primary a.is-active {
+    color: var(--ta-admin-accent-hover);
+    background: var(--ta-admin-accent-soft);
+    box-shadow: none;
+}
+
+.tahmir-admin-workspace__quick {
+    min-height: 40px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    background: var(--ta-admin-accent);
+    border-radius: 9px;
+    box-shadow: 0 6px 16px rgba(7, 92, 255, 0.2);
+    font-size: 12px;
+    font-weight: 720;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.tahmir-admin-workspace__quick:hover,
+.tahmir-admin-workspace__quick:focus {
+    color: #fff;
+    background: var(--ta-admin-accent-hover);
+}
+
+.tahmir-admin-workspace__quick .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.tahmir-admin-workspace__secondary {
+    min-height: 46px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    overflow-x: auto;
+    background: #fafbfc;
+    border-top: 1px solid var(--ta-admin-border);
+    scrollbar-width: thin;
+}
+
+.tahmir-admin-workspace__secondary a {
+    min-height: 32px;
+    padding: 0 12px;
+    flex: 0 0 auto;
+    font-size: 11px;
+}
+
+.tahmir-admin-workspace__secondary a:hover,
+.tahmir-admin-workspace__secondary a:focus-visible {
+    color: var(--ta-admin-text);
+    background: #eef1f6;
+}
+
+.tahmir-admin-workspace__secondary a.is-active {
+    color: var(--ta-admin-accent-hover);
+    background: #fff;
+    box-shadow: inset 0 0 0 1px var(--ta-admin-border), 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+
+body.tahmir-admin-page .wrap.ugentic-wrap,
+body.tahmir-admin-page .wrap.ugentic-asset-conflicts {
+    margin: 18px 24px 42px 0;
+}
+
+body.tahmir-admin-page .wrap.ugentic-wrap::before {
+    display: none !important;
+}
+
+body.tahmir-admin-page .ug-admin-header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 92px;
+    margin: 0 0 18px;
+    padding: 20px 22px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 16px;
+    background: #f8fafc url('../../public/images/tahmir-ai-workspace-banner.png') center right / cover no-repeat;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+body.tahmir-admin-page .ug-admin-header::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(248,250,252,.99) 0%, rgba(248,250,252,.96) 48%, rgba(248,250,252,.18) 78%);
+}
+
+body.tahmir-admin-page .ug-admin-header__icon {
+    width: 44px;
+    height: 44px;
+    color: var(--ta-admin-accent);
+    background: var(--ta-admin-accent-soft);
+    border: 0;
+    border-radius: 11px;
+    font-size: 22px;
+}
+
+body.tahmir-admin-page .ug-admin-header h1,
+body.tahmir-admin-page .wrap.ugentic-wrap > h1,
+body.tahmir-admin-page .wrap.ugentic-asset-conflicts > h1 {
+    color: var(--ta-admin-text);
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+}
+
+body.tahmir-admin-page .ug-admin-header p,
+body.tahmir-admin-page .wrap.ugentic-wrap > .description,
+body.tahmir-admin-page .wrap.ugentic-asset-conflicts > .description {
+    max-width: 820px;
+    color: var(--ta-admin-muted);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+body.tahmir-admin-page .ug-admin-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+body.tahmir-admin-page .ug-admin-card-grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 980px;
+}
+
+body.tahmir-admin-page .ug-admin-card {
+    min-height: 142px;
+    padding: 20px;
+    grid-template-columns: 42px 1fr 20px;
+    border-color: var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.035);
+    transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+body.tahmir-admin-page .ug-admin-card:hover,
+body.tahmir-admin-page .ug-admin-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: #9cbcff;
+    box-shadow: 0 12px 28px rgba(7, 55, 145, 0.09);
+}
+
+body.tahmir-admin-page .ug-admin-card__icon {
+    width: 42px;
+    height: 42px;
+    color: var(--ta-admin-accent);
+    background: var(--ta-admin-accent-soft);
+    border-radius: 10px;
+}
+
+body.tahmir-admin-page .ug-admin-card__body strong {
+    color: var(--ta-admin-text);
+    font-size: 15px;
+    line-height: 21px;
+}
+
+body.tahmir-admin-page .ug-admin-card__body span {
+    color: var(--ta-admin-muted);
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+body.tahmir-admin-page :where(.wrap.ugentic-wrap, .wrap.ugentic-asset-conflicts) :where(.button, button.button, input[type="submit"].button) {
+    min-height: 40px;
+    padding: 0 14px;
+    display: inline-flex;
+    flex-flow: row nowrap !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 9px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 680;
+}
+
+body.tahmir-admin-page :where(.wrap.ugentic-wrap, .wrap.ugentic-asset-conflicts) .button-primary {
+    color: #fff;
+    background: var(--ta-admin-accent);
+    border-color: var(--ta-admin-accent);
+    box-shadow: 0 5px 14px rgba(242, 90, 43, 0.2);
+}
+
+/* Keep every plugin button icon beside its label. Individual legacy screens
+ * previously positioned icons as blocks or absolute children. */
+body.tahmir-admin-page :where(
+    .wrap.ugentic-wrap,
+    .wrap.ugentic-asset-conflicts,
+    .uf-forms-page,
+    .tahmir-conversion,
+    .tahmir-modules
+) :where(.button, button.button, a.button, .uf-btn) {
+    display: inline-flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    justify-content: center;
+    gap: 7px;
+    line-height: 1.2 !important;
+}
+
+body.tahmir-admin-page :where(
+    .wrap.ugentic-wrap,
+    .wrap.ugentic-asset-conflicts,
+    .uf-forms-page,
+    .tahmir-conversion,
+    .tahmir-modules
+) :where(.button, button.button, a.button, .uf-btn) :where(.dashicons, svg, i) {
+    position: static !important;
+    inset: auto !important;
+    display: inline-flex !important;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 0 !important;
+    vertical-align: middle !important;
+    transform: none !important;
+}
+
+body.tahmir-admin-page :where(.wrap.ugentic-wrap, .wrap.ugentic-asset-conflicts) .button-primary:hover,
+body.tahmir-admin-page :where(.wrap.ugentic-wrap, .wrap.ugentic-asset-conflicts) .button-primary:focus {
+    color: #fff;
+    background: var(--ta-admin-accent-hover);
+    border-color: var(--ta-admin-accent-hover);
+}
+
+body.tahmir-admin-page .ugentic-card,
+body.tahmir-admin-page .postbox,
+body.tahmir-admin-page .pages-table-wrap,
+body.tahmir-admin-page .usage-table {
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+/* Settings workspace */
+body.tahmir-admin-page .ugentic-settings-tabs {
+    max-width: 1320px;
+}
+
+.ug-settings-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.ugentic-settings-tabs.is-module-focus .ug-settings-layout {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.ugentic-settings-tabs.is-module-focus .ug-settings-sidebar {
+    display: none;
+}
+
+.ugentic-settings-tabs .ugentic-tab-content:not(.active),
+.ugentic-settings-tabs .ug-ai-settings-pane:not(.is-active) {
+    display: none !important;
+}
+
+.ug-settings-view-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 0 16px;
+    padding: 4px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 11px;
+    background: #fff;
+}
+
+body.tahmir-admin-page .ug-settings-view-switch .button {
+    min-height: 36px !important;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+body.tahmir-admin-page .ug-settings-view-switch .button.is-active {
+    color: #fff;
+    border-color: var(--ta-admin-accent);
+    background: var(--ta-admin-accent);
+}
+
+.ug-settings-section-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 11px;
+    background: #f8fafc;
+}
+
+.ug-settings-section-picker label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ta-admin-text);
+    font-weight: 700;
+}
+
+.ug-settings-section-picker select {
+    min-width: 230px;
+    min-height: 36px;
+    border-color: var(--ta-admin-border-strong);
+}
+
+.ug-settings-section-picker small {
+    color: var(--ta-admin-muted);
+}
+
+/* Plain-language SEO settings */
+.ug-seo-simple-status {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+    padding: 18px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 13px;
+    background: #f8fafc;
+}
+
+.ug-seo-simple-status > .dashicons {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    color: var(--ta-admin-muted);
+    background: #e8edf3;
+    font-size: 22px;
+    line-height: 42px;
+}
+
+.ug-seo-simple-status.is-enabled {
+    border-color: #fed7c7;
+    background: #fffaf7;
+}
+
+.ug-seo-simple-status.is-enabled > .dashicons {
+    color: #fff;
+    background: var(--ta-admin-accent);
+}
+
+.ug-seo-simple-status__label {
+    display: inline-block;
+    margin-bottom: 3px;
+    color: var(--ta-admin-accent-hover);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.ug-seo-simple-status h2 { margin: 0 0 4px; color: var(--ta-admin-text); }
+.ug-seo-simple-status p { max-width: 720px; margin: 0; color: var(--ta-admin-muted); line-height: 1.5; }
+
+.ug-seo-simple-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, .8fr) minmax(360px, 1.2fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.ug-seo-simple-choice,
+.ug-seo-simple-field {
+    padding: 17px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 12px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.ug-seo-simple-choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    cursor: pointer;
+}
+
+.ug-seo-simple-choice__copy strong,
+.ug-seo-simple-field > label strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ta-admin-text);
+    font-size: 14px;
+}
+
+.ug-seo-simple-choice__copy small,
+.ug-seo-simple-field > label small {
+    display: block;
+    color: var(--ta-admin-muted);
+    line-height: 1.45;
+}
+
+.ug-seo-simple-choice .tm-switch {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+}
+
+.ug-seo-simple-choice .tm-switch input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.ug-seo-simple-choice .tm-switch__track {
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 26px;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    background: #e8edf3;
+    cursor: pointer;
+    transition: .18s ease;
+}
+
+.ug-seo-simple-choice .tm-switch__track span {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(11, 22, 56, .24);
+    transition: .18s ease;
+}
+
+.ug-seo-simple-choice .tm-switch input:checked + .tm-switch__track {
+    border-color: var(--ta-admin-accent);
+    background: var(--ta-admin-accent);
+}
+
+.ug-seo-simple-choice .tm-switch input:checked + .tm-switch__track span { transform: translateX(22px); }
+.ug-seo-simple-choice .tm-switch input:focus-visible + .tm-switch__track { outline: 3px solid var(--ta-ui-focus); outline-offset: 2px; }
+
+.ug-seo-media-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 11px;
+}
+
+.ug-seo-media-control input {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.ug-seo-media-control .button { flex: 0 0 auto; }
+
+.ug-seo-media-preview {
+    width: 156px;
+    height: 82px;
+    margin-top: 12px;
+    display: block;
+    object-fit: cover;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 9px;
+    background: #f8fafc;
+}
+
+.ug-seo-media-preview--logo { object-fit: contain; }
+
+.ug-seo-advanced {
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.ug-seo-advanced > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.ug-seo-advanced > summary::-webkit-details-marker { display: none; }
+.ug-seo-advanced > summary strong { display: block; color: var(--ta-admin-text); }
+.ug-seo-advanced > summary small { display: block; margin-top: 3px; color: var(--ta-admin-muted); }
+.ug-seo-advanced[open] > summary .dashicons { transform: rotate(180deg); }
+
+.ug-seo-advanced__body {
+    display: grid;
+    gap: 14px;
+    padding: 0 18px 18px;
+    border-top: 1px solid var(--ta-admin-border);
+}
+
+.ug-seo-advanced__notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 0;
+    color: #475569;
+}
+
+.ug-seo-advanced__notice .dashicons { color: #1467ff; }
+.ug-seo-advanced .ug-seo-simple-field { background: #f8fafc; }
+.ug-seo-advanced .ug-seo-simple-field select { min-width: min(100%, 360px); margin-top: 10px; }
+.ug-seo-advanced [data-seo-robots-custom] { margin-top: 12px; }
+.ug-seo-advanced [data-seo-robots-custom] label { display: block; margin-bottom: 5px; font-weight: 700; }
+.ug-seo-advanced [data-seo-robots-custom] input { width: 100%; max-width: 720px; }
+
+.ug-seo-organization {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 17px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.ug-seo-organization legend { padding: 0 5px; color: var(--ta-admin-text); font-size: 14px; font-weight: 800; }
+.ug-seo-organization > p { grid-column: 1 / -1; margin: 0; color: var(--ta-admin-muted); }
+.ug-seo-organization > label { display: flex; flex-direction: column; gap: 6px; color: var(--ta-admin-text-secondary); font-weight: 700; }
+.ug-seo-organization > label:last-of-type { grid-column: 1 / -1; }
+.ug-seo-organization input { width: 100%; max-width: none; }
+
+@media (max-width: 900px) {
+    .ug-seo-simple-status { grid-template-columns: 42px minmax(0, 1fr); }
+    .ug-seo-simple-status > .button { grid-column: 1 / -1; justify-self: start; }
+    .ug-seo-simple-grid,
+    .ug-seo-organization { grid-template-columns: 1fr; }
+    .ug-seo-organization > label:last-of-type { grid-column: auto; }
+}
+
+@media (max-width: 520px) {
+    .ug-seo-media-control { align-items: stretch; flex-direction: column; }
+    .ug-seo-media-control .button { align-self: flex-start; }
+}
+
+@media (max-width: 782px) {
+    .ug-settings-section-picker { align-items: stretch; flex-direction: column; gap: 7px; }
+    .ug-settings-section-picker label { align-items: stretch; flex-direction: column; }
+    .ug-settings-section-picker select { width: 100%; min-width: 0; }
+}
+
+.ug-settings-sidebar {
+    position: sticky;
+    top: 46px;
+    padding: 14px;
+    background: var(--ta-admin-surface);
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+.ug-settings-sidebar__title {
+    margin: 2px 4px 11px;
+}
+
+.ug-settings-sidebar__title strong {
+    display: block;
+    color: var(--ta-admin-text);
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.ug-settings-sidebar__title span {
+    display: block;
+    margin-top: 2px;
+    color: var(--ta-admin-muted);
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.ug-settings-search {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.ug-settings-search .dashicons {
+    position: absolute;
+    top: 11px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    color: var(--ta-admin-muted);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+body.tahmir-admin-page .wrap.ugentic-wrap .ug-settings-search input {
+    width: 100%;
+    min-height: 38px;
+    padding-left: 33px;
+    background: #f7f8fb;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav.nav-tab-wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav .nav-tab {
+    width: 100%;
+    min-height: 38px;
+    margin: 0;
+    padding: 0 10px;
+    justify-content: flex-start;
+    gap: 9px;
+    color: var(--ta-admin-text-secondary);
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: left;
+}
+
+.ug-settings-nav .nav-tab .dashicons {
+    width: 17px;
+    height: 17px;
+    color: #858ca0;
+    font-size: 17px;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav .nav-tab:hover,
+body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav .nav-tab:focus-visible {
+    color: var(--ta-admin-text);
+    background: #f3f5f9;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav .nav-tab-active {
+    color: var(--ta-admin-accent-hover);
+    background: var(--ta-admin-accent-soft);
+    box-shadow: inset 3px 0 0 var(--ta-admin-accent);
+}
+
+.ug-settings-nav .nav-tab-active .dashicons {
+    color: var(--ta-admin-accent);
+}
+
+.ug-settings-nav__section {
+    margin: 14px 10px 5px;
+    color: #9097a9;
+    font-size: 9px;
+    line-height: 14px;
+    font-weight: 780;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.ug-settings-nav__section:first-child {
+    margin-top: 2px;
+}
+
+#ug-settings-search-empty {
+    display: none;
+    margin: 10px 4px 2px;
+    color: var(--ta-admin-muted);
+    font-size: 11px;
+}
+
+.ug-settings-sidebar__help {
+    margin: 14px 0 0;
+    padding: 11px;
+    color: var(--ta-admin-muted);
+    background: #f7f8fb;
+    border-radius: 9px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.ug-settings-main {
+    min-width: 0;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ugentic-tab-content {
+    padding: 0;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ugentic-card {
+    margin-bottom: 14px;
+    padding: 22px;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .form-table th {
+    width: 210px;
+}
+
+.ug-settings-actions {
+    position: sticky;
+    z-index: 15;
+    bottom: 0;
+    min-height: 64px;
+    margin: 14px 0 0 !important;
+    padding: 10px 14px !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 12px;
+    box-shadow: 0 -8px 30px rgba(16, 24, 40, 0.07);
+    backdrop-filter: blur(12px);
+}
+
+.ug-settings-actions .button-primary {
+    min-width: 126px;
+}
+
+#ug-settings-save-state {
+    color: var(--ta-admin-muted);
+    font-size: 11px;
+    font-weight: 620;
+}
+
+.has-unsaved-changes #ug-settings-save-state {
+    color: #a15c00;
+}
+
+.ug-maintenance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.ug-maintenance-card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+.ug-maintenance-card--danger {
+    border-color: #f2c5c1;
+}
+
+.ug-maintenance-card__icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ta-admin-accent);
+    background: var(--ta-admin-accent-soft);
+    border-radius: 10px;
+}
+
+.ug-maintenance-card--danger .ug-maintenance-card__icon {
+    color: var(--ta-admin-danger);
+    background: var(--ta-admin-danger-soft);
+}
+
+.ug-maintenance-card h2 {
+    margin: 0 0 7px;
+    color: var(--ta-admin-text);
+    font-size: 16px;
+}
+
+.ug-maintenance-card p {
+    min-height: 44px;
+    margin: 0 0 16px;
+    color: var(--ta-admin-muted);
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.ug-maintenance-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ug-button-danger {
+    color: var(--ta-admin-danger) !important;
+    background: #fff !important;
+    border-color: #e9aaa4 !important;
+    box-shadow: none !important;
+}
+
+.ug-button-danger:hover,
+.ug-button-danger:focus {
+    color: #fff !important;
+    background: var(--ta-admin-danger) !important;
+    border-color: var(--ta-admin-danger) !important;
+}
+
+/* Bring older feature screens into the same visual system. */
+body.tahmir-admin-page .ugentic-asset-conflicts {
+    color: var(--ta-admin-text);
+}
+
+body.tahmir-admin-page .conflict-summary {
+    gap: 14px;
+}
+
+body.tahmir-admin-page .conflict-summary .summary-card {
+    min-height: 92px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+body.tahmir-admin-page .pages-table-wrap,
+body.tahmir-admin-page .usage-table {
+    overflow: hidden;
+}
+
+body.tahmir-admin-page .wp-list-table thead th,
+body.tahmir-admin-page .usage-table th {
+    color: var(--ta-admin-text-secondary);
+    background: #f8f9fb;
+    border-bottom-color: var(--ta-admin-border);
+    font-size: 11px;
+    font-weight: 720;
+}
+
+body.tahmir-admin-page--ugentic-api-usage .api-stats-grid {
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+body.tahmir-admin-page--ugentic-api-usage .stat-card {
+    padding: 20px;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+body.tahmir-admin-page--ugentic-api-usage .stat-card.primary {
+    background: linear-gradient(135deg, #6559e8, #5142c8);
+}
+
+body.tahmir-admin-page--ugentic-api-usage .stat-value {
+    color: var(--ta-admin-text);
+    font-size: 29px;
+    letter-spacing: -0.03em;
+}
+
+body.tahmir-admin-page--ugentic-api-usage .stat-card.primary .stat-value {
+    color: #fff;
+}
+
+body.tahmir-admin-page--ugentic-api-usage .stat-label {
+    color: var(--ta-admin-muted);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+}
+
+body.tahmir-admin-page .uf-forms-page {
+    margin: 18px 24px 42px 0;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer {
+    margin-top: 18px;
+}
+
+@media (max-width: 1180px) {
+    .tahmir-admin-workspace__brand {
+        min-width: auto;
+    }
+
+    .tahmir-admin-workspace__brand > span {
+        display: none;
+    }
+
+    body.tahmir-admin-page .ug-admin-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 960px) {
+    .tahmir-admin-workspace__top {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .tahmir-admin-workspace__primary {
+        order: 3;
+        width: 100%;
+        flex-basis: 100%;
+        overflow-x: auto;
+    }
+
+    .ug-settings-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ug-settings-sidebar {
+        position: static;
+    }
+
+    body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav.nav-tab-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+    }
+
+    .ug-settings-nav__section {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 782px) {
+    body.tahmir-admin-page #wpcontent {
+        padding-left: 12px;
+    }
+
+    body.tahmir-admin-page .tahmir-admin-workspace,
+    body.tahmir-admin-page .wrap.ugentic-wrap,
+    body.tahmir-admin-page .wrap.ugentic-asset-conflicts,
+    body.tahmir-admin-page .uf-forms-page {
+        margin-right: 12px;
+    }
+
+    .tahmir-admin-workspace__top {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .tahmir-admin-workspace__brand img {
+        width: 112px;
+    }
+
+    .tahmir-admin-workspace__quick {
+        margin-left: auto;
+    }
+
+    .tahmir-admin-workspace__secondary {
+        padding: 0 10px;
+    }
+
+    body.tahmir-admin-page .ug-admin-card-grid,
+    .ug-maintenance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.tahmir-admin-page .ug-admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-nav.nav-tab-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    body.tahmir-admin-page .ugentic-settings-tabs .form-table th,
+    body.tahmir-admin-page .ugentic-settings-tabs .form-table td {
+        width: auto;
+        display: block;
+        padding: 6px 0;
+    }
+
+    .ug-settings-actions {
+        bottom: 8px;
+    }
+}
+
+/* Final conflict-summary and sidebar corrections. */
+.ug-settings-sidebar {
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+/* Form Entries is a first-class workspace, not a form-builder subview. */
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters {
+    padding: 18px;
+    background: var(--ta-admin-surface);
+    border-color: var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-bulk-bar {
+    padding: 12px 14px;
+    background: var(--ta-admin-surface);
+    border: 1px solid var(--ta-admin-border);
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .ug-entries-table-scroll {
+    overflow: auto;
+    background: var(--ta-admin-surface);
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 0 0 14px 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer #entries-table {
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+body.tahmir-admin-page .ugentic-asset-conflicts .conflict-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+body.tahmir-admin-page .ugentic-asset-conflicts .summary-card {
+    min-width: 0;
+    margin-left: 0;
+    padding: 18px 20px;
+    text-align: left;
+    transform: none;
+}
+
+body.tahmir-admin-page .ugentic-asset-conflicts .summary-card:hover {
+    transform: none;
+    border-color: var(--ta-admin-border);
+}
+
+body.tahmir-admin-page .ugentic-asset-conflicts .action-card {
+    justify-content: center;
+}
+
+body.tahmir-admin-page .ugentic-asset-conflicts .action-card #scan-all-btn {
+    flex-direction: row;
+}
+
+body.tahmir-admin-page .ugentic-asset-conflicts .action-card #scan-all-btn .dashicons {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    font-size: 17px;
+}
+
+body.tahmir-admin-page #uf-forms-page .uf-header__right .uf-btn:not(.uf-btn--primary) {
+    color: var(--ta-admin-text-secondary);
+    background: #fff;
+    border: 1px solid var(--ta-admin-border-strong);
+}
+
+body.tahmir-admin-page #uf-forms-page .uf-header__right .uf-btn .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    body.tahmir-admin-page .ugentic-asset-conflicts .conflict-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    body.tahmir-admin-page .ugentic-asset-conflicts .conflict-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Final Forms, Entries, and Pages layout authority. */
+body.tahmir-admin-page #uf-forms-page {
+    width: auto !important;
+    max-width: 1440px !important;
+    margin: 18px 24px 42px 0 !important;
+    padding: 0 !important;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters {
+    margin: 16px 0;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 14px;
+    box-shadow: var(--ta-admin-shadow);
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-row {
+    display: grid;
+    grid-template-columns:
+        minmax(180px, 1.25fr)
+        minmax(120px, 0.7fr)
+        minmax(145px, 0.72fr)
+        minmax(145px, 0.72fr)
+        minmax(200px, 1.35fr)
+        auto;
+    gap: 12px;
+    align-items: end;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-group {
+    min-width: 0;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters :is(select, input) {
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    border-color: var(--ta-admin-border-strong);
+    border-radius: 8px;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-actions {
+    flex-direction: row !important;
+    align-items: center !important;
+    align-self: end;
+    white-space: nowrap;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-bulk-bar {
+    min-height: 56px;
+    margin: 0 0 10px;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 11px;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer #entries-table {
+    overflow: hidden;
+    border-color: var(--ta-admin-border);
+    border-radius: 12px;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer #entries-table .button-link-delete {
+    color: var(--ta-admin-danger);
+    border-color: #efb5b0;
+}
+
+body.tahmir-admin-page--ugentic-pages .ugentic-card {
+    overflow-x: auto;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages {
+    width: 100%;
+    min-width: 1120px;
+    table-layout: fixed;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .check-column {
+    width: 30px !important;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-title {
+    width: 29%;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-status {
+    width: 9%;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-seo {
+    width: 15%;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-date {
+    width: 11%;
+    word-break: normal;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-actions {
+    width: 36%;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-seo .status-badge {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .column-seo > div,
+body.tahmir-admin-page--ugentic-pages table.pages .column-actions {
+    align-items: center;
+    gap: 5px !important;
+}
+
+body.tahmir-admin-page--ugentic-pages table.pages .button-small {
+    min-height: 34px;
+    padding: 0 10px;
+}
+
+@media (max-width: 1180px) {
+    body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-search {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 782px) {
+    body.tahmir-admin-page #uf-forms-page {
+        margin-right: 12px !important;
+    }
+
+    body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-row {
+        grid-template-columns: 1fr;
+    }
+
+    body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-search {
+        grid-column: auto;
+    }
+}
+
+/* Force Form Entries grid items to fill their assigned tracks. */
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-row {
+    justify-items: stretch !important;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-group {
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    box-sizing: border-box;
+}
+
+body.tahmir-admin-page .ugentic-entries-viewer .entries-filters .filter-actions {
+    justify-content: flex-end;
+}
+
+/* Final mobile overflow containment. */
+body.tahmir-admin-page .ug-license-actions {
+    flex-wrap: wrap;
+}
+
+body.tahmir-admin-page .ug-entries-table-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid var(--ta-admin-border);
+    border-radius: 12px;
+    box-shadow: var(--ta-admin-shadow);
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+body.tahmir-admin-page .ug-entries-table-scroll #entries-table {
+    min-width: 710px;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+@media (max-width: 782px) {
+    body.tahmir-admin-page .tahmir-admin-workspace__top {
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    body.tahmir-admin-page .tahmir-admin-workspace__primary {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        contain: inline-size;
+    }
+
+    body.tahmir-admin-page .tahmir-admin-workspace__secondary {
+        max-width: 100%;
+        box-sizing: border-box;
+        contain: inline-size;
+    }
+
+    body.tahmir-admin-page .ugentic-entries-viewer {
+        min-width: 0;
+        overflow: hidden;
+    }
+}
+/* Settings control alignment authority. */
+body.tahmir-admin-page .ugentic-settings-tabs .ugentic-tab-content :is(
+    button.button,
+    a.button,
+    input[type="submit"].button,
+    input[type="button"].button
+) {
+    width: auto;
+    min-width: 0;
+    min-height: 40px !important;
+    height: auto !important;
+    padding: 10px 14px !important;
+    display: inline-flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    overflow: visible !important;
+    box-sizing: border-box;
+    vertical-align: middle !important;
+    line-height: 18px !important;
+    white-space: nowrap;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ugentic-tab-content :is(
+    button.button,
+    a.button,
+    input[type="submit"].button,
+    input[type="button"].button
+) :is(.dashicons, svg, i) {
+    position: static !important;
+    inset: auto !important;
+    width: 17px;
+    height: 17px;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex;
+    flex: 0 0 17px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    line-height: 17px !important;
+    vertical-align: middle !important;
+    transform: none !important;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ugentic-tab-content .button + .button {
+    margin-left: 8px;
+}
+
+body.tahmir-admin-page .ugentic-settings-tabs .ug-settings-actions .button-primary {
+    min-width: 132px;
+}
+
+@media (max-width: 520px) {
+    body.tahmir-admin-page .ugentic-settings-tabs .ugentic-tab-content :is(
+        button.button,
+        a.button,
+        input[type="submit"].button,
+        input[type="button"].button
+    ) {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    body.tahmir-admin-page .ugentic-settings-tabs .ugentic-tab-content .button + .button {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
+.ug-mcp-capabilities__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.ug-mcp-capabilities__head h2 {
+    margin: 4px 0 6px;
+}
+
+.ug-mcp-capabilities__head p,
+.ug-mcp-capabilities__grid p {
+    margin: 0;
+    color: var(--ug-text-muted, #5f6b7a);
+}
+
+.ug-mcp-capabilities__states {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.ug-mcp-capabilities__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.ug-mcp-capabilities__grid article {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 78px;
+    padding: 16px;
+    border: 1px solid #dde3eb;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.ug-mcp-capabilities__grid .dashicons {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    color: #fff;
+    background: #f05a28;
+}
+
+.ug-mcp-capabilities__grid strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #101b3f;
+}
+
+.ug-mcp-capabilities__note {
+    margin: 16px 0 0;
+    padding: 12px 14px;
+    border-left: 3px solid #f05a28;
+    border-radius: 8px;
+    background: #fff6f1;
+    color: #6d3b27;
+}
+
+@media (max-width: 782px) {
+    .ug-mcp-capabilities__head {
+        display: block;
+    }
+
+    .ug-mcp-capabilities__states {
+        justify-content: flex-start;
+        margin-top: 12px;
+    }
+
+    .ug-mcp-capabilities__grid {
+        grid-template-columns: 1fr;
+    }
+}

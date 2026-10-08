@@ -1,0 +1,14 @@
+{
+  "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-0.468.0.tgz",
+  "archive_sha256": "d87c47325f0b2ac3ad2d6f056889da32b8f1216eafe4ed6534bc02786effe8cc",
+  "files": [
+    "LICENSE",
+    "font/lucide.css",
+    "font/lucide.eot",
+    "font/lucide.svg",
+    "font/lucide.symbol.svg",
+    "font/lucide.ttf",
+    "font/lucide.woff",
+    "font/lucide.woff2"
+  ]
+}

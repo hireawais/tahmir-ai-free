@@ -1,0 +1,701 @@
+/**
+ * Tahmir AI — Design Tokens & Shared Components
+ * Single source of truth for the admin UI design system.
+ */
+
+:where(
+    .ugentic-wrap,
+    .ugentic-dashboard-v2,
+    .ugentic-generate-v2,
+    .ugentic-all-pages-v2,
+    .ugentic-toast-container,
+    .ugentic-confirm-overlay,
+    .ugentic-modal,
+    .ug-admin-header,
+    .ug-admin-card-grid,
+    .ug-optimize,
+    .ug-opt-modal,
+    .ug-danger-zone,
+    .ug-security-notice,
+    .uf-forms-page,
+    .ufb-app,
+    .dv-page,
+    .agency-wrap,
+    .ugw-wrap
+) {
+    /* ── Brand Palette ── */
+    --ug-primary: #f25a2b;
+    --ug-primary-dark: #d94716;
+    --ug-primary-light: #fb7a52;
+    --ug-primary-soft: #fff2ec;
+    --ug-gradient: linear-gradient(135deg, #075cff 0%, #0348cc 100%);
+    --ug-gradient-hover: linear-gradient(135deg, #0348cc 0%, #063891 100%);
+
+    /* ── Semantic Colors ── */
+    --ug-success: #22c55e;
+    --ug-success-soft: #dcfce7;
+    --ug-success-text: #166534;
+    --ug-warning: #f59e0b;
+    --ug-warning-soft: #fef3c7;
+    --ug-warning-text: #92400e;
+    --ug-error: #ef4444;
+    --ug-error-soft: #fee2e2;
+    --ug-error-text: #991b1b;
+    --ug-info: #3b82f6;
+    --ug-info-soft: #dbeafe;
+    --ug-info-text: #1e40af;
+
+    /* ── Neutral Palette ── */
+    --ug-gray-50: #f9fafb;
+    --ug-gray-100: #f3f4f6;
+    --ug-gray-200: #e5e7eb;
+    --ug-gray-300: #d1d5db;
+    --ug-gray-400: #9ca3af;
+    --ug-gray-500: #6b7280;
+    --ug-gray-600: #4b5563;
+    --ug-gray-700: #374151;
+    --ug-gray-800: #1f2937;
+    --ug-gray-900: #111827;
+
+    /* ── Typography ── */
+    --ug-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    --ug-font-mono: Consolas, Monaco, 'Andale Mono', monospace;
+    --ug-text-xs: 11px;
+    --ug-text-sm: 13px;
+    --ug-text-base: 14px;
+    --ug-text-lg: 16px;
+    --ug-text-xl: 20px;
+    --ug-text-2xl: 24px;
+    --ug-text-3xl: 32px;
+
+    /* ── Spacing ── */
+    --ug-space-xs: 4px;
+    --ug-space-sm: 8px;
+    --ug-space-md: 16px;
+    --ug-space-lg: 24px;
+    --ug-space-xl: 32px;
+    --ug-space-2xl: 48px;
+
+    /* ── Radius ── */
+    --ug-radius-sm: 4px;
+    --ug-radius-md: 8px;
+    --ug-radius-lg: 12px;
+    --ug-radius-xl: 16px;
+    --ug-radius-full: 9999px;
+
+    /* ── Shadows ── */
+    --ug-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --ug-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --ug-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --ug-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+    /* ── Transitions ── */
+    --ug-transition: 0.2s ease;
+    --ug-transition-slow: 0.3s ease;
+}
+
+
+/* ==========================================================================
+   TOAST NOTIFICATION COMPONENT
+   ========================================================================== */
+
+.ugentic-toast-container {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 200000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.ugentic-toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: var(--ug-radius-md);
+    font-size: var(--ug-text-sm);
+    font-family: var(--ug-font);
+    line-height: 1.4;
+    box-shadow: var(--ug-shadow-lg);
+    pointer-events: all;
+    animation: ugToastIn 0.3s ease forwards;
+    max-width: 420px;
+    min-width: 280px;
+    word-break: break-word;
+}
+
+.ugentic-toast.ug-toast-leaving {
+    animation: ugToastOut 0.25s ease forwards;
+}
+
+.ugentic-toast .ug-toast-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.ugentic-toast .ug-toast-message {
+    flex: 1;
+    font-weight: 500;
+}
+
+.ugentic-toast .ug-toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    opacity: 0.6;
+    padding: 0 2px;
+    color: inherit;
+}
+
+.ugentic-toast .ug-toast-close:hover {
+    opacity: 1;
+}
+
+/* Toast variants */
+.ugentic-toast--success {
+    background: var(--ug-success-soft);
+    color: var(--ug-success-text);
+    border-left: 4px solid var(--ug-success);
+}
+
+.ugentic-toast--error {
+    background: var(--ug-error-soft);
+    color: var(--ug-error-text);
+    border-left: 4px solid var(--ug-error);
+}
+
+.ugentic-toast--warning {
+    background: var(--ug-warning-soft);
+    color: var(--ug-warning-text);
+    border-left: 4px solid var(--ug-warning);
+}
+
+.ugentic-toast--info {
+    background: var(--ug-info-soft);
+    color: var(--ug-info-text);
+    border-left: 4px solid var(--ug-info);
+}
+
+@keyframes ugToastIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ugToastOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+}
+
+
+/* ==========================================================================
+   CONFIRMATION MODAL COMPONENT
+   ========================================================================== */
+
+.ugentic-confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 200001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ugFadeIn 0.2s ease;
+}
+
+.ugentic-confirm-box {
+    background: #fff;
+    border-radius: var(--ug-radius-lg);
+    padding: 0;
+    width: 90%;
+    max-width: 460px;
+    box-shadow: var(--ug-shadow-xl);
+    animation: ugScaleIn 0.25s ease;
+    overflow: hidden;
+}
+
+.ugentic-confirm-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--ug-gray-200);
+}
+
+.ugentic-confirm-header h3 {
+    margin: 0;
+    font-size: var(--ug-text-lg);
+    font-weight: 600;
+    color: var(--ug-gray-900);
+}
+
+.ugentic-confirm-body {
+    padding: 20px 24px;
+}
+
+.ugentic-confirm-body p {
+    margin: 0 0 16px 0;
+    color: var(--ug-gray-600);
+    font-size: var(--ug-text-sm);
+    line-height: 1.6;
+}
+
+.ugentic-confirm-body .ug-confirm-typed {
+    margin-top: 12px;
+}
+
+.ugentic-confirm-body .ug-confirm-typed label {
+    display: block;
+    font-size: var(--ug-text-sm);
+    font-weight: 600;
+    color: var(--ug-gray-700);
+    margin-bottom: 6px;
+}
+
+.ugentic-confirm-body .ug-confirm-typed input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid var(--ug-gray-300);
+    border-radius: var(--ug-radius-sm);
+    font-size: var(--ug-text-sm);
+    font-family: var(--ug-font-mono);
+    transition: border-color var(--ug-transition);
+    box-sizing: border-box;
+}
+
+.ugentic-confirm-body .ug-confirm-typed input:focus {
+    outline: none;
+    border-color: var(--ug-error);
+}
+
+.ugentic-confirm-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--ug-gray-200);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: var(--ug-gray-50);
+}
+
+.ugentic-confirm-footer .ug-confirm-cancel {
+    padding: 8px 18px;
+    border: 1px solid var(--ug-gray-300);
+    border-radius: var(--ug-radius-sm);
+    background: #fff;
+    color: var(--ug-gray-700);
+    font-size: var(--ug-text-sm);
+    cursor: pointer;
+    transition: all var(--ug-transition);
+}
+
+.ugentic-confirm-footer .ug-confirm-cancel:hover {
+    background: var(--ug-gray-100);
+}
+
+.ugentic-confirm-footer .ug-confirm-action {
+    padding: 8px 18px;
+    border: none;
+    border-radius: var(--ug-radius-sm);
+    font-size: var(--ug-text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--ug-transition);
+}
+
+.ugentic-confirm-footer .ug-confirm-action--danger {
+    background: var(--ug-error);
+    color: #fff;
+}
+
+.ugentic-confirm-footer .ug-confirm-action--danger:hover {
+    background: #dc2626;
+}
+
+.ugentic-confirm-footer .ug-confirm-action--danger:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.ugentic-confirm-footer .ug-confirm-action--primary {
+    background: var(--ug-primary);
+    color: #fff;
+}
+
+.ugentic-confirm-footer .ug-confirm-action--primary:hover {
+    background: var(--ug-primary-dark);
+}
+
+@keyframes ugFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ugScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================================================
+   INLINE SPINNER COMPONENT
+   ========================================================================== */
+
+.ug-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--ug-gray-200);
+    border-top-color: var(--ug-primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.ug-spinner--sm {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+.ug-spinner--lg {
+    width: 28px;
+    height: 28px;
+    border-width: 3px;
+}
+
+
+/* ==========================================================================
+   SHARED CARD OVERRIDES (unify admin cards)
+   ========================================================================== */
+
+.ugentic-wrap .ugentic-card {
+    border-radius: var(--ug-radius-lg);
+    border: 1px solid var(--ug-gray-200);
+    box-shadow: var(--ug-shadow-sm);
+}
+
+
+/* ==========================================================================
+   ACTION BADGE COMPONENT (shared across history, api-usage, etc.)
+   ========================================================================== */
+
+.ug-action-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--ug-radius-full);
+    font-size: var(--ug-text-xs);
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: capitalize;
+}
+
+.ug-action-badge--ai-edit {
+    background: var(--ug-primary-soft);
+    color: var(--ug-primary);
+}
+
+.ug-action-badge--manual-save,
+.ug-action-badge--full-save {
+    background: var(--ug-info-soft);
+    color: var(--ug-info-text);
+}
+
+.ug-action-badge--revert {
+    background: var(--ug-warning-soft);
+    color: var(--ug-warning-text);
+}
+
+.ug-action-badge--generate {
+    background: var(--ug-success-soft);
+    color: var(--ug-success-text);
+}
+
+.ug-action-badge--delete {
+    background: var(--ug-error-soft);
+    color: var(--ug-error-text);
+}
+
+.ug-action-badge--import {
+    background: #e8e5fd;
+    color: #5b21b6;
+}
+
+
+/* ==========================================================================
+   SETTINGS TABS OVERRIDES
+   ========================================================================== */
+
+.ugentic-settings-tabs .nav-tab-wrapper {
+    border-bottom: 2px solid var(--ug-gray-200);
+    margin-bottom: 24px;
+    padding: 0;
+}
+
+.ugentic-settings-tabs .nav-tab {
+    border: none;
+    background: none;
+    padding: 10px 18px;
+    margin: 0;
+    font-size: var(--ug-text-sm);
+    font-weight: 500;
+    color: var(--ug-gray-500);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all var(--ug-transition);
+    cursor: pointer;
+}
+
+.ugentic-settings-tabs .nav-tab:hover {
+    color: var(--ug-gray-700);
+    background: none;
+}
+
+.ugentic-settings-tabs .nav-tab-active {
+    color: var(--ug-primary);
+    border-bottom-color: var(--ug-primary);
+    background: none;
+}
+
+
+/* ==========================================================================
+   DANGER ZONE COMPONENT
+   ========================================================================== */
+
+.ug-danger-zone {
+    border: 2px solid var(--ug-error-soft);
+    border-radius: var(--ug-radius-lg);
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.ug-danger-zone-header {
+    background: var(--ug-error-soft);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ug-danger-zone-header h3 {
+    margin: 0;
+    font-size: var(--ug-text-base);
+    color: var(--ug-error-text);
+    font-weight: 600;
+}
+
+.ug-danger-zone-header .dashicons {
+    color: var(--ug-error);
+}
+
+.ug-danger-zone-body {
+    padding: 20px;
+    background: #fff;
+}
+
+.ug-danger-zone-body .ug-danger-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ug-gray-100);
+    gap: 16px;
+}
+
+.ug-danger-zone-body .ug-danger-item:last-child {
+    border-bottom: none;
+}
+
+.ug-danger-item-info h4 {
+    margin: 0 0 4px 0;
+    font-size: var(--ug-text-sm);
+    font-weight: 600;
+    color: var(--ug-gray-800);
+}
+
+.ug-danger-item-info p {
+    margin: 0;
+    font-size: var(--ug-text-xs);
+    color: var(--ug-gray-500);
+}
+
+.ug-btn-danger {
+    background: var(--ug-error);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--ug-radius-sm);
+    font-size: var(--ug-text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--ug-transition);
+    white-space: nowrap;
+}
+
+.ug-btn-danger:hover {
+    background: #dc2626;
+}
+
+.ug-btn-warning {
+    background: var(--ug-warning);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--ug-radius-sm);
+    font-size: var(--ug-text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--ug-transition);
+    white-space: nowrap;
+}
+
+.ug-btn-warning:hover {
+    background: #d97706;
+}
+
+.ug-btn-secondary {
+    background: var(--ug-gray-100);
+    color: var(--ug-gray-700);
+    border: 1px solid var(--ug-gray-300);
+    padding: 8px 16px;
+    border-radius: var(--ug-radius-sm);
+    font-size: var(--ug-text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--ug-transition);
+    white-space: nowrap;
+}
+
+.ug-btn-secondary:hover {
+    background: var(--ug-gray-200);
+}
+
+
+/* ==========================================================================
+   SECURITY WARNING COMPONENT
+   ========================================================================== */
+
+.ug-security-notice {
+    border: 2px solid var(--ug-warning-soft);
+    border-radius: var(--ug-radius-lg);
+    padding: 20px;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    margin-top: 8px;
+}
+
+.ug-security-notice .ug-security-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.ug-security-notice .ug-security-header .dashicons {
+    color: var(--ug-warning);
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+}
+
+.ug-security-notice .ug-security-header strong {
+    color: var(--ug-warning-text);
+    font-size: var(--ug-text-sm);
+}
+
+.ug-security-notice p {
+    margin: 0;
+    font-size: var(--ug-text-xs);
+    color: var(--ug-gray-600);
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE GRID OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .ugentic-dashboard-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .ugentic-dashboard-actions {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 960px) {
+    .ug-two-col-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ugentic-dashboard-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+    .ugentic-dashboard-actions {
+        grid-template-columns: 1fr !important;
+    }
+
+    .ug-danger-zone-body .ug-danger-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ugentic-settings-tabs .nav-tab {
+        padding: 8px 12px;
+        font-size: var(--ug-text-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .ugentic-wrap {
+        padding: 0 10px;
+    }
+
+    .ugentic-card {
+        padding: 16px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}

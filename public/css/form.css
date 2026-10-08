@@ -1,0 +1,634 @@
+/**
+ * Ugentic Form Styles
+ * Modern, clean form styling with customization via CSS variables
+ */
+
+/* Form Container */
+.ugentic-form {
+    --form-primary: #fb923c;
+    --form-primary-hover: #c2410c;
+    --form-border: #e2e8f0;
+    --form-text: #1e293b;
+    --form-text-muted: #64748b;
+    --form-bg: #ffffff;
+    --form-input-bg: #f8fafc;
+    --form-radius: 8px;
+    --form-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Title & Description */
+.ugentic-form__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--form-text);
+    margin: 0 0 8px;
+}
+
+.ugentic-form__description {
+    font-size: 15px;
+    color: var(--form-text-muted);
+    margin: 0 0 24px;
+}
+
+/* Fields Container */
+.ugentic-form__fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* Individual Field */
+.ugentic-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ugentic-form__field--full {
+    width: 100%;
+}
+
+.ugentic-form__field--half {
+    width: calc(50% - 8px);
+}
+
+.ugentic-form__field--third {
+    width: calc(33.333% - 11px);
+}
+
+.ugentic-form__field--two_thirds {
+    width: calc(66.666% - 6px);
+}
+
+@media (max-width: 600px) {
+
+    .ugentic-form__field--half,
+    .ugentic-form__field--third,
+    .ugentic-form__field--two_thirds {
+        width: 100%;
+    }
+}
+
+/* Label */
+.ugentic-form__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--form-text);
+}
+
+.ugentic-form__label .required {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+/* Inputs */
+.ugentic-form__input,
+.ugentic-form__textarea,
+.ugentic-form__select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--form-text);
+    background: var(--form-input-bg);
+    border: 1px solid var(--form-border);
+    border-radius: var(--form-radius);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.ugentic-form__input:focus,
+.ugentic-form__textarea:focus,
+.ugentic-form__select:focus {
+    border-color: var(--form-primary);
+    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+    background: var(--form-bg);
+}
+
+.ugentic-form__input::placeholder,
+.ugentic-form__textarea::placeholder {
+    color: var(--form-text-muted);
+}
+
+.ugentic-form__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.ugentic-form__select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Radio & Checkbox Groups */
+.ugentic-form__radio-group,
+.ugentic-form__checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ugentic-form__radio-label,
+.ugentic-form__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--form-text);
+    cursor: pointer;
+}
+
+.ugentic-form__radio-label input,
+.ugentic-form__checkbox-label input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--form-primary);
+    cursor: pointer;
+}
+
+/* File Input */
+.ugentic-form__file {
+    padding: 10px;
+    background: var(--form-input-bg);
+    border: 2px dashed var(--form-border);
+    border-radius: var(--form-radius);
+    cursor: pointer;
+}
+
+.ugentic-form__file:hover {
+    border-color: var(--form-primary);
+}
+
+/* Rating Field */
+.ugentic-form__rating {
+    display: flex;
+    gap: 4px;
+}
+
+.ugentic-form__rating-star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #e2e8f0;
+    transition: color 0.15s;
+}
+
+.ugentic-form__rating-star input {
+    display: none;
+}
+
+.ugentic-form__rating-star:hover,
+.ugentic-form__rating-star.hover,
+.ugentic-form__rating-star.active {
+    color: #fbbf24;
+}
+
+/* Field Description */
+.ugentic-form__field .ugentic-form__description {
+    font-size: 13px;
+    color: var(--form-text-muted);
+}
+
+/* Submit Button */
+.ugentic-form__submit {
+    margin-top: 8px;
+}
+
+.ugentic-form__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: var(--form-primary);
+    border: none;
+    border-radius: var(--form-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--form-shadow);
+}
+
+.ugentic-form__button:hover {
+    background: var(--form-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(251, 146, 60, 0.3);
+}
+
+.ugentic-form__button:active {
+    transform: translateY(0);
+}
+
+.ugentic-form__button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Messages */
+.ugentic-form__messages {
+    margin-top: 20px;
+}
+
+.ugentic-form__success {
+    padding: 16px;
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    border-radius: var(--form-radius);
+    color: #065f46;
+    font-size: 15px;
+}
+
+.ugentic-form__error {
+    padding: 16px;
+    background: #fef3c7;
+    border: 1px solid #ef4444;
+    border-radius: var(--form-radius);
+    color: #991b1b;
+    font-size: 15px;
+}
+
+/* Layout Variants */
+.ugentic-form--inline .ugentic-form__fields {
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.ugentic-form--inline .ugentic-form__field {
+    flex: 1;
+}
+
+.ugentic-form--inline .ugentic-form__submit {
+    margin-top: 0;
+}
+
+/* Card Style */
+.ugentic-form--card {
+    background: var(--form-bg);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Bordered Style */
+.ugentic-form--bordered {
+    padding: 24px;
+    border: 1px solid var(--form-border);
+    border-radius: var(--form-radius);
+}
+
+/* Slider */
+.ugentic-form__slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ugentic-form__slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: #e5e7eb;
+    outline: none;
+}
+
+.ugentic-form__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--form-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.ugentic-form__slider-value {
+    font-weight: 600;
+    color: var(--form-primary);
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Signature */
+.ugentic-form__signature-wrap {
+    position: relative;
+}
+
+.ugentic-form__signature-canvas {
+    border: 2px dashed #d1d5db;
+    border-radius: var(--form-radius);
+    cursor: crosshair;
+    width: 100%;
+    max-width: 400px;
+    height: 150px;
+    background: #fafafa;
+}
+
+.ugentic-form__signature-clear {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* Address */
+.ugentic-form__address-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ugentic-form__address-row {
+    display: flex;
+    gap: 8px;
+}
+
+.ugentic-form__address-row .ugentic-form__input {
+    flex: 1;
+}
+
+/* Divider */
+.ugentic-form__divider {
+    border: none;
+    border-top: 2px solid #e5e7eb;
+    margin: 16px 0;
+}
+
+/* Content Block */
+.ugentic-form__content {
+    padding: 12px 0;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Likert Scale */
+.ugentic-form__likert {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.ugentic-form__likert th,
+.ugentic-form__likert td {
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.ugentic-form__likert th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+    font-size: 11px;
+}
+
+.ugentic-form__likert td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.ugentic-form__likert input[type="radio"] {
+    accent-color: var(--form-primary);
+}
+
+/* Multi-Step Progress */
+.ugentic-form__progress {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 24px;
+}
+
+.ugentic-form__progress-step {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.ugentic-form__progress-step::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: #e5e7eb;
+}
+
+.ugentic-form__progress-step:last-child::after {
+    display: none;
+}
+
+.ugentic-form__progress-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.ugentic-form__progress-step.active .ugentic-form__progress-dot {
+    background: var(--form-primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(251, 146, 60, 0.4);
+}
+
+.ugentic-form__progress-step.completed .ugentic-form__progress-dot {
+    background: #10b981;
+    color: white;
+}
+
+.ugentic-form__progress-step.completed::after {
+    background: #10b981;
+}
+
+.ugentic-form__step {
+    display: none;
+    animation: fadeSlideIn 0.3s ease;
+}
+
+.ugentic-form__step.active {
+    display: block;
+}
+
+.ugentic-form__fields > .ugentic-form__step {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.ugentic-form__step > .ugentic-form__step-nav {
+    grid-column: 1 / -1;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.ugentic-form__step-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 12px;
+}
+
+.ugentic-form__step-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--form-primary);
+    border-radius: var(--form-radius);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.ugentic-form__step-btn--prev {
+    background: white;
+    color: var(--form-primary);
+}
+
+.ugentic-form__step-btn--next {
+    background: var(--form-primary);
+    color: white;
+    margin-left: auto;
+}
+
+/* Honeypot */
+.ugentic-form__hp {
+    position: absolute !important;
+    left: -9999px !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
+/* ==========================================
+   Validation Error States
+   ========================================== */
+.ugentic-form__field--error .ugentic-form__input,
+.ugentic-form__field--error .ugentic-form__textarea,
+.ugentic-form__field--error .ugentic-form__select {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    animation: uf-shake 0.3s ease;
+}
+
+.ugentic-form__field--error .ugentic-form__label {
+    color: #ef4444;
+}
+
+.ugentic-form__field-error {
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@keyframes uf-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* ==========================================
+   Focus & Accessibility
+   ========================================== */
+.ugentic-form__input:focus-visible,
+.ugentic-form__textarea:focus-visible,
+.ugentic-form__select:focus-visible {
+    outline: 2px solid var(--form-primary);
+    outline-offset: 2px;
+}
+
+.ugentic-form__radio-label input:focus-visible,
+.ugentic-form__checkbox-label input:focus-visible {
+    outline: 2px solid var(--form-primary);
+    outline-offset: 2px;
+}
+
+.ugentic-form__rating-star input:focus-visible + span {
+    outline: 2px solid var(--form-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.ugentic-form__step-btn:focus-visible,
+.ugentic-form__button:focus-visible {
+    outline: 2px solid var(--form-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   Enhanced File Upload
+   ========================================== */
+.ugentic-form__file-zone {
+    position: relative;
+}
+
+.ugentic-form__file-preview {
+    font-size: 12px;
+    color: var(--form-text-muted);
+    margin-top: 6px;
+    padding: 6px 10px;
+    background: rgba(251, 146, 60, 0.05);
+    border-radius: calc(var(--form-radius) / 2);
+}
+
+/* ==========================================
+   Reduced Motion
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .ugentic-form__input,
+    .ugentic-form__textarea,
+    .ugentic-form__select,
+    .ugentic-form__button,
+    .ugentic-form__rating-star,
+    .ugentic-form__step {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .ugentic-form__field--error .ugentic-form__input,
+    .ugentic-form__field--error .ugentic-form__textarea,
+    .ugentic-form__field--error .ugentic-form__select {
+        animation: none !important;
+    }
+    
+    .ugentic-form__button:hover {
+        transform: none;
+    }
+}

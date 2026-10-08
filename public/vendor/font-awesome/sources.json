@@ -1,0 +1,46 @@
+{
+  "css/all.css": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/css/all.css",
+    "sha256": "b11c01424cba6c9b882cb71f7e8b9598fc6bbd03519f53f717e70b53f67af723"
+  },
+  "css/all.min.css": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/css/all.min.css",
+    "sha256": "c22cfb6520a7fdbb738632834019acf47c78b1279462c0eb4cb83bae83ecb5a7"
+  },
+  "webfonts/fa-solid-900.woff2": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-solid-900.woff2",
+    "sha256": "1fbdfd5b5eeb365202f30b045bf3ba5e64cce0dddf1c58af74a4feb0158a03a2"
+  },
+  "webfonts/fa-regular-400.woff2": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-regular-400.woff2",
+    "sha256": "398a1f8d508a0f822fe2f8e6a75ba1cd759bfcbccf1f6b49b00da04372559eca"
+  },
+  "webfonts/fa-brands-400.woff2": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-brands-400.woff2",
+    "sha256": "33bc709adb75706b44e269a0a4809fe58aef514c1cf6a4acf5882744dce50c69"
+  },
+  "webfonts/fa-v4compatibility.woff2": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-v4compatibility.woff2",
+    "sha256": "ef7d655a2e69d853c7dfdd2b6e41739d18d1274300421c104c574e3f2361c3db"
+  },
+  "webfonts/fa-solid-900.ttf": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-solid-900.ttf",
+    "sha256": "f1ce0da12a01f7ec15ae69c4ed54999ea875bd236e62fef58ac4ddbcb39b367a"
+  },
+  "webfonts/fa-regular-400.ttf": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-regular-400.ttf",
+    "sha256": "079413b7606191e1a393b467c6a467f3c2ee9bedd8ae7e980a93134758c5f51c"
+  },
+  "webfonts/fa-brands-400.ttf": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-brands-400.ttf",
+    "sha256": "f29fff334747ec7d303bf58131ceddd28d1bfde973e981ce731e2d2bb93cc4e6"
+  },
+  "webfonts/fa-v4compatibility.ttf": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/webfonts/fa-v4compatibility.ttf",
+    "sha256": "12082fc0a217f4475024d9fe2395d053e66140d0b7b32782c1cf2adc7c1eb1c9"
+  },
+  "LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.1/LICENSE.txt",
+    "sha256": "0aa8f86525273b2efa4f40f4272a188e187704252170e979dc06879adf68d43c"
+  }
+}

@@ -1,0 +1,925 @@
+/**
+ * Visual Data Mapper Styles
+ * Full-screen overlay for mapping dynamic content fields
+ *
+ * @package Ugentic_Builder
+ * @since 1.7.0
+ */
+
+/* ==========================================================================
+   MODAL OVERLAY
+   ========================================================================== */
+
+.ugentic-data-mapper-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 160000;
+    background: #1e1e2e;
+    animation: dm-fadeIn 0.3s ease;
+}
+
+.ugentic-data-mapper-overlay.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes dm-fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   TOP BAR
+   ========================================================================== */
+
+.dm-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #12121e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 50px;
+    flex-shrink: 0;
+}
+
+.dm-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.dm-topbar-left .dm-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fdba74;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.dm-topbar-left .dm-logo .dashicons {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.dm-topbar-left .dm-page-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dm-topbar-center {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dm-mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dm-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dm-mode-btn.active {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: rgba(167, 139, 250, 0.4);
+    color: #fdba74;
+}
+
+.dm-mode-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.dm-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dm-btn-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dm-btn-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #ef4444;
+}
+
+/* ==========================================================================
+   MAIN LAYOUT — Split Pane
+   ========================================================================== */
+
+.dm-main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ---------- LEFT PANE — Iframe Preview ---------- */
+
+.dm-preview-pane {
+    flex: 1;
+    position: relative;
+    background: #1a1a2e;
+    overflow: hidden;
+}
+
+.dm-iframe-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.dm-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+}
+
+/* Overlay to intercept clicks in tag mode */
+.dm-click-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: crosshair;
+}
+
+.dm-click-overlay.active {
+    display: block;
+}
+
+/* Loading state */
+.dm-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(18, 18, 30, 0.92);
+    z-index: 20;
+}
+
+.dm-loading-overlay .dm-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(167, 139, 250, 0.2);
+    border-top-color: #fdba74;
+    border-radius: 50%;
+    animation: dm-spin 0.8s linear infinite;
+}
+
+.dm-loading-overlay .dm-loading-text {
+    margin-top: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+@keyframes dm-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- RIGHT PANE — Field Mapping Panel ---------- */
+
+.dm-panel {
+    width: 360px;
+    min-width: 360px;
+    background: #1e1e2e;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dm-panel-header {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dm-panel-header h3 {
+    margin: 0 0 4px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.dm-panel-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ---------- Content Type Selector ---------- */
+
+.dm-content-type-section {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dm-content-type-section label {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.dm-content-type-select {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 18px;
+}
+
+.dm-content-type-select option {
+    background: #1e1e2e;
+    color: #fff;
+}
+
+/* ---------- Container Selector ---------- */
+
+.dm-container-section {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dm-container-section label {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.dm-container-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+    word-break: break-all;
+}
+
+.dm-container-info .dashicons {
+    color: #fdba74;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.dm-container-info .dm-item-count {
+    margin-left: auto;
+    background: rgba(167, 139, 250, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    color: #fdba74;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.dm-container-empty {
+    padding: 12px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* ---------- Field Mappings List ---------- */
+
+.dm-fields-section {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 18px;
+}
+
+.dm-fields-section label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.dm-add-field-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 11px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dm-add-field-btn:hover {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: rgba(167, 139, 250, 0.3);
+    color: #fdba74;
+}
+
+.dm-field-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.dm-field-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dm-field-card.active {
+    border-color: rgba(167, 139, 250, 0.4);
+    background: rgba(167, 139, 250, 0.08);
+}
+
+.dm-field-card.mapped {
+    border-left: 3px solid;
+}
+
+.dm-field-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.dm-field-card .dm-field-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dm-field-card .dm-field-name {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+}
+
+.dm-field-card .dm-field-sample {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+    margin-top: 2px;
+}
+
+.dm-field-card .dm-field-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.dm-field-card .dm-field-remove:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* Field type colors */
+.dm-field-title .dm-field-badge {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.dm-field-title.mapped {
+    border-left-color: #3b82f6;
+}
+
+.dm-field-image .dm-field-badge {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.dm-field-image.mapped {
+    border-left-color: #22c55e;
+}
+
+.dm-field-description .dm-field-badge {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+}
+
+.dm-field-description.mapped {
+    border-left-color: #f97316;
+}
+
+.dm-field-date .dm-field-badge {
+    background: rgba(20, 103, 255, 0.15);
+    color: #1467ff;
+}
+
+.dm-field-date.mapped {
+    border-left-color: #1467ff;
+}
+
+.dm-field-author .dm-field-badge {
+    background: rgba(251, 146, 60, 0.15);
+    color: #fb923c;
+}
+
+.dm-field-author.mapped {
+    border-left-color: #fb923c;
+}
+
+.dm-field-link_url .dm-field-badge,
+.dm-field-link_text .dm-field-badge {
+    background: rgba(20, 184, 166, 0.15);
+    color: #14b8a6;
+}
+
+.dm-field-link_url.mapped,
+.dm-field-link_text.mapped {
+    border-left-color: #14b8a6;
+}
+
+.dm-field-category .dm-field-badge {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+}
+
+.dm-field-category.mapped {
+    border-left-color: #eab308;
+}
+
+/* Default field color */
+.dm-field-custom .dm-field-badge {
+    background: rgba(148, 163, 184, 0.15);
+    color: #94a3b8;
+}
+
+.dm-field-custom.mapped {
+    border-left-color: #94a3b8;
+}
+
+/* Empty state */
+.dm-fields-empty {
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.dm-fields-empty .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    opacity: 0.4;
+}
+
+.dm-fields-empty p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* ---------- AI Detection Status ---------- */
+
+.dm-ai-section {
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(167, 139, 250, 0.03);
+}
+
+.dm-ai-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.15);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.dm-ai-status .dashicons {
+    color: #fdba74;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.dm-ai-status.detecting .dashicons {
+    animation: dm-spin 1s linear infinite;
+}
+
+.dm-ai-status.success {
+    background: rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.2);
+}
+
+.dm-ai-status.success .dashicons {
+    color: #22c55e;
+    animation: none;
+}
+
+.dm-ai-status.error {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.dm-ai-status.error .dashicons {
+    color: #ef4444;
+    animation: none;
+}
+
+.dm-ai-redetect-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 8px 14px;
+    margin-top: 10px;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 8px;
+    color: #fdba74;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    justify-content: center;
+}
+
+.dm-ai-redetect-btn:hover {
+    background: rgba(167, 139, 250, 0.2);
+}
+
+/* ---------- Bottom Actions ---------- */
+
+.dm-panel-footer {
+    padding: 14px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    gap: 10px;
+}
+
+.dm-btn-cancel {
+    flex: 1;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dm-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dm-btn-confirm {
+    flex: 2;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #ea580c, #fdba74);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.dm-btn-confirm:hover {
+    background: linear-gradient(135deg, #c2410c, #f97316);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+}
+
+.dm-btn-confirm:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.dm-btn-confirm .dm-spinner-small {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: dm-spin 0.8s linear infinite;
+    display: none;
+}
+
+.dm-btn-confirm.converting .dm-spinner-small {
+    display: inline-block;
+}
+
+/* ==========================================================================
+   TAG DROPDOWN — shown when clicking an element
+   ========================================================================== */
+
+.dm-tag-dropdown {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background: #1e1e2e;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    padding: 6px;
+    min-width: 200px;
+    animation: dm-popIn 0.2s ease;
+}
+
+.dm-tag-dropdown.visible {
+    display: block;
+}
+
+@keyframes dm-popIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dm-tag-dropdown-header {
+    padding: 8px 12px 6px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dm-tag-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+.dm-tag-option:hover {
+    background: rgba(167, 139, 250, 0.12);
+    color: #fff;
+}
+
+.dm-tag-option .dm-tag-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.dm-tag-option .dm-tag-icon.title {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.dm-tag-option .dm-tag-icon.image {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.dm-tag-option .dm-tag-icon.description {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+}
+
+.dm-tag-option .dm-tag-icon.date {
+    background: rgba(20, 103, 255, 0.15);
+    color: #1467ff;
+}
+
+.dm-tag-option .dm-tag-icon.author {
+    background: rgba(251, 146, 60, 0.15);
+    color: #fb923c;
+}
+
+.dm-tag-option .dm-tag-icon.link_url {
+    background: rgba(20, 184, 166, 0.15);
+    color: #14b8a6;
+}
+
+.dm-tag-option .dm-tag-icon.category {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+}
+
+.dm-tag-option .dm-tag-icon.container {
+    background: rgba(167, 139, 250, 0.15);
+    color: #fdba74;
+}
+
+.dm-tag-option .dm-tag-icon.untag {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.dm-tag-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 4px 8px;
+}
+
+/* ==========================================================================
+   SUGGESTION CARD ENHANCEMENT (existing import step 5)
+   ========================================================================== */
+
+.dynamic-suggestion-card .map-visually-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #ea580c, #fdba74);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-left: 6px;
+}
+
+.dynamic-suggestion-card .map-visually-btn:hover {
+    background: linear-gradient(135deg, #c2410c, #f97316);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
+}
+
+.dynamic-suggestion-card .map-visually-btn .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* ==========================================================================
+   SCROLLBAR STYLES
+   ========================================================================== */
+
+.dm-fields-section::-webkit-scrollbar {
+    width: 5px;
+}
+
+.dm-fields-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dm-fields-section::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+}
+
+.dm-fields-section::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+    .dm-panel {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .dm-main {
+        flex-direction: column;
+    }
+
+    .dm-panel {
+        width: 100%;
+        min-width: 100%;
+        max-height: 40vh;
+    }
+
+    .dm-preview-pane {
+        max-height: 60vh;
+    }
+}

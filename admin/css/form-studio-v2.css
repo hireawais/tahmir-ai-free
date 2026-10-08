@@ -1,0 +1,1413 @@
+/**
+ * Tahmir AI Form Studio
+ * Final light-interface authority layer.
+ */
+
+.ugentic-form-builder.uf-studio-v2 {
+    --ufs-bg: #f5f7fb;
+    --ufs-surface: #ffffff;
+    --ufs-surface-soft: #f8f9fc;
+    --ufs-surface-hover: #f1f3f9;
+    --ufs-border: #dfe3ec;
+    --ufs-border-strong: #cbd2df;
+    --ufs-text: #151826;
+    --ufs-text-2: #4d5568;
+    --ufs-text-3: #778095;
+    --ufs-accent: #f25a2b;
+    --ufs-accent-strong: #d94716;
+    --ufs-accent-soft: #fff2ec;
+    --ufs-success: #16834b;
+    --ufs-success-soft: #eaf8f0;
+    --ufs-warning: #9a6700;
+    --ufs-danger: #c93645;
+    --ufs-shadow-sm: 0 1px 2px rgba(20, 24, 38, 0.04);
+    --ufs-shadow-card: 0 1px 2px rgba(20, 24, 38, 0.04), 0 12px 30px rgba(20, 24, 38, 0.07);
+    --ufs-radius: 10px;
+    --ufs-radius-lg: 14px;
+    --ufs-font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: calc(100vh - 32px);
+    margin: -20px 0 0 -20px;
+    color: var(--ufs-text);
+    background: var(--ufs-bg);
+    font-family: var(--ufs-font);
+}
+
+.ugentic-form-builder.uf-studio-v2 *,
+.ugentic-form-builder.uf-studio-v2 *::before,
+.ugentic-form-builder.uf-studio-v2 *::after {
+    box-sizing: border-box;
+}
+
+.ugentic-form-builder.uf-studio-v2 :is(button, input, select, textarea) {
+    font-family: inherit;
+}
+
+.ugentic-form-builder.uf-studio-v2 :is(button, a, input, select, textarea):focus-visible {
+    outline: 2px solid var(--ufs-accent);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+/* Command bar */
+.ugentic-form-builder.uf-studio-v2 .builder-header {
+    position: sticky;
+    z-index: 120;
+    top: 32px;
+    min-height: 70px;
+    padding: 12px 20px;
+    color: var(--ufs-text);
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--ufs-border);
+    box-shadow: var(--ufs-shadow-sm);
+    backdrop-filter: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .header-left,
+.ugentic-form-builder.uf-studio-v2 .header-right {
+    gap: 9px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .back-button {
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    padding: 0;
+    color: var(--ufs-text-2);
+    background: var(--ufs-surface);
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .back-button:hover {
+    color: var(--ufs-text);
+    background: var(--ufs-surface-hover);
+    border-color: var(--ufs-border-strong);
+}
+
+.ugentic-form-builder.uf-studio-v2 .back-button-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-studio-brand {
+    width: 122px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 6px 9px;
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-studio-brand img {
+    display: block;
+    max-width: 100%;
+    max-height: 24px;
+    width: auto;
+    height: auto;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-title-input {
+    width: min(32vw, 410px);
+    min-width: 210px;
+    height: 40px;
+    padding: 0 13px;
+    color: var(--ufs-text);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-title-input:focus {
+    background: #fff;
+    border-color: var(--ufs-accent);
+    box-shadow: 0 0 0 3px rgba(91, 78, 230, 0.11);
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-id-badge {
+    padding: 5px 8px;
+    color: var(--ufs-text-3);
+    background: var(--ufs-surface-soft);
+    border-color: var(--ufs-border);
+    border-radius: 7px;
+    font-size: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-mode-badge,
+.ugentic-form-builder.uf-studio-v2 .form-preserve-badge {
+    display: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-studio-save-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ufs-success);
+    font-size: 12px;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-studio-save-state::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--ufs-success-soft);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-studio-save-state.is-dirty {
+    color: var(--ufs-warning);
+}
+
+.ugentic-form-builder.uf-studio-v2 .shortcode-preview {
+    max-width: 175px;
+    overflow: hidden;
+    color: var(--ufs-text-3);
+    background: var(--ufs-surface-soft);
+    border-color: var(--ufs-border);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ugentic-form-builder.uf-studio-v2 .header-right .button {
+    min-height: 38px;
+    padding: 0 13px;
+    color: var(--ufs-text-2);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+    box-shadow: none;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.ugentic-form-builder.uf-studio-v2 .header-right .button:hover {
+    color: var(--ufs-text);
+    background: var(--ufs-surface-hover);
+    border-color: var(--ufs-border-strong);
+    transform: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .header-right .button-primary {
+    min-width: 106px;
+    color: #fff;
+    background: var(--ufs-accent);
+    border-color: var(--ufs-accent);
+    box-shadow: 0 4px 12px rgba(91, 78, 230, 0.18);
+}
+
+.ugentic-form-builder.uf-studio-v2 .header-right .button-primary:hover {
+    color: #fff;
+    background: var(--ufs-accent-strong);
+    border-color: var(--ufs-accent-strong);
+    box-shadow: 0 6px 16px rgba(91, 78, 230, 0.2);
+}
+
+.ugentic-form-builder.uf-studio-v2 .ai-btn {
+    color: var(--ufs-accent-strong);
+    background: var(--ufs-accent-soft);
+    border-color: rgba(91, 78, 230, 0.2);
+}
+
+/* Imported-form notice */
+.ugentic-form-builder.uf-studio-v2 .faithful-form-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 12px 18px 0;
+    padding: 11px 14px;
+    color: #73510b;
+    background: #fff9e8;
+    border: 1px solid #eedca8;
+    border-radius: 10px;
+}
+
+/* Workspace */
+.ugentic-form-builder.uf-studio-v2 .builder-container {
+    display: grid;
+    grid-template-columns: 248px minmax(540px, 1fr) 320px;
+    height: calc(100vh - 103px);
+    min-height: 640px;
+    background: var(--ufs-bg);
+}
+
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar,
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar-right {
+    width: auto;
+    min-width: 0;
+    padding: 18px;
+    color: var(--ufs-text);
+    background: #fff;
+    border-color: var(--ufs-border);
+    backdrop-filter: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar {
+    border-right: 1px solid var(--ufs-border);
+}
+
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar-right {
+    position: relative;
+    inset: auto;
+    z-index: 20;
+    display: block;
+    border-left: 1px solid var(--ufs-border);
+    transform: none;
+    box-shadow: none;
+    overflow-y: auto;
+}
+
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar-right.open {
+    transform: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar h3,
+.ugentic-form-builder.uf-studio-v2 .builder-sidebar-right h3 {
+    margin: 0;
+    color: var(--ufs-text);
+    font-size: 14px;
+    font-weight: 760;
+    letter-spacing: -0.01em;
+}
+
+.ugentic-form-builder.uf-studio-v2 .sidebar-hint {
+    margin: 5px 0 14px;
+    color: var(--ufs-text-3);
+    font-size: 11px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-field-search {
+    position: relative;
+    margin: 0 0 12px;
+    padding: 0;
+}
+
+.ugentic-form-builder.uf-studio-v2 #uf-field-search-input {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px 0 34px;
+    color: var(--ufs-text);
+    background: var(--ufs-surface-soft);
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+    font-size: 12px;
+    box-shadow: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-field-search::before {
+    content: "\f179";
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 11px;
+    color: var(--ufs-text-3);
+    font: 17px/1 dashicons;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-field-filter-chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 16px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-field-filter-chip {
+    min-height: 31px;
+    padding: 0 5px;
+    color: var(--ufs-text-3);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-field-filter-chip.active {
+    color: var(--ufs-accent-strong);
+    background: var(--ufs-accent-soft);
+    border-color: rgba(91, 78, 230, 0.32);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-category {
+    margin-bottom: 16px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-category h4 {
+    margin: 0 0 8px;
+    color: var(--ufs-text-3);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-types {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-type {
+    min-height: 66px;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    color: var(--ufs-text-2);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+    box-shadow: var(--ufs-shadow-sm);
+    text-align: left;
+    transform: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-type:hover {
+    color: var(--ufs-accent-strong);
+    background: var(--ufs-accent-soft);
+    border-color: rgba(91, 78, 230, 0.35);
+    box-shadow: 0 5px 14px rgba(48, 44, 95, 0.08);
+    transform: translateY(-1px);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 5px;
+    color: currentColor;
+    font-size: 0;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-icon svg {
+    width: 19px;
+    height: 19px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-name {
+    color: inherit;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+/* Main canvas */
+.ugentic-form-builder.uf-studio-v2 .builder-canvas {
+    min-width: 0;
+    padding: 0;
+    background: var(--ufs-bg);
+    overflow: hidden;
+}
+
+.ugentic-form-builder.uf-studio-v2 .canvas-tabs {
+    min-height: 51px;
+    align-items: center;
+    gap: 22px;
+    margin: 0;
+    padding: 0 22px;
+    background: #fff;
+    border-bottom: 1px solid var(--ufs-border);
+    overflow-x: auto;
+}
+
+.ugentic-form-builder.uf-studio-v2 .canvas-tab {
+    position: relative;
+    min-height: 50px;
+    padding: 0 1px;
+    color: var(--ufs-text-3);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 650;
+    box-shadow: none;
+    white-space: nowrap;
+}
+
+.ugentic-form-builder.uf-studio-v2 .canvas-tab .dashicons {
+    display: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .canvas-tab:hover,
+.ugentic-form-builder.uf-studio-v2 .canvas-tab.active {
+    color: var(--ufs-accent-strong);
+    background: transparent;
+}
+
+.ugentic-form-builder.uf-studio-v2 .canvas-tab.active::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--ufs-accent);
+    border-radius: 2px 2px 0 0;
+}
+
+.ugentic-form-builder.uf-studio-v2 .entries-count {
+    min-width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    color: var(--ufs-accent-strong);
+    background: var(--ufs-accent-soft);
+    border-radius: 20px;
+    font-size: 9px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .canvas-panel {
+    height: calc(100% - 51px);
+    padding: 22px;
+    background: var(--ufs-bg);
+    overflow: auto;
+}
+
+.ugentic-form-builder.uf-studio-v2 #panel-fields {
+    padding: 0;
+    overflow: hidden;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-canvas-toolbar {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 16px;
+    background: #fafbfe;
+    border-bottom: 1px solid var(--ufs-border);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-canvas-toolbar-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-canvas-tool,
+.ugentic-form-builder.uf-studio-v2 .uf-device-button {
+    min-width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    color: var(--ufs-text-3);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-device-button.active {
+    color: var(--ufs-accent-strong);
+    background: var(--ufs-accent-soft);
+    border-color: rgba(91, 78, 230, 0.32);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-device-button .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-stage {
+    height: calc(100% - 54px);
+    padding: 28px;
+    overflow: auto;
+    background:
+        linear-gradient(rgba(102, 112, 139, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102, 112, 139, 0.035) 1px, transparent 1px),
+        #f5f7fb;
+    background-size: 24px 24px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-shell {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    transition: width 0.22s ease, transform 0.22s ease;
+    transform: scale(var(--uf-preview-scale, 1));
+    transform-origin: top center;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-shell[data-device="tablet"] {
+    width: min(100%, 620px);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-shell[data-device="mobile"] {
+    width: min(100%, 390px);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-card {
+    padding: 38px;
+    background: #fff;
+    border: 1px solid #e2e5ec;
+    border-radius: 14px;
+    box-shadow: var(--ufs-shadow-card);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-intro {
+    margin-bottom: 26px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-step {
+    display: inline-flex;
+    margin-bottom: 12px;
+    padding: 4px 8px;
+    color: var(--ufs-accent-strong);
+    background: var(--ufs-accent-soft);
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 720;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-title {
+    margin: 0;
+    color: var(--ufs-text);
+    font-size: 24px;
+    font-weight: 760;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-description {
+    margin: 7px 0 0;
+    color: var(--ufs-text-3);
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-fields-container {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    min-height: 80px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item {
+    position: relative;
+    min-height: 84px;
+    display: block;
+    padding: 12px;
+    color: var(--ufs-text);
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    cursor: pointer;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item.width-full {
+    grid-column: 1 / -1;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item.width-half {
+    grid-column: span 3;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item.width-third {
+    grid-column: span 2;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item.width-two-thirds {
+    grid-column: span 4;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item:hover {
+    background: #fcfcff;
+    border-color: #d5d0ff;
+    transform: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item.selected {
+    background: #fff;
+    border-color: var(--ufs-accent);
+    box-shadow: 0 0 0 3px rgba(91, 78, 230, 0.1);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-handle {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    left: -9px;
+    width: 20px;
+    height: 28px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--ufs-text-3);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 6px;
+    box-shadow: var(--ufs-shadow-sm);
+    font-size: 0;
+    cursor: grab;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-handle::before {
+    content: "\f333";
+    font: 15px/1 dashicons;
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item:hover .field-handle,
+.ugentic-form-builder.uf-studio-v2 .form-field-item.selected .field-handle {
+    display: inline-flex;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-preview {
+    display: block;
+    min-width: 0;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-type-badge,
+.ugentic-form-builder.uf-studio-v2 .conditional-icon {
+    display: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 7px;
+    color: var(--ufs-text-2);
+    font-size: 11px;
+    font-weight: 680;
+}
+
+.ugentic-form-builder.uf-studio-v2 .required-badge {
+    color: var(--ufs-danger);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-help {
+    display: block;
+    margin-top: 5px;
+    color: var(--ufs-text-3);
+    font-size: 9px;
+    line-height: 1.45;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-control {
+    width: 100%;
+    min-height: 41px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 11px;
+    color: #8b93a5;
+    background: #fff;
+    border: 1px solid #d5dae4;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 450;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-control.is-textarea {
+    min-height: 76px;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-control.is-choice {
+    min-height: 32px;
+    padding: 5px 0;
+    border: 0;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 12px;
+    color: var(--ufs-text-2);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-check {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #cbd2df;
+    border-radius: 4px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-divider {
+    width: 100%;
+    height: 1px;
+    margin: 16px 0 8px;
+    background: var(--ufs-border);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-actions {
+    position: absolute;
+    z-index: 4;
+    top: -16px;
+    right: 8px;
+    display: none;
+    gap: 2px;
+    padding: 3px;
+    background: var(--ufs-accent);
+    border-radius: 7px;
+    box-shadow: 0 6px 14px rgba(61, 51, 190, 0.22);
+}
+
+.ugentic-form-builder.uf-studio-v2 .form-field-item:hover .field-actions,
+.ugentic-form-builder.uf-studio-v2 .form-field-item.selected .field-actions {
+    display: flex;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-action {
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    border-radius: 5px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-action:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-action .dashicons {
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-preview-submit {
+    width: 100%;
+    min-height: 43px;
+    margin-top: 19px;
+    color: #fff;
+    background: var(--ufs-accent);
+    border: 1px solid var(--ufs-accent);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: default;
+}
+
+.ugentic-form-builder.uf-studio-v2 .empty-canvas {
+    grid-column: 1 / -1;
+    padding: 36px 20px;
+    color: var(--ufs-text-3);
+    background: var(--ufs-surface-soft);
+    border: 1px dashed var(--ufs-border-strong);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ugentic-form-builder.uf-studio-v2 .empty-canvas .empty-icon {
+    display: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .empty-canvas h3 {
+    color: var(--ufs-text);
+    font-size: 14px;
+}
+
+/* Inspector */
+.ugentic-form-builder.uf-studio-v2 .sidebar-header {
+    min-height: 42px;
+    align-items: center;
+    padding: 0 0 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--ufs-border);
+}
+
+.ugentic-form-builder.uf-studio-v2 .close-sidebar {
+    display: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .no-field-selected {
+    margin: 0;
+    padding: 28px 18px;
+    color: var(--ufs-text-3);
+    background: var(--ufs-surface-soft);
+    border: 1px dashed var(--ufs-border);
+    border-radius: 10px;
+    font-size: 11px;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-inspector-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin: -4px 0 15px;
+    padding: 3px;
+    background: var(--ufs-surface-soft);
+    border: 1px solid var(--ufs-border);
+    border-radius: 9px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-inspector-tab {
+    min-height: 31px;
+    padding: 0 4px;
+    color: var(--ufs-text-3);
+    background: transparent;
+    border: 0;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 680;
+    cursor: pointer;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-inspector-tab.active {
+    color: var(--ufs-accent-strong);
+    background: #fff;
+    box-shadow: var(--ufs-shadow-sm);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-setting {
+    margin-bottom: 14px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-setting > label,
+.ugentic-form-builder.uf-studio-v2 .setting-group > label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--ufs-text-2);
+    font-size: 10px;
+    font-weight: 680;
+}
+
+.ugentic-form-builder.uf-studio-v2 :is(.field-setting, .setting-group) :is(input[type="text"], input[type="email"], input[type="number"], input[type="url"], input[type="password"], input[type="datetime-local"], select, textarea) {
+    width: 100%;
+    min-height: 39px;
+    padding: 8px 10px;
+    color: var(--ufs-text);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 8px;
+    font-size: 11px;
+    box-shadow: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 :is(.field-setting, .setting-group) textarea {
+    min-height: 76px;
+    resize: vertical;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-settings-row,
+.ugentic-form-builder.uf-studio-v2 .settings-row {
+    gap: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .checkbox-label {
+    min-height: 39px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    background: var(--ufs-surface-soft);
+    border: 1px solid var(--ufs-border);
+    border-radius: 8px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .conditional-section {
+    padding: 13px;
+    background: var(--ufs-surface-soft);
+    border: 1px solid var(--ufs-border);
+    border-radius: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .conditional-section h4 {
+    margin: 0 0 10px;
+    color: var(--ufs-text);
+    font-size: 11px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-settings-actions {
+    position: sticky;
+    bottom: -18px;
+    margin: 18px -18px -18px;
+    padding: 12px 18px 18px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 24%);
+}
+
+.ugentic-form-builder.uf-studio-v2 .field-settings-actions .button-primary {
+    width: 100%;
+    min-height: 39px;
+    color: #fff;
+    background: var(--ufs-accent);
+    border-color: var(--ufs-accent);
+    border-radius: 8px;
+}
+
+/* Settings, integrations, entries */
+.ugentic-form-builder.uf-studio-v2 .settings-section {
+    max-width: 880px;
+    margin: 0 auto 18px;
+    padding: 22px;
+    color: var(--ufs-text);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 12px;
+    box-shadow: var(--ufs-shadow-sm);
+}
+
+.ugentic-form-builder.uf-studio-v2 .settings-section h3 {
+    margin: 0 0 6px;
+    color: var(--ufs-text);
+    font-size: 16px;
+    font-weight: 740;
+    letter-spacing: -0.015em;
+}
+
+.ugentic-form-builder.uf-studio-v2 .settings-section .description,
+.ugentic-form-builder.uf-studio-v2 .field-hint {
+    color: var(--ufs-text-3);
+    font-size: 11px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .notification-item,
+.ugentic-form-builder.uf-studio-v2 .webhook-item {
+    background: var(--ufs-surface-soft);
+    border: 1px solid var(--ufs-border);
+    border-radius: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-card {
+    max-width: 880px;
+    margin: 0 auto 18px;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 12px;
+    box-shadow: var(--ufs-shadow-sm);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-mark {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--ufs-accent);
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-card h3 {
+    margin: 0;
+    color: var(--ufs-text);
+    font-size: 16px;
+    font-weight: 760;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-card p {
+    margin: 4px 0 0;
+    color: var(--ufs-text-3);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ufs-text-2);
+    font-size: 11px;
+    font-weight: 680;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-switch input {
+    width: 36px;
+    height: 20px;
+    appearance: none;
+    margin: 0;
+    background: #cbd2df;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.16s ease;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-switch input::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin: 2px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(20, 24, 38, 0.2);
+    transition: transform 0.16s ease;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-switch input:checked {
+    background: var(--ufs-accent);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-switch input:checked::before {
+    transform: translateX(16px);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-field {
+    min-width: 0;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-field.is-wide {
+    grid-column: 1 / -1;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-field label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--ufs-text-2);
+    font-size: 10px;
+    font-weight: 680;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-field :is(input, select) {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 10px;
+    color: var(--ufs-text);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 8px;
+    font-size: 11px;
+    box-shadow: none;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-help {
+    display: block;
+    margin-top: 5px;
+    color: var(--ufs-text-3);
+    font-size: 9px;
+    line-height: 1.45;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-help a {
+    color: var(--ufs-accent-strong);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-actions .button {
+    min-height: 38px;
+    padding: 0 13px;
+    color: var(--ufs-text-2);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 8px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 29px;
+    padding: 0 9px;
+    color: var(--ufs-text-3);
+    background: var(--ufs-surface-soft);
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-status.is-success {
+    color: var(--ufs-success);
+    background: var(--ufs-success-soft);
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-status.is-error {
+    color: var(--ufs-danger);
+    background: #fff0f2;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-mapping {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    padding: 14px;
+    background: var(--ufs-surface-soft);
+    border: 1px solid var(--ufs-border);
+    border-radius: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-mapping-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-mapping-header strong {
+    font-size: 11px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-map-row {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) 20px minmax(130px, 1.1fr);
+    align-items: center;
+    gap: 7px;
+    margin-top: 7px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-map-source {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--ufs-text-2);
+    font-size: 10px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-map-arrow {
+    color: var(--ufs-text-3);
+    text-align: center;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-map-target {
+    min-height: 34px;
+    padding: 5px 7px;
+    font-size: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-advanced-webhooks {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-advanced-webhooks > summary {
+    padding: 12px 14px;
+    color: var(--ufs-text-2);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 680;
+    cursor: pointer;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-advanced-webhooks[open] > summary {
+    margin-bottom: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 :is(.wp-list-table, .widefat) {
+    overflow: hidden;
+    border: 1px solid var(--ufs-border);
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+/* Footer status */
+.ugentic-form-builder.uf-studio-v2 .uf-studio-statusbar {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 18px;
+    color: var(--ufs-text-3);
+    background: #fff;
+    border-top: 1px solid var(--ufs-border);
+    font-size: 10px;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-studio-statusbar strong {
+    color: var(--ufs-success);
+}
+
+/* Light modals used by this screen */
+.ugentic-modal.uf-studio-modal .modal-overlay {
+    background: rgba(30, 34, 48, 0.28);
+    backdrop-filter: blur(2px);
+}
+
+.ugentic-modal.uf-studio-modal .modal-content {
+    color: var(--ufs-text, #151826);
+    background: #fff;
+    border: 1px solid #dfe3ec;
+    border-radius: 14px;
+    box-shadow: 0 24px 70px rgba(20, 24, 38, 0.18);
+}
+
+.ugentic-modal.uf-studio-modal .modal-header,
+.ugentic-modal.uf-studio-modal .modal-footer {
+    background: #fff;
+    border-color: #e4e7ee;
+}
+
+.ugentic-modal.uf-studio-modal .modal-header h3 {
+    color: #151826;
+}
+
+/* WP admin collapse and smaller screens */
+@media (max-width: 1320px) {
+    .ugentic-form-builder.uf-studio-v2 .builder-container {
+        grid-template-columns: 220px minmax(480px, 1fr) 292px;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .shortcode-preview,
+    .ugentic-form-builder.uf-studio-v2 #templates-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 1080px) {
+    .ugentic-form-builder.uf-studio-v2 .builder-container {
+        grid-template-columns: 210px minmax(0, 1fr);
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .builder-sidebar-right {
+        position: fixed;
+        top: 103px;
+        right: 0;
+        bottom: 0;
+        width: min(340px, 92vw);
+        display: none;
+        box-shadow: -12px 0 30px rgba(20, 24, 38, 0.12);
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .builder-sidebar-right.open {
+        display: block;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .close-sidebar {
+        display: inline-flex;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .form-title-input {
+        width: 240px;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .uf-studio-brand {
+        width: 96px;
+    }
+}
+
+@media (max-width: 782px) {
+    .ugentic-form-builder.uf-studio-v2 {
+        margin-left: -10px;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .builder-header {
+        top: 46px;
+        flex-wrap: wrap;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .header-left {
+        width: 100%;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .header-right {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .builder-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: calc(100vh - 150px);
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .builder-sidebar {
+        display: none;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .builder-canvas {
+        min-height: calc(100vh - 150px);
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .uf-live-form-stage {
+        padding: 14px;
+    }
+
+    .ugentic-form-builder.uf-studio-v2 .uf-live-form-card {
+        padding: 22px;
+    }
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-ghl-custom-key {
+    grid-column: 3;
+    width: 100%;
+    min-height: 34px;
+    padding: 5px 7px;
+    color: var(--ufs-text);
+    background: #fff;
+    border: 1px solid var(--ufs-border);
+    border-radius: 7px;
+    font-size: 10px;
+}
+
+body.uf-form-studio-open #ufb-toasts > div {
+    color: var(--ufs-text) !important;
+    background: #fff !important;
+    border: 1px solid var(--ufs-border) !important;
+    box-shadow: var(--ufs-shadow-card) !important;
+    backdrop-filter: none !important;
+}
+
+.ugentic-form-builder.uf-studio-v2 .uf-live-form-shell[data-device="mobile"] .form-field-item {
+    grid-column: 1 / -1;
+}
+body.uf-form-studio-open #ufb-toasts {
+    top: auto !important;
+    right: 18px !important;
+    bottom: 34px !important;
+    z-index: 999999 !important;
+}
+
+body.uf-form-studio-open #ufb-toasts > div {
+    color: #171a28 !important;
+    background: #fff !important;
+    border: 1px solid #dfe3ec !important;
+    box-shadow: 0 12px 30px rgba(20, 24, 38, 0.12) !important;
+    backdrop-filter: none !important;
+}

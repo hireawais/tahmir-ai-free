@@ -1,0 +1,2956 @@
+/**
+ * Visual Editor Styles
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+body.ugentic-visual-editor-page {
+    margin: 0;
+    padding: 0;
+    background: #1e1e1e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Toolbar */
+.ugentic-ve-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.ve-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ve-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #9ca3af;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.ve-back-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ve-page-title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.ve-toolbar-center {
+    display: flex;
+    align-items: center;
+}
+
+.ve-device-toggle {
+    display: flex;
+    background: #3d3d3d;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.ve-device-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    color: #9ca3af;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.ve-device-btn:hover {
+    color: #fff;
+}
+
+.ve-device-btn.active {
+    background: #f97316;
+    color: #fff;
+}
+
+.ve-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons */
+.ve-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.ve-btn-primary {
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    color: #fff;
+}
+
+.ve-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.ve-btn-secondary {
+    background: #3d3d3d;
+    color: #fff;
+}
+
+.ve-btn-secondary:hover {
+    background: #4d4d4d;
+}
+
+.ve-btn-danger {
+    background: #dc2626;
+    color: #fff;
+}
+
+.ve-btn-danger:hover {
+    background: #b91c1c;
+}
+
+.ve-btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+.ve-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+#ve-save-status {
+    color: #9ca3af;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+/* Main Layout */
+.ugentic-ve-main {
+    display: flex;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+}
+
+/* Sidebars */
+.ve-sidebar {
+    width: 300px;
+    background: #2d2d2d;
+    border-right: 1px solid #3d3d3d;
+    display: flex;
+    flex-direction: column;
+}
+
+.ve-sidebar-right {
+    border-right: none;
+    border-left: 1px solid #3d3d3d;
+}
+
+.ve-sidebar-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.ve-sidebar-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ve-sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+/* Panels */
+.ve-panel {
+    background: #3d3d3d;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.ve-panel h4 {
+    margin: 0 0 12px 0;
+    color: #d1d5db;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#ve-ai-prompt {
+    width: 100%;
+    min-height: 80px;
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+#ve-ai-prompt:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+#ve-ai-prompt::placeholder {
+    color: #6b7280;
+}
+
+/* Quick Actions */
+.ve-quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.ve-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 10px;
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    color: #d1d5db;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+.ve-action-btn:hover {
+    background: #4d4d4d;
+    border-color: #f97316;
+    color: #fff;
+}
+
+.ve-action-btn .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Suggestions */
+.ve-suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ve-suggestion-item {
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #d1d5db;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.ve-suggestion-item:hover {
+    background: #f97316;
+    border-color: #f97316;
+    color: #fff;
+}
+
+/* Canvas */
+.ve-canvas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background: #1e1e1e;
+    overflow: auto;
+}
+
+.ve-canvas-wrapper {
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.ve-canvas-wrapper.device-desktop {
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 100px);
+}
+
+.ve-canvas-wrapper.device-tablet {
+    width: 768px;
+    height: 1024px;
+}
+
+.ve-canvas-wrapper.device-mobile {
+    width: 375px;
+    height: 667px;
+}
+
+#ve-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Empty State */
+.ve-empty-state {
+    text-align: center;
+    padding: 30px 20px;
+    color: #6b7280;
+}
+
+.ve-empty-state .dashicons {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.ve-empty-state p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* Element Properties */
+.ve-prop-group {
+    margin-bottom: 15px;
+}
+
+.ve-prop-group label {
+    display: block;
+    color: #9ca3af;
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ve-element-type-badge {
+    display: inline-block;
+    background: #f97316;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#ve-element-content {
+    width: 100%;
+    background: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    padding: 10px;
+    color: #fff;
+    font-size: 13px;
+    resize: vertical;
+}
+
+#ve-element-content:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+.ve-prop-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.ve-prop-actions .ve-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+/* Loading Overlay */
+.ve-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.ve-loading-content {
+    text-align: center;
+    color: #fff;
+}
+
+.ve-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #3d3d3d;
+    border-top-color: #f97316;
+    border-radius: 50%;
+    animation: ve-spin 0.8s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes ve-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ve-loading-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Scrollbar */
+.ve-sidebar-content::-webkit-scrollbar,
+.ve-canvas::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ve-sidebar-content::-webkit-scrollbar-track,
+.ve-canvas::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.ve-sidebar-content::-webkit-scrollbar-thumb,
+.ve-canvas::-webkit-scrollbar-thumb {
+    background: #4d4d4d;
+    border-radius: 4px;
+}
+
+.ve-sidebar-content::-webkit-scrollbar-thumb:hover,
+.ve-canvas::-webkit-scrollbar-thumb:hover {
+    background: #5d5d5d;
+}
+
+/* ========================================
+   SIDEBAR TABS
+   ======================================== */
+.ve-sidebar-tabs {
+    display: flex;
+    gap: 0;
+    width: 100%;
+}
+
+.ve-sidebar-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 8px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ve-sidebar-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ve-sidebar-tab.active {
+    color: #f97316;
+    border-bottom-color: #f97316;
+    background: rgba(249, 115, 22, 0.08);
+}
+
+.ve-sidebar-tab .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+.ve-tab-panel {
+    animation: veFadeIn 0.15s ease;
+}
+
+@keyframes veFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   SMART FIELD STYLES
+   ======================================== */
+.ve-field-wrapper {
+    margin-bottom: 14px;
+    border-bottom: 1px solid #3d3d3d;
+    padding-bottom: 14px;
+}
+
+.ve-field-wrapper:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ve-field-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.ve-field-label {
+    display: block;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #f97316;
+    letter-spacing: 0.3px;
+}
+
+.ve-html-toggle {
+    background: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    color: #9ca3af;
+    font-size: 10px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    padding: 2px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    line-height: 1;
+}
+
+.ve-html-toggle:hover {
+    color: #fff;
+    border-color: #f97316;
+}
+
+.ve-html-toggle.active {
+    background: #f97316;
+    border-color: #f97316;
+    color: #fff;
+}
+
+.ve-smart-field {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #4d4d4d;
+    background: #3d3d3d;
+    color: #fff;
+    font-size: 13px;
+    resize: vertical;
+    transition: border-color 0.15s ease;
+    line-height: 1.5;
+}
+
+.ve-smart-field:focus {
+    outline: none;
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15);
+}
+
+.ve-smart-field.ve-html-mode {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    background: #1e1e1e;
+}
+
+/* ========================================
+   CODE EDITOR (HTML/CSS textareas)
+   ======================================== */
+.ve-code-editor {
+    width: 100%;
+    min-height: 200px;
+    background: #1a1a2e;
+    border: 1px solid #3d3d5c;
+    border-radius: 6px;
+    padding: 12px;
+    color: #e2e8f0;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    resize: vertical;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.ve-code-editor:focus {
+    outline: none;
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+.ve-code-editor-tall {
+    min-height: 400px;
+}
+
+.ve-html-editor-header {
+    margin-bottom: 10px;
+}
+
+.ve-html-editor-header label {
+    display: block;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.ve-html-hint {
+    display: block;
+    color: #6b7280;
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+.ve-html-actions {
+    margin-top: 10px;
+}
+
+/* ========================================
+   PANEL TOGGLE (Page tab accordion)
+   ======================================== */
+.ve-panel-header-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: all 0.15s ease;
+}
+
+.ve-panel-header-toggle:hover h4 {
+    color: #fff;
+}
+
+.ve-panel-header-toggle h4 {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+}
+
+.ve-panel-header-toggle h4 .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    color: #f97316;
+}
+
+.ve-toggle-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    color: #9ca3af;
+    transition: transform 0.2s ease;
+}
+
+.ve-panel-body {
+    margin-top: 12px;
+    animation: veFadeIn 0.2s ease;
+}
+
+/* ========================================
+   SITE TAB — Menu Items & CTA Buttons
+   ======================================== */
+.ve-btn-sm {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+.ve-menu-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ve-menu-item {
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    padding: 6px 8px;
+    transition: border-color 0.2s;
+}
+
+.ve-menu-item:hover {
+    border-color: #f97316;
+}
+
+.ve-menu-item-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ve-menu-drag {
+    color: #6b7280;
+    font-size: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    cursor: grab;
+}
+
+.ve-menu-item-text,
+.ve-menu-item-url {
+    flex: 1;
+    background: #3d3d3d;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 4px 6px;
+    color: #e2e8f0;
+    font-size: 12px;
+    min-width: 0;
+}
+
+.ve-menu-item-text {
+    flex: 1.2;
+}
+
+.ve-menu-item-url {
+    flex: 1.8;
+}
+
+.ve-menu-item-text:focus,
+.ve-menu-item-url:focus {
+    outline: none;
+    border-color: #f97316;
+    background: #2d2d2d;
+}
+
+.ve-menu-item-delete {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 2px;
+    transition: color 0.15s;
+}
+
+.ve-menu-item-delete:hover {
+    color: #ef4444;
+}
+
+/* CTA Buttons */
+.ve-cta-buttons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ve-cta-button-card {
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.ve-cta-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.ve-cta-location-badge {
+    background: #f97316;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+}
+
+.ve-cta-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+.ve-cta-toggle input[type="checkbox"] {
+    accent-color: #f97316;
+}
+
+.ve-cta-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ve-cta-text,
+.ve-cta-url {
+    width: 100%;
+    background: #3d3d3d;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: #e2e8f0;
+    font-size: 12px;
+}
+
+.ve-cta-text:focus,
+.ve-cta-url:focus {
+    outline: none;
+    border-color: #f97316;
+    background: #2d2d2d;
+}
+
+/* Spin animation for save buttons */
+.ve-spin {
+    animation: ve-spin 0.8s linear infinite;
+}
+
+/* ========================================
+   AI MODE TOGGLE
+   ======================================== */
+.ve-mode-toggle {
+    display: flex;
+    background: #3d3d3d;
+    border-radius: 8px;
+    padding: 3px;
+    margin-bottom: 12px;
+    gap: 2px;
+}
+
+.ve-mode-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 9px 8px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ve-mode-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ve-mode-btn.active {
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+.ve-mode-btn .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* ========================================
+   SCOPE DROPDOWN
+   ======================================== */
+.ve-scope-panel {
+    padding: 10px 15px;
+}
+
+.ve-scope-panel label {
+    display: block;
+    color: #9ca3af;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.ve-scope-select {
+    width: 100%;
+    padding: 8px 12px;
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+    transition: border-color 0.2s ease;
+}
+
+.ve-scope-select:focus {
+    outline: none;
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15);
+}
+
+.ve-scope-select option {
+    background: #2d2d2d;
+    color: #fff;
+}
+
+/* ========================================
+   CONVERSATION CHAT PANEL
+   ======================================== */
+.ve-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 280px);
+}
+
+.ve-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #252525;
+    border-radius: 8px;
+    border: 1px solid #3d3d3d;
+    min-height: 200px;
+}
+
+.ve-chat-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.ve-chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ve-chat-messages::-webkit-scrollbar-thumb {
+    background: #4d4d4d;
+    border-radius: 3px;
+}
+
+/* Welcome state */
+.ve-chat-welcome {
+    text-align: center;
+    padding: 30px 15px;
+    color: #6b7280;
+}
+
+.ve-chat-welcome .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    opacity: 0.4;
+    color: #f97316;
+}
+
+.ve-chat-welcome p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Chat bubbles */
+.ve-chat-bubble {
+    max-width: 90%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    animation: veFadeIn 0.2s ease;
+    word-wrap: break-word;
+}
+
+.ve-chat-bubble-user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+
+.ve-chat-bubble-ai {
+    align-self: flex-start;
+    background: #3d3d3d;
+    color: #e2e8f0;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #4d4d4d;
+}
+
+.ve-chat-bubble-ai .ve-chat-label,
+.ve-chat-bubble-user .ve-chat-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    opacity: 0.7;
+}
+
+/* Applied change indicator in chat */
+.ve-chat-applied {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 4px 8px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 4px;
+    color: #22c55e;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.ve-chat-applied .dashicons {
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+}
+
+/* Chat input */
+.ve-chat-input-row {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    align-items: flex-end;
+}
+
+#ve-chat-input {
+    flex: 1;
+    padding: 8px 12px;
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    resize: none;
+    min-height: 38px;
+    max-height: 80px;
+    transition: border-color 0.2s ease;
+}
+
+#ve-chat-input:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+#ve-chat-input::placeholder {
+    color: #6b7280;
+}
+
+.ve-chat-send-btn {
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    min-width: 40px;
+    height: 38px;
+}
+
+.ve-chat-send-btn .dashicons {
+    margin: 0;
+}
+
+/* Typing indicator */
+.ve-chat-typing {
+    align-self: flex-start;
+    display: flex;
+    gap: 4px;
+    padding: 12px 16px;
+    background: #3d3d3d;
+    border-radius: 12px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #4d4d4d;
+}
+
+.ve-chat-typing span {
+    width: 6px;
+    height: 6px;
+    background: #f97316;
+    border-radius: 50%;
+    animation: veTypingBounce 1.4s ease-in-out infinite;
+}
+
+.ve-chat-typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.ve-chat-typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes veTypingBounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   REVIEW BUTTON
+   ======================================== */
+.ve-btn-review {
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #1467ff 100%);
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.ve-btn-review::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+    animation: veReviewShimmer 3s ease-in-out infinite;
+}
+
+@keyframes veReviewShimmer {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.ve-btn-review:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* ========================================
+   REVIEW MODAL
+   ======================================== */
+.ve-review-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ve-review-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.ve-review-container {
+    position: relative;
+    width: 90%;
+    max-width: 960px;
+    max-height: 85vh;
+    background: linear-gradient(145deg, #1e1e2e 0%, #2a2a3e 100%);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(249, 115, 22, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: veReviewSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes veReviewSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header */
+.ve-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ve-review-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ve-review-header-icon {
+    font-size: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ve-review-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.ve-review-close {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #9ca3af;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ve-review-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+/* Views */
+.ve-review-view {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 28px;
+}
+
+.ve-review-subtitle {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+/* Actions Bar */
+.ve-review-actions-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.ve-review-count {
+    color: #f97316;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* Category Pills */
+.ve-review-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.ve-review-cat-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #b0b8c8;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.ve-review-cat-pill:hover {
+    background: rgba(249, 115, 22, 0.08);
+    border-color: rgba(249, 115, 22, 0.3);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.ve-review-cat-pill.selected {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(194, 65, 12, 0.15) 100%);
+    border-color: rgba(249, 115, 22, 0.5);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+}
+
+.ve-review-cat-pill.selected .ve-review-cat-icon {
+    color: #f97316;
+}
+
+.ve-review-cat-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    color: #6b7280;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ve-review-cat-check {
+    margin-left: auto;
+    font-size: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    color: #f97316;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.ve-review-cat-pill.selected .ve-review-cat-check {
+    opacity: 1;
+}
+
+/* Start Bar */
+.ve-review-start-bar {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 4px;
+}
+
+.ve-btn-lg {
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* ========================================
+   PROGRESS VIEW
+   ======================================== */
+.ve-review-progress-card {
+    text-align: center;
+    padding: 50px 30px;
+    position: relative;
+}
+
+.ve-review-pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid rgba(249, 115, 22, 0.2);
+    animation: veReviewPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes veReviewPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 0;
+    }
+}
+
+.ve-review-progress-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 30px rgba(249, 115, 22, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.ve-review-progress-icon .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+}
+
+.ve-review-progress-card h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.ve-review-progress-category {
+    color: #f97316;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 32px;
+}
+
+/* Progress Bar */
+.ve-review-progress-bar-track {
+    width: 100%;
+    max-width: 480px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+    margin: 0 auto 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.ve-review-progress-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #f97316 0%, #c2410c 50%, #1467ff 100%);
+    background-size: 200% 100%;
+    animation: veProgressGradient 2s ease infinite;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.ve-review-progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 8px,
+            rgba(255, 255, 255, 0.08) 8px,
+            rgba(255, 255, 255, 0.08) 16px);
+    animation: veStripeMove 0.8s linear infinite;
+}
+
+@keyframes veProgressGradient {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes veStripeMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(22.6px);
+    }
+}
+
+.ve-review-progress-stats {
+    display: flex;
+    justify-content: space-between;
+    max-width: 480px;
+    margin: 0 auto;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#ve-review-progress-pct {
+    color: #f97316;
+    font-weight: 700;
+}
+
+/* ========================================
+   RESULTS VIEW
+   ======================================== */
+
+/* Overall Score */
+.ve-review-overall {
+    text-align: center;
+    padding: 24px 0 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 24px;
+}
+
+.ve-review-overall-score-ring {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+}
+
+.ve-review-overall-score-ring::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(from 0deg, #f97316 0%, #f97316 var(--score-pct, 0%), rgba(255, 255, 255, 0.08) var(--score-pct, 0%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: background 1s ease;
+}
+
+.ve-review-overall-score-num {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f97316, #1467ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.ve-review-overall-score-label {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ve-review-overall h3 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 6px;
+}
+
+.ve-review-overall-subtitle {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Results Grid */
+.ve-review-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+}
+
+/* Result Card */
+.ve-review-result-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px;
+    transition: all 0.2s ease;
+    animation: veResultCardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes veResultCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.ve-review-result-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(249, 115, 22, 0.2);
+    transform: translateY(-2px);
+}
+
+.ve-review-result-card.score-high {
+    border-left: 3px solid #22c55e;
+}
+
+.ve-review-result-card.score-mid {
+    border-left: 3px solid #f59e0b;
+}
+
+.ve-review-result-card.score-low {
+    border-left: 3px solid #ef4444;
+}
+
+/* Card Header */
+.ve-review-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.ve-review-card-score {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.ve-review-card-score::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    padding: 2px;
+    background: conic-gradient(from 0deg, var(--score-color) 0%, var(--score-color) var(--score-pct, 0%), rgba(255, 255, 255, 0.08) var(--score-pct, 0%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.ve-review-card-score.score-high {
+    color: #22c55e;
+    --score-color: #22c55e;
+}
+
+.ve-review-card-score.score-mid {
+    color: #f59e0b;
+    --score-color: #f59e0b;
+}
+
+.ve-review-card-score.score-low {
+    color: #ef4444;
+    --score-color: #ef4444;
+}
+
+.ve-review-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ve-review-card-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ve-review-card-title .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    color: #f97316;
+}
+
+.ve-review-card-summary {
+    color: #9ca3af;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Issues Toggle */
+.ve-review-issues-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: #f97316;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 0 0;
+    transition: color 0.2s;
+}
+
+.ve-review-issues-toggle:hover {
+    color: #8b9cf7;
+}
+
+.ve-review-issues-toggle .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+}
+
+.ve-review-issues-toggle.expanded .dashicons {
+    transform: rotate(180deg);
+}
+
+/* Issues List */
+.ve-review-issues-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: veFadeIn 0.2s ease;
+}
+
+.ve-review-issue {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid;
+}
+
+.ve-review-issue.severity-critical {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.06);
+}
+
+.ve-review-issue.severity-warning {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.06);
+}
+
+.ve-review-issue.severity-info {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.06);
+}
+
+.ve-review-issue-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ve-review-issue.severity-critical .ve-review-issue-title {
+    color: #ef4444;
+}
+
+.ve-review-issue.severity-warning .ve-review-issue-title {
+    color: #f59e0b;
+}
+
+.ve-review-issue.severity-info .ve-review-issue-title {
+    color: #3b82f6;
+}
+
+.ve-review-issue-badge {
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.severity-critical .ve-review-issue-badge {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.severity-warning .ve-review-issue-badge {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.severity-info .ve-review-issue-badge {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.ve-review-issue-desc {
+    color: #b0b8c8;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Scrollbar for review views */
+.ve-review-view::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ve-review-view::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ve-review-view::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.ve-review-view::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   GENERATE SECTION BUTTON
+   ======================================== */
+.ve-btn-generate-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ve-btn-generate-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.12) 50%, transparent 60%);
+    animation: veReviewShimmer 3s ease-in-out infinite;
+}
+
+.ve-btn-generate-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(249, 115, 22, 0.45);
+}
+
+.ve-btn-generate-section .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* ========================================
+   SECTION GENERATOR MODAL
+   ======================================== */
+.ve-section-gen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ve-section-gen-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.ve-section-gen-container {
+    position: relative;
+    width: 90%;
+    max-width: 720px;
+    max-height: 85vh;
+    background: linear-gradient(145deg, #1e1e2e 0%, #2a2a3e 100%);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(249, 115, 22, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: veReviewSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header */
+.ve-section-gen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ve-section-gen-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ve-section-gen-header-icon {
+    font-size: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: linear-gradient(135deg, #f97316, #c2410c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ve-section-gen-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.ve-section-gen-close {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #9ca3af;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ve-section-gen-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+/* Views */
+.ve-section-gen-view {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 28px;
+}
+
+.ve-section-gen-subtitle {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+/* Section Type Pills Grid */
+.ve-section-gen-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ve-section-type-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #b0b8c8;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.ve-section-type-pill:hover {
+    background: rgba(249, 115, 22, 0.08);
+    border-color: rgba(249, 115, 22, 0.3);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.ve-section-type-pill.selected {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(194, 65, 12, 0.2) 100%);
+    border-color: rgba(249, 115, 22, 0.6);
+    color: #fff;
+    box-shadow: 0 0 24px rgba(249, 115, 22, 0.15);
+    transform: translateY(-2px);
+}
+
+.ve-section-type-pill .dashicons {
+    font-size: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+    color: #6b7280;
+    transition: color 0.2s ease;
+}
+
+.ve-section-type-pill:hover .dashicons,
+.ve-section-type-pill.selected .dashicons {
+    color: #f97316;
+}
+
+/* Details Panel (shown after pill selection) */
+.ve-section-gen-details {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px;
+    animation: veFadeIn 0.25s ease;
+}
+
+@keyframes veFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ve-section-gen-details label {
+    display: block;
+    color: #f97316;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+#ve-section-gen-desc {
+    width: 100%;
+    background: #1e1e1e;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    padding: 12px;
+    color: #e2e8f0;
+    font-family: inherit;
+    font-size: 13px;
+    resize: vertical;
+    min-height: 60px;
+    transition: border-color 0.2s ease;
+}
+
+#ve-section-gen-desc:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+#ve-section-gen-desc::placeholder {
+    color: #6b7280;
+}
+
+.ve-section-gen-position {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ve-section-gen-position label {
+    margin: 0;
+    white-space: nowrap;
+}
+
+#ve-section-gen-position {
+    flex: 1;
+    background: #1e1e1e;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: #e2e8f0;
+    font-size: 13px;
+}
+
+#ve-section-gen-position:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+#ve-section-gen-submit {
+    margin-top: 16px;
+}
+
+/* Progress View */
+.ve-section-gen-progress-card {
+    text-align: center;
+    padding: 50px 30px;
+    position: relative;
+}
+
+.ve-section-gen-progress-card h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.ve-section-gen-progress-hint {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 28px;
+}
+
+.ve-section-gen-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(249, 115, 22, 0.2);
+    border-top-color: #f97316;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: veSpinnerRotate 0.8s linear infinite;
+}
+
+@keyframes veSpinnerRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scrollbar for section gen views */
+.ve-section-gen-view::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ve-section-gen-view::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ve-section-gen-view::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.ve-section-gen-view::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   MENU EDITOR OVERLAY — Tree View & Toolbar
+   ======================================== */
+
+/* ── Mode Banner ── */
+.ume-mode-banner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(194, 65, 12, 0.08) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    color: #a8b5e0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.ume-mode-banner .dashicons {
+    color: #f97316;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.ume-mode-banner small {
+    display: block;
+    font-size: 11px;
+    color: #7b8ab8;
+    font-weight: 400;
+    margin-left: auto;
+}
+
+/* ── Region Badges ── */
+.ume-region-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.ume-badge-header {
+    background: rgba(249, 115, 22, 0.2);
+    color: #f97316;
+}
+
+.ume-badge-footer {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.ume-badge-topbar {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.ume-badge-sidebar {
+    background: rgba(249, 115, 22, 0.2);
+    color: #f97316;
+}
+
+/* ── Tree Container ── */
+.ume-tree-container {
+    min-height: 40px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.ume-tree-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.ume-tree-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.ume-tree-empty {
+    text-align: center;
+    padding: 20px 10px;
+    color: #6b7280;
+}
+
+.ume-tree-empty .dashicons {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    opacity: 0.4;
+    display: block;
+    margin: 0 auto 6px;
+}
+
+.ume-tree-empty p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* ── Tree List ── */
+.ume-tree-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ume-tree-children {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Tree Node ── */
+.ume-tree-node {
+    margin-bottom: 2px;
+}
+
+.ume-tree-node.ume-collapsed>.ume-tree-children {
+    display: none;
+}
+
+.ume-tree-node-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    background: #2d2d2d;
+    border: 1px solid #3d3d3d;
+    border-radius: 5px;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.ume-tree-node-row:hover {
+    border-color: #f97316;
+    background: #333;
+}
+
+.ume-tree-node-row.ume-tree-active {
+    border-color: #f97316;
+    background: rgba(249, 115, 22, 0.1);
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15);
+}
+
+/* Drag handle */
+.ume-drag-handle {
+    color: #555;
+    font-size: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    cursor: grab;
+    flex-shrink: 0;
+    transition: color 0.15s;
+}
+
+.ume-drag-handle:hover {
+    color: #999;
+}
+
+.ume-tree-node.ume-dragging {
+    opacity: 0.5;
+}
+
+.ume-tree-sortable-placeholder {
+    height: 36px;
+    border: 2px dashed #f97316;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    background: rgba(249, 115, 22, 0.05);
+}
+
+/* Expand / collapse */
+.ume-tree-expand {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: color 0.15s;
+}
+
+.ume-tree-expand:hover {
+    color: #fff;
+}
+
+.ume-tree-expand .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+}
+
+.ume-collapsed>.ume-tree-node-row .ume-tree-expand .dashicons {
+    transform: rotate(-90deg);
+}
+
+.ume-tree-expand-spacer {
+    width: 14px;
+    flex-shrink: 0;
+}
+
+/* Node content (inputs) */
+.ume-tree-node-content {
+    flex: 1;
+    display: flex;
+    gap: 4px;
+    min-width: 0;
+}
+
+.ume-tree-label,
+.ume-tree-url {
+    flex: 1;
+    background: #3d3d3d;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 3px 6px;
+    color: #e2e8f0;
+    font-size: 11px;
+    min-width: 0;
+    transition: all 0.15s;
+}
+
+.ume-tree-label {
+    font-weight: 500;
+}
+
+.ume-tree-url {
+    color: #9ca3af;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 10px;
+}
+
+.ume-tree-label:focus,
+.ume-tree-url:focus {
+    outline: none;
+    border-color: #f97316;
+    background: #2d2d2d;
+}
+
+/* Children badge */
+.ume-children-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #4d4d4d;
+    color: #d1d5db;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* Tree node actions */
+.ume-tree-actions {
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.ume-tree-node-row:hover .ume-tree-actions {
+    opacity: 1;
+}
+
+.ume-tree-action-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    transition: all 0.15s;
+}
+
+.ume-tree-action-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ume-tree-action-btn .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+.ume-tree-delete:hover {
+    color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.15);
+}
+
+/* ── Tree Actions Bar (Add Item / Save Menu) ── */
+.ume-tree-actions-bar {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.ume-tree-bar-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.ume-tree-bar-primary {
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    color: #fff;
+}
+
+.ume-tree-bar-primary:hover {
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    transform: translateY(-1px);
+}
+
+.ume-tree-bar-primary.ume-saving {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.ume-tree-bar-secondary {
+    background: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    color: #d1d5db;
+}
+
+.ume-tree-bar-secondary:hover {
+    background: #4d4d4d;
+    color: #fff;
+}
+
+.ume-tree-bar-btn .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* ── Floating Menu Toolbar (parent document) ── */
+.ume-floating-toolbar {
+    position: fixed;
+    z-index: 100001;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-radius: 10px;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    animation: ume-tb-appear 0.15s ease;
+    backdrop-filter: blur(8px);
+}
+
+@keyframes ume-tb-appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ume-tb-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.ume-tb-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.ume-tb-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.ume-tb-delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.ume-tb-divider {
+    width: 1px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 2px;
+}
+
+/* ── Inline Edit Popover ── */
+.ume-edit-popover {
+    position: fixed;
+    z-index: 100002;
+    width: 310px;
+    background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
+    border: 1px solid #4d4d4d;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    animation: ume-popover-appear 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@keyframes ume-popover-appear {
+    from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.ume-popover-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.ume-popover-title {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ume-popover-close {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    transition: color 0.15s;
+}
+
+.ume-popover-close:hover {
+    color: #fff;
+}
+
+.ume-popover-close .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.ume-popover-body {
+    padding: 12px 16px;
+}
+
+.ume-popover-field {
+    margin-bottom: 10px;
+}
+
+.ume-popover-field label {
+    display: block;
+    color: #9ca3af;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.ume-popover-field input[type="text"] {
+    width: 100%;
+    background: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    padding: 7px 10px;
+    color: #fff;
+    font-size: 13px;
+    transition: border-color 0.15s;
+}
+
+.ume-popover-field input[type="text"]:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+.ume-url-row {
+    display: flex;
+    gap: 4px;
+}
+
+.ume-url-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.ume-page-select {
+    width: 86px;
+    background: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    padding: 5px 6px;
+    color: #d1d5db;
+    font-size: 11px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.ume-page-select:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+.ume-popover-toggle-row label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #d1d5db;
+    cursor: pointer;
+}
+
+.ume-popover-toggle-row input[type="checkbox"] {
+    accent-color: #f97316;
+}
+
+.ume-popover-advanced-toggle {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+}
+
+.ume-popover-advanced-toggle:hover {
+    color: #fff;
+}
+
+.ume-popover-advanced-toggle .dashicons {
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+}
+
+.ume-popover-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    padding: 10px 16px;
+    border-top: 1px solid #3d3d3d;
+}
+
+.ume-popover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+}
+
+.ume-popover-btn-primary {
+    background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+    color: #fff;
+}
+
+.ume-popover-btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.ume-popover-btn-primary .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+.ume-popover-btn-secondary {
+    background: #3d3d3d;
+    color: #d1d5db;
+}
+
+.ume-popover-btn-secondary:hover {
+    background: #4d4d4d;
+    color: #fff;
+}
+
+/* ── CTA Button Cards ── */
+.ume-cta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ume-cta-card {
+    background: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    padding: 10px;
+    transition: border-color 0.15s;
+}
+
+.ume-cta-card:hover {
+    border-color: #f97316;
+}
+
+.ume-cta-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.ume-cta-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+.ume-cta-toggle input {
+    accent-color: #f97316;
+}
+
+.ume-cta-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.ume-cta-text,
+.ume-cta-url {
+    width: 100%;
+    background: #3d3d3d;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px 8px;
+    color: #e2e8f0;
+    font-size: 12px;
+    transition: border-color 0.15s;
+}
+
+.ume-cta-text:focus,
+.ume-cta-url:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+.ume-save-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: #3d3d3d;
+    color: #d1d5db;
+    transition: all 0.15s;
+}
+
+.ume-save-cta-btn:hover {
+    background: #f97316;
+    color: #fff;
+}
+
+.ume-save-cta-btn .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* ── Menu Mode Canvas Indicator ── */
+.ve-canvas.ve-menu-mode::before {
+    content: '🧭 Menu Editing Mode';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(249, 115, 22, 0.9);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    z-index: 20;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ve-canvas.ve-menu-mode {
+    position: relative;
+}
