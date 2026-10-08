@@ -1,14 +1,14 @@
-=== Tahmir AI - AI to WP Website Converter ===
+=== Tahmir AI Free - HTML & Lovable to WordPress Converter ===
 Contributors: tahmirai
-Tags: html to wordpress, lovable to wordpress, ai website, website import, website cloning
+Tags: html to wordpress, lovable to wordpress, gohighlevel, ai to wordpress, website import
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Free HTML to WordPress and Lovable to WordPress importer for supported AI websites, public URLs and HTML ZIPs.
+Free HTML / Lovable to WordPress converter plugin. Import supported AI-built or GoHighLevel pages; Pro adds visual editing and client delivery.
 
 == Description ==
 
@@ -21,9 +21,12 @@ Upload a website ZIP with HTML, CSS, JavaScript and assets. Tahmir imports suppo
 Use the public deployed URL for a Lovable website, or supply a built static HTML export. The same workflow can be used for supported pages made with Bolt, Claude, Cursor, v0 and other AI website tools. React/Vite source code needs to be built and deployed first; source repositories and backend services are not converted into PHP.
 
 Official website: https://tahmir.com/
-HTML to WordPress guide: https://tahmir.com/html-to-wordpress-converter-tahmir-ai/
-Lovable to WordPress guide: https://tahmir.com/lovable-to-wordpress-converter-tahmir-ai/
-AI website to WordPress: https://tahmir.com/ai-website-to-wordpress-converter-tahmir-ai/
+HTML to WordPress guide: https://www.tahmir.com/free-html-to-wordpress-converter/
+Lovable to WordPress guide: https://www.tahmir.com/lovable-to-wordpress-converter/
+AI website to WordPress: https://www.tahmir.com/ai-website-to-wordpress-converter/
+GoHighLevel to WordPress guide: https://www.tahmir.com/gohighlevel-to-wordpress-converter/
+Client website delivery playbook: https://www.tahmir.com/ai-to-wordpress-agency-playbook/
+Upgrade to Pro: https://www.tahmir.com/upgrade/
 Free source code: https://github.com/hireawais/tahmir-ai-free
 
 
@@ -34,6 +37,14 @@ The separate Tahmir AI Pro add-on includes the visual editor, page modules, form
 Free registers supported imported contact forms, accepts submissions and emails the site administrator. Form editing and entry viewing require Pro. Existing imported page content, form definitions and entries are retained so Pro can use them. Installing Pro does not require importing your pages again.
 
 Import only websites and assets you own or have permission to reproduce. Dynamic applications and server-side behavior cannot always be recreated from public HTML.
+
+= GoHighLevel to WordPress =
+Import supported public website or funnel page URLs you control. CRM contacts, pipelines, automations, calendars, memberships and payment logic need separate integration. Test the complete lead or booking flow after import.
+
+= Make HTML websites editable and deliver client sites =
+Free imports, displays and manages supported pages. Pro adds visual text/image editing, page modules, logo detection and replacement, shared-menu editing, advanced form management, SEO, analytics and client delivery tools. Keep Free active and activate Pro separately; imported pages and form data carry over. Imported layouts are not automatically Gutenberg blocks or Elementor widgets.
+
+See Pro benefits and upgrade: https://www.tahmir.com/upgrade/
 
 == Installation ==
 
@@ -64,9 +75,16 @@ The plugin checks dash.tahmir.com for releases and downloads updates from the Ta
 
 Free and Pro store submitted form entries in your WordPress database. Free sends the site administrator a notification; Pro may send notifications or webhooks according to your configuration. Include appropriate information in your site's privacy policy.
 
-Website privacy policy: https://tahmir.com/privacy-policy-tahmir-ai/
+Website privacy policy: https://www.tahmir.com/tahmir-ai-privacy-policy/
 
 == Changelog ==
+
+= 1.0.9 =
+
+* Clarified the Free HTML / Lovable to WordPress converter plugin name and positioning.
+* Added GoHighLevel migration, AI website conversion, editable HTML and client delivery guides.
+* Added current Tahmir.com resources and Pro benefits with upgrade links.
+
 
 = 1.0.8 =
 

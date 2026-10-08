@@ -42,11 +42,16 @@ $ai_calls_today = get_transient('ugentic_ai_calls_today') ?: 0;
     </div>
     
     <div class="ugentic-card">
-        <h2><?php esc_html_e('Bring your HTML or AI website into WordPress', 'tahmir-ai-to-wp-converter'); ?></h2>
-        <p><?php esc_html_e('Use Free for HTML to WordPress, Lovable to WordPress, and supported public pages from other AI website tools. Import a URL or HTML ZIP, then review your WordPress pages.', 'tahmir-ai-to-wp-converter'); ?></p>
-        <p><a class="button" href="https://tahmir.com/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Visit Tahmir.com', 'tahmir-ai-to-wp-converter'); ?></a>
-        <a class="button" href="https://tahmir.com/html-to-wordpress-converter-tahmir-ai/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('HTML to WordPress guide', 'tahmir-ai-to-wp-converter'); ?></a>
-        <a class="button" href="https://tahmir.com/lovable-to-wordpress-converter-tahmir-ai/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Lovable to WordPress guide', 'tahmir-ai-to-wp-converter'); ?></a></p>
+        <h2><?php esc_html_e('Free HTML / Lovable to WordPress converter plugin', 'tahmir-ai-to-wp-converter'); ?></h2>
+        <p><?php esc_html_e('Import supported HTML websites, deployed Lovable pages and AI-built front ends for free. You can also test a public GoHighLevel website or funnel page. Review the result and reconnect external integrations before publishing.', 'tahmir-ai-to-wp-converter'); ?></p>
+        <p><a class="button" href="https://www.tahmir.com/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Visit Tahmir.com', 'tahmir-ai-to-wp-converter'); ?></a>
+        <a class="button" href="https://www.tahmir.com/free-html-to-wordpress-converter/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('HTML to WordPress guide', 'tahmir-ai-to-wp-converter'); ?></a>
+        <a class="button" href="https://www.tahmir.com/lovable-to-wordpress-converter/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Lovable to WordPress guide', 'tahmir-ai-to-wp-converter'); ?></a>
+        <a class="button" href="https://www.tahmir.com/gohighlevel-to-wordpress-converter/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('GoHighLevel to WordPress guide', 'tahmir-ai-to-wp-converter'); ?></a></p>
+        <h3><?php esc_html_e('Make pages editable and prepare client delivery with Pro', 'tahmir-ai-to-wp-converter'); ?></h3>
+        <p><?php esc_html_e('Pro adds visual editing and page modules, logo detection and replacement, shared-menu controls, advanced forms, SEO, AI tools, analytics and client delivery. Keep Free installed; imported pages carry over. Pro requires an active license, and optional AI services may require credits or provider setup.', 'tahmir-ai-to-wp-converter'); ?></p>
+        <p><a class="button button-primary" href="https://www.tahmir.com/upgrade/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('See Pro benefits and upgrade', 'tahmir-ai-to-wp-converter'); ?></a>
+        <a class="button" href="https://www.tahmir.com/ai-to-wordpress-agency-playbook/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Client delivery playbook', 'tahmir-ai-to-wp-converter'); ?></a></p>
     </div>
 
     <!-- Stats Cards -->

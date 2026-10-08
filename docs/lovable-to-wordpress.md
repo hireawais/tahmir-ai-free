@@ -1,19 +1,24 @@
-# Lovable to WordPress with Tahmir AI Free
+# Lovable to WordPress with the free Tahmir AI plugin
 
-Bring a supported public Lovable website into WordPress with Tahmir AI Free's URL importer. Start with a deployed page that works in a browser. See the official [Lovable to WordPress converter guide](https://tahmir.com/lovable-to-wordpress-converter-tahmir-ai/).
+Use Tahmir AI Free to import supported public-facing pages from a deployed Lovable website into WordPress. Keep Lovable as your design and build workflow, then review the supported page output on your own WordPress hosting. The official [Lovable to WordPress converter guide](https://www.tahmir.com/lovable-to-wordpress-converter/) explains the broader workflow.
 
-## Import your deployed Lovable site
+## Prepare the Lovable project
 
-1. Publish the Lovable project to a public URL and check the routes you need.
-2. Install Tahmir AI Free on WordPress.
-3. Open **Tahmir AI → Import → Import from URL** and enter that public address.
-4. Review discovered pages, import your selected pages and open the WordPress result.
-5. Check images, fonts, internal links, mobile navigation and forms before publishing.
+Publish the project to a public URL and test the routes you want to deliver. Choose a representative marketing page with real images, navigation and responsive layouts. If you use an export, build the front end first and provide supported HTML with its assets; an unbuilt React/Vite source ZIP is not an HTML export.
 
-For an export workflow, build the front end and provide a supported HTML ZIP with its assets. A source-code ZIP containing React components, package files or an unbuilt Vite project is not an HTML export. Public-page import captures supported front-end output; it does not automatically migrate Supabase data, authentication, server functions or other backend integrations.
+## Import Lovable pages into WordPress
 
-## What remains free
+1. Install [Tahmir AI Free](../README.md#download-and-install-the-free-converter-plugin).
+2. Open **Tahmir AI → Import → Import from URL** and paste the deployed address.
+3. Review discovered pages and import the selected pages.
+4. Compare typography, images, spacing and mobile navigation with the approved source.
+5. Test links, scripts, contact forms and each required route.
+6. Publish after the client or project owner approves the WordPress result.
 
-Public URL cloning, HTML ZIP import, imported-page display and page management require no Tahmir license. Supported imported contact forms can accept submissions. Visual editing, entry management, AI editing, logo replacement, shared menus and SEO tools require the separate Pro add-on.
+## What comes across, and what needs separate work?
 
-The same public-URL/static-export approach can be used for supported pages from other AI website tools. Read [HTML to WordPress](html-to-wordpress.md), explore [AI website to WordPress](https://tahmir.com/ai-website-to-wordpress-converter-tahmir-ai/), or visit [Tahmir.com](https://tahmir.com/) for the complete product.
+The importer handles supported front-end page content and assets. Supabase databases, authentication, server functions, application state, payments and external API behavior need their own migration or integration. A successful landing-page import does not establish that the full application works in WordPress.
+
+Free includes import, page display/management and supported imported contact-form submission. For visual editing, page modules, logo/menu controls, advanced forms and client delivery tools, [upgrade to Pro](https://www.tahmir.com/upgrade/). Pro uses the imported pages alongside Free.
+
+Continue with [AI to WordPress](ai-to-wordpress.md), [Make HTML websites editable](make-html-websites-editable.md) and the [client delivery checklist](deliver-client-websites.md).

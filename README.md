@@ -1,61 +1,92 @@
-# Tahmir AI Free — HTML to WordPress & Lovable to WordPress
+# Tahmir AI Free — HTML / Lovable to WordPress Converter Plugin
 
-**Import your HTML or AI-built website into WordPress for free.** Tahmir AI Free converts supported public website URLs and HTML ZIPs into WordPress pages while preserving supported front-end layouts and assets.
+**A free WordPress plugin to convert supported HTML websites, Lovable sites and AI-built pages into WordPress.** Import a public website URL or HTML ZIP, review the result, and publish on your own WordPress hosting. No Tahmir license, paid subscription or AI API key is needed for Free imports.
 
-[Visit Tahmir.com](https://tahmir.com/) · [HTML to WordPress](https://tahmir.com/html-to-wordpress-converter-tahmir-ai/) · [Lovable to WordPress](https://tahmir.com/lovable-to-wordpress-converter-tahmir-ai/) · [AI website to WordPress](https://tahmir.com/ai-website-to-wordpress-converter-tahmir-ai/)
+[Download the Free plugin](https://github.com/hireawais/tahmir-ai-free/releases/latest) · [Visit Tahmir.com](https://www.tahmir.com/) · [Upgrade to Pro](https://www.tahmir.com/upgrade/) · [Discounted upgrade offers](docs/pro-upgrade-offers.md)
 
-This public repository contains **the Free edition only**, licensed under **GPL-2.0-or-later**. No Tahmir license, paid subscription, or AI API key is needed for the free import workflow. The separate Tahmir AI Pro add-on is distributed through [Tahmir.com](https://tahmir.com/).
+This public repository contains **Tahmir AI Free only**, licensed under **GPL-2.0-or-later**. The paid Pro add-on is distributed separately through Tahmir.com.
 
-## What you can do for free
+## Choose your conversion workflow
 
-- **HTML to WordPress:** upload an HTML website ZIP with supported CSS, JavaScript, images, fonts and linked pages.
-- **Lovable to WordPress:** import a public deployed Lovable website or supported built HTML export.
-- **AI website to WordPress:** bring supported public pages or static exports made with Bolt, Claude, Cursor, v0 and other AI website tools into WordPress.
-- Clone supported public website URLs, review discovered pages and import selected pages.
-- Display imported pages and manage them from the Tahmir workspace.
-- Accept submissions from supported imported contact forms and notify the WordPress site administrator.
+| Your starting point | Free plugin workflow | Practical guide | Official Tahmir resource |
+| --- | --- | --- | --- |
+| HTML, CSS and JavaScript website | Import a supported HTML ZIP and its assets | [HTML to WordPress](docs/html-to-wordpress.md) | [Free HTML to WordPress converter](https://www.tahmir.com/free-html-to-wordpress-converter/) |
+| Published Lovable website | Import a supported deployed public URL | [Lovable to WordPress](docs/lovable-to-wordpress.md) | [Lovable to WordPress converter](https://www.tahmir.com/lovable-to-wordpress-converter/) |
+| GoHighLevel website or funnel page | Import supported public-facing pages, then reconnect integrations | [GoHighLevel to WordPress](docs/gohighlevel-to-wordpress.md) | [GoHighLevel to WordPress converter](https://www.tahmir.com/gohighlevel-to-wordpress-converter/) |
+| AI-built landing page or marketing site | Use a deployed URL or built static HTML ZIP | [AI to WordPress](docs/ai-to-wordpress.md) | [AI website to WordPress converter](https://www.tahmir.com/ai-website-to-wordpress-converter/) |
+| Approved client website | Import, compare, test and hand over the WordPress site | [Client website delivery checklist](docs/deliver-client-websites.md) | [Tahmir's agency delivery playbook](https://www.tahmir.com/ai-to-wordpress-agency-playbook/) |
+| HTML website that needs everyday visual edits | Import with Free; add licensed Pro for visual editing | [Make HTML websites editable](docs/make-html-websites-editable.md) | [Pro editing and delivery tools](https://www.tahmir.com/upgrade/) |
 
-Import only sites and assets you own or have permission to use. React/Vite source code must be built and deployed first. Logins, databases, server functions, payments, external APIs and other backend behavior need their own integration. Import fidelity depends on the source; test routes, responsive layouts, scripts and forms on your actual site.
+## What is included for free?
 
-## Download and install
+- **HTML to WordPress conversion:** upload supported HTML pages with CSS, JavaScript, images, fonts and local assets.
+- **Public URL import:** discover supported pages, review them and import selected pages into WordPress.
+- **Lovable and AI website imports:** use the deployed front end or a supported built HTML export from Lovable, Bolt, Claude, Cursor, v0 and similar tools.
+- **GoHighLevel to WordPress page migration:** use the published website or funnel page you own; review supported page content and assets after import.
+- **Imported page display and management:** keep the converted pages in your WordPress site and manage them from the Tahmir workspace.
+- **Supported imported contact forms:** accept submissions and notify the WordPress site administrator.
 
-1. Download the installable `tahmir-ai-free-1.0.8.zip` from [Releases](https://github.com/hireawais/tahmir-ai-free/releases/latest).
+Start with one representative page before importing a whole website. Test desktop and mobile layouts, navigation, images, scripts and forms on your actual hosting.
+
+## Download and install the free converter plugin
+
+1. Download `tahmir-ai-free-1.0.9.zip` from [GitHub Releases](https://github.com/hireawais/tahmir-ai-free/releases/latest).
 2. In WordPress, open **Plugins → Add New Plugin → Upload Plugin**.
-3. Upload the ZIP, install it and activate **Tahmir AI — AI to WP Website Converter**.
+3. Upload the ZIP, install it and activate **Tahmir AI Free — HTML & Lovable to WordPress Converter**.
 4. Open **Tahmir AI → Import** and choose a public URL or HTML ZIP.
 5. Review the imported pages, check links and forms, and publish when ready.
 
-Requires WordPress 6.2+ and PHP 8.1+. ZIP importing requires PHP's ZIP extension; HTML parsing requires DOM. For a source checkout, place this repository in `wp-content/plugins/tahmir-ai-to-wp-converter/` and activate it. Pro recognizes that folder name, so future upgrades can reuse your imported pages and form data.
+Requires WordPress 6.2+ and PHP 8.1+. ZIP importing requires PHP's ZIP extension; HTML parsing requires DOM. For a source checkout, use the `wp-content/plugins/tahmir-ai-to-wp-converter/` folder. Pro recognizes that folder so your imported pages and form data can carry over.
 
-## Conversion guides
+## Why upgrade to Tahmir AI Pro?
 
-| Workflow | Free repository guide | Official Tahmir guide |
-| --- | --- | --- |
-| HTML, CSS and JavaScript to WordPress | [HTML to WordPress](docs/html-to-wordpress.md) | [HTML converter](https://tahmir.com/html-to-wordpress-converter-tahmir-ai/) |
-| Lovable website to WordPress | [Lovable to WordPress](docs/lovable-to-wordpress.md) | [Lovable converter](https://tahmir.com/lovable-to-wordpress-converter-tahmir-ai/) |
-| Other AI-generated websites | Use a public deployed URL or supported built HTML ZIP | [AI website converter](https://tahmir.com/ai-website-to-wordpress-converter-tahmir-ai/) |
+Free gets supported pages into WordPress. **Pro adds the editing and delivery tools for the next stage of client work:**
 
-## Free and Pro
+- **Make HTML and AI websites editable:** update text, images, buttons and page sections visually with the Pro editor and page modules.
+- **Keep branding and navigation consistent:** detect and replace logos and manage shared menus from **Manage**.
+- **Manage leads:** create and edit forms, review stored entries, and configure notifications and integrations.
+- **Prepare pages for search:** use SEO and AI-search tools to review page details before launch.
+- **Refine content and design:** use optional AI-assisted tools, with provider configuration or credits where required.
+- **Deliver and maintain client websites:** use client delivery, analytics and experiments to support review and ongoing work.
 
-| Capability | Free | Separate Pro add-on |
+[**See Pro benefits and upgrade →**](https://www.tahmir.com/upgrade/)
+
+Looking for discounted Tahmir AI pricing? Read the [Free-download upgrade offers and eligibility](docs/pro-upgrade-offers.md). Eligible identified Free downloaders receive a personal, time-limited offer; GitHub downloads do not automatically enroll you. Current plan terms and your personal checkout determine availability and price.
+
+Pro installs alongside Free and needs an active license. Keep Free installed; upgrading does not require importing your pages again. This repository and its downloadable ZIP contain no paid Pro add-on.
+
+| Capability | Free | Separate licensed Pro |
 | --- | --- | --- |
 | Public URL import and HTML ZIP import | Included | Included |
 | Imported page display and management | Included | Included |
 | Supported imported contact-form submissions | Included | Included |
-| Visual editor and page modules | — | Included |
-| Create/edit forms, view entries and configure integrations | — | Included |
-| Detect/replace site logos and edit shared menus | — | Included |
-| AI editing, SEO/AI search, analytics and client delivery | — | Included |
-| License required | No | Yes |
+| Visual editing and page modules | — | Included |
+| Logo detection/replacement and shared-menu editing | — | Included |
+| Create/edit forms, view entries and integrations | — | Included |
+| AI, SEO, analytics and client delivery tools | — | Included |
 
-Explore the complete product at [Tahmir.com](https://tahmir.com/) and [compare Free and Pro](https://tahmir.com/#pricing). Pro installs alongside Free. Provider configuration or credits may be needed for optional AI services.
+## Common conversion questions
 
-## Privacy and external services
+### Can I convert a GoHighLevel funnel to WordPress?
 
-Imports fetch the website URL and supported asset URLs you select. Free update checks contact Tahmir's release service with the installed version. Optional installation usage sharing is off unless you consent; it sends a random installation ID, edition/version, WordPress/PHP versions and an activity signal. It does not send site URLs, page content, visitors or form entries. You can change your choice in **Usage sharing**. See [Tahmir's privacy policy](https://tahmir.com/privacy-policy-tahmir-ai/).
+Use the public URL of a website or funnel page you control and test a representative page first. Tahmir Free imports supported front-end content; it does not migrate the GoHighLevel CRM, contacts, workflows, pipelines, membership accounts, checkout logic or appointments. Reconnect and test forms, embeds, calendars and tracking separately. See the [GoHighLevel migration guide](docs/gohighlevel-to-wordpress.md).
 
-## Contributing and license
+### Does Free make an HTML website visually editable?
 
-Use [GitHub Issues](https://github.com/hireawais/tahmir-ai-free/issues) for reproducible Free-edition bugs. Include your WordPress/PHP versions and a minimal sample you have permission to share. Keep credentials, customer content and Pro files out of issues and pull requests.
+Free imports, displays and manages supported pages. The Tahmir visual editor, AI editing, logo replacement and shared-menu editing require Pro. Follow [Make HTML websites editable](docs/make-html-websites-editable.md) for the Free-to-Pro workflow. Imported layouts are not automatically converted into Gutenberg blocks or Elementor widgets.
 
-The Free edition is GPLv2 or later; see [LICENSE.txt](LICENSE.txt). Bundled icon/font assets retain their own licenses and attribution in [third-party.txt](third-party.txt). This GitHub release does not imply acceptance into the WordPress.org plugin directory.
+### Can I deliver an AI-built website to a client?
+
+Yes: use Free to import supported public-facing pages into the client's WordPress hosting, then complete the [client delivery checklist](docs/deliver-client-websites.md). Choose Pro when the scope includes visual content editing, advanced forms or Tahmir's client delivery tools. Hosting, domains, backups and ongoing support are separate responsibilities.
+
+### Can I upload a Lovable, React or Vite source-code ZIP?
+
+Build and deploy the front end first, or provide a supported static HTML export. Unbuilt source repositories, Supabase data, authentication, server functions, payments and external APIs need separate development or integration. See [Lovable to WordPress](docs/lovable-to-wordpress.md) and [AI to WordPress](docs/ai-to-wordpress.md).
+
+## Privacy, support and license
+
+Imports fetch the website URL and supported assets you select. Free update checks contact Tahmir's release service with the installed version. Optional installation usage sharing is off until you consent; it sends a random installation ID, edition/version, WordPress/PHP versions and an activity signal. It does not send site URLs, page content, visitors or form entries. Change your choice in **Usage sharing**. Read [Tahmir's privacy policy](https://www.tahmir.com/tahmir-ai-privacy-policy/).
+
+Import websites and assets you own or have permission to use. For reproducible Free-edition bugs, use [GitHub Issues](https://github.com/hireawais/tahmir-ai-free/issues) with a minimal sample and WordPress/PHP versions. Keep credentials, private client content and Pro files out of public issues and pull requests.
+
+See [LICENSE.txt](LICENSE.txt) for GPLv2 or later and [third-party.txt](third-party.txt) for bundled asset attribution. This GitHub release does not imply acceptance into the WordPress.org plugin directory. Tahmir is independent of GoHighLevel, Lovable and the other source platforms named here.
