@@ -6,51 +6,46 @@
     var homeUrl = config.homeUrl || '/';
     var scheduled = false;
 
-    function importedRoute(raw) {
-        if (!config.pathMap || !raw || /^(?:#|\?|mailto:|tel:|javascript:)/i.test(raw)) return null;
+    // A WordPress destination is terminal. The observer also sees our own href writes.
+    var targets = new Map();
+    var routes = config.pathMap || map;
+    Object.keys(routes).forEach(function (key) {
         try {
-            var url = new URL(raw, location.origin + (config.sourceDir || '/'));
-            if (url.origin !== location.origin) return null;
-            var route = decodeURIComponent(url.pathname).replace(/^\/+|\/+$/g, '').replace(/(?:^|\/)index\.html?$/i, '').replace(/\.html?$/i, '').replace(/\/+$/g, '');
-            return Object.prototype.hasOwnProperty.call(config.pathMap, route) ? config.pathMap[route] + url.search + url.hash : null;
-        } catch (_) { return null; }
-    }
+            var target = new URL(routes[key], location.href);
+            var path = target.origin + target.pathname;
+            if (!targets.has(path)) targets.set(path, []);
+            targets.get(path).push(target.searchParams);
+        } catch (_) {}
+    });
 
     function resolveLink(raw) {
-        var suffixIndex;
-        var base;
-        var suffix;
-        var path;
-        var parsed;
-        var key;
+        if (!raw || /^(?:#|\?|mailto:|tel:|sms:|javascript:|data:|blob:)/i.test(raw)) return null;
+        try {
+            var source = new URL(raw, location.origin + (config.sourceDir || '/'));
+            if (source.origin !== location.origin) return null;
+            var existing = targets.get(source.origin + source.pathname) || [];
+            if (existing.some(function (params) {
+                return Array.from(params).every(function (pair) {
+                    return source.searchParams.getAll(pair[0]).includes(pair[1]);
+                });
+            })) return null;
+            // A local WordPress object may belong to another import on this installation.
+            if (source.searchParams.has('page_id') || source.searchParams.has('p') || source.searchParams.has('attachment_id')) return null;
 
-        if (!raw || raw.charAt(0) === '#' || raw.charAt(0) === '?') {
-            return null;
-        }
+            var route = decodeURIComponent(source.pathname).replace(/^\/+|\/+$/g, '');
+            var key = config.pathMap
+                ? route.replace(/(?:^|\/)index\.html?$/i, '').replace(/\.html?$/i, '').replace(/\/+$/g, '')
+                : route.split('/').pop().toLowerCase();
+            if (!Object.prototype.hasOwnProperty.call(routes, key)) return null;
 
-        if (config.pathMap) return importedRoute(raw);
-
-        suffixIndex = raw.search(/[?#]/);
-        base = suffixIndex === -1 ? raw : raw.slice(0, suffixIndex);
-        suffix = suffixIndex === -1 ? '' : raw.slice(suffixIndex);
-        path = base;
-
-        if (/^https?:\/\//i.test(base)) {
-            try {
-                parsed = new URL(base, window.location.href);
-            } catch (error) {
-                return null;
-            }
-
-            if (parsed.hostname.replace(/^www\./i, '') !== window.location.hostname.replace(/^www\./i, '')) {
-                return null;
-            }
-            path = parsed.pathname;
-        }
-
-        path = path.split(String.fromCharCode(92)).join('/').replace(/^(?:\.\/|\/)+/, '');
-        key = path.split('/').pop().toLowerCase();
-        return map[key] ? map[key] + suffix : null;
+            var target = new URL(routes[key], location.href);
+            var reserved = new Set(target.searchParams.keys());
+            source.searchParams.forEach(function (value, name) {
+                if (!reserved.has(name)) target.searchParams.append(name, value);
+            });
+            if (source.hash) target.hash = source.hash;
+            return target.href;
+        } catch (_) { return null; }
     }
 
     function repairNavigation() {

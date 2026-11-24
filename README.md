@@ -30,7 +30,7 @@ Start with one representative page before importing a whole website. Test deskto
 
 ## Download and install the free converter plugin
 
-1. Download `tahmir-ai-free-1.0.10.zip` from [GitHub Releases](https://github.com/hireawais/tahmir-ai-free/releases/latest).
+1. Download `tahmir-ai-free-1.0.11.zip` from [GitHub Releases](https://github.com/hireawais/tahmir-ai-free/releases/latest).
 2. In WordPress, open **Plugins → Add New Plugin → Upload Plugin**.
 3. Upload the ZIP, install it and activate **Tahmir AI Free — HTML & Lovable to WordPress Converter**.
 4. Open **Tahmir AI → Import** and choose a public URL or HTML ZIP.

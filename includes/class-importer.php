@@ -338,7 +338,7 @@ class Ugentic_Importer
             } else {
                 $updated_html = preg_replace_callback(
                 '/(<(?:a|area)\b[^>]*\bhref\s*=\s*["\'])([^"\'>]+)(["\'][^>]*>)/i',
-                function ($match) use ($link_map, $slug_map, $source_path_map, $source_hosts, $target_host, $home_url, $current_source_dir, &$links_replaced) {
+                function ($match) use ($database, $link_map, $slug_map, $source_path_map, $source_hosts, $target_host, $home_url, $current_source_dir, &$links_replaced) {
                     $prefix = $match[1];
                     $href = html_entity_decode($match[2], ENT_QUOTES | ENT_HTML5, 'UTF-8');
                     $suffix = $match[3];
@@ -374,12 +374,15 @@ class Ugentic_Importer
                         if (!$is_known_internal || $absolute_path === null) {
                             return $match[0];
                         }
+                        if ($absolute_host === $target_host && preg_match('/[?&](?:page_id|p|attachment_id)=\d+(?:$|[&?])/', $query)) {
+                            return $match[0];
+                        }
                         $href_path = rawurldecode($absolute_path);
                     }
 
                     if (($href_path === '' || $href_path === '/') && $home_url !== '') {
                         $links_replaced++;
-                        return $prefix . $home_url . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($home_url, ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     $source_candidate = $is_absolute || strpos($href_path, '/') === 0
@@ -388,7 +391,7 @@ class Ugentic_Importer
                     $source_candidate = strtolower($this->normalize_import_path($source_candidate));
                     if (isset($source_path_map[$source_candidate])) {
                         $links_replaced++;
-                        return $prefix . $source_path_map[$source_candidate] . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($source_path_map[$source_candidate], ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     // Normalize: strip leading ./ or /
@@ -399,35 +402,35 @@ class Ugentic_Importer
                     // Try exact match first (comprehensive map includes slugs, filenames, etc.)
                     if (isset($link_map[$normalized])) {
                         $links_replaced++;
-                        return $prefix . $link_map[$normalized] . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($link_map[$normalized], ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     // Try basename match (e.g. 'pages/about.html' → 'about.html')
                     $basename = basename($normalized);
                     if (isset($link_map[$basename])) {
                         $links_replaced++;
-                        return $prefix . $link_map[$basename] . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($link_map[$basename], ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     // Try without extension
                     $without_ext = preg_replace('/\.html?$/i', '', $basename);
                     if (isset($link_map[$without_ext])) {
                         $links_replaced++;
-                        return $prefix . $link_map[$without_ext] . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($link_map[$without_ext], ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     // Try last path segment as slug (for folder-based paths like "Section/page-name")
                     $last_segment = strtolower(rtrim(basename($normalized), '/'));
                     if (!empty($last_segment) && isset($slug_map[$last_segment])) {
                         $links_replaced++;
-                        return $prefix . $slug_map[$last_segment] . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($slug_map[$last_segment], ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     // Try sanitized last segment (slugify it for matching)
                     $slugified = sanitize_title($last_segment);
                     if (!empty($slugified) && $slugified !== $last_segment && isset($slug_map[$slugified])) {
                         $links_replaced++;
-                        return $prefix . $slug_map[$slugified] . $query . $anchor . $suffix;
+                        return $prefix . esc_attr($database->merge_permalink_suffix($slug_map[$slugified], ltrim($query, '?'), ltrim($anchor, '#'))) . $suffix;
                     }
 
                     return $match[0]; // No match, leave unchanged

@@ -1441,7 +1441,7 @@ class Ugentic_Database
                 if ($absolute_host) {
                     $normalized_host = strtolower(preg_replace('/^www\./i', '', $absolute_host));
                     $known_source_url = isset($source_hosts[$normalized_host]);
-                    if (!$known_source_url && $normalized_host === $target_host) {
+                    if ($normalized_host === $target_host && (!$known_source_url || preg_match('/(?:^|[&?])(?:page_id|p|attachment_id)=\d+(?:$|[&?])/', $query))) {
                         $local = $this->normalize_local_permalink($href_path . ($query !== '' ? '?' . $query : '') . ($fragment !== '' ? '#' . $fragment : ''));
                         return $matches[1] . $matches[2] . $local . $matches[2];
                     }
@@ -1505,7 +1505,7 @@ class Ugentic_Database
     }
 
     /** Merge a source query/fragment into a WordPress permalink safely. */
-    private function merge_permalink_suffix($permalink, $query = '', $fragment = '')
+    public function merge_permalink_suffix($permalink, $query = '', $fragment = '')
     {
         $permalink = $this->normalize_local_permalink((string) $permalink);
         $parts = wp_parse_url($permalink);
