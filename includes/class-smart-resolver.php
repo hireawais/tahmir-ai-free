@@ -152,37 +152,66 @@ class Ugentic_Smart_Resolver
      */
     private function resolve_srcset($html, $base_dir)
     {
-        return preg_replace_callback(
-            '/(srcset\s*=\s*["\'])([^"\']+)(["\'])/i',
-                function ($matches) use ($base_dir) {
-            $attr = $matches[1];
-            $srcset = $matches[2];
-            $quote = $matches[3];
+        if (stripos($html, 'srcset') === false) {
+            return $html;
+        }
 
-            // Parse srcset (format: "path1 1x, path2 2x" or "path1 100w, path2 200w")
-            $sources = explode(',', $srcset);
-            $resolved_sources = [];
-
-            foreach ($sources as $source) {
-                $source = trim($source);
-                $parts = preg_split('/\s+/', $source, 2);
-                $path = $parts[0];
-                $descriptor = isset($parts[1]) ? ' ' . $parts[1] : '';
-
-                $mapped = $this->match_uploaded_asset($path);
-                if ($mapped !== null) {
-                    $path = $mapped;
-                } elseif (!$this->is_external_or_special($path)) {
-                    $path = $this->resolve_path($path, $base_dir);
+        $tags = new WP_HTML_Tag_Processor($html);
+        while ($tags->next_tag()) {
+            foreach (['srcset', 'data-srcset', 'data-lazy-srcset', 'imagesrcset'] as $attribute) {
+                $original = $tags->get_attribute($attribute);
+                if (!is_string($original) || $original === '') {
+                    continue;
                 }
+                $updated = $this->resolve_srcset_candidates($original, $base_dir);
+                if ($updated !== $original) {
+                    $tags->set_attribute($attribute, $updated);
+                }
+            }
+        }
+        return $tags->get_updated_html();
+    }
 
-                $resolved_sources[] = $path . $descriptor;
+    /**
+     * Scan candidate URLs using HTML's ASCII whitespace rules. Commas inside a
+     * URL belong to the URL, including the payload delimiter in a data URI.
+     * Leave descriptors and separators byte-for-byte intact.
+     */
+    private function resolve_srcset_candidates($value, $base_dir)
+    {
+        $space = " \t\n\f\r";
+        $length = strlen($value);
+        $offset = 0;
+        $output = '';
+        while ($offset < $length) {
+            $prefix = strspn($value, $space . ',', $offset);
+            $output .= substr($value, $offset, $prefix);
+            $offset += $prefix;
+            if ($offset === $length) {
+                break;
             }
 
-            return $attr . implode(', ', $resolved_sources) . $quote;
-        },
-            $html
-        );
+            $end = $offset + strcspn($value, $space, $offset);
+            $token = substr($value, $offset, $end - $offset);
+            $url = rtrim($token, ',');
+            $mapped = $this->match_uploaded_asset($url);
+            $output .= $mapped ?? ($this->is_external_or_special($url) ? $url : $this->resolve_path($url, $base_dir));
+            $output .= substr($token, strlen($url));
+            $offset = $end;
+            if ($url === $token) {
+                // A descriptor list ends at the first comma outside parentheses.
+                $start = $offset;
+                $depth = 0;
+                while ($offset < $length) {
+                    $char = $value[$offset++];
+                    if ($char === ',' && !$depth) break;
+                    if ($char === '(') $depth++;
+                    if ($char === ')' && $depth) $depth--;
+                }
+                $output .= substr($value, $start, $offset - $start);
+            }
+        }
+        return $output;
     }
 
     /**
@@ -193,7 +222,6 @@ class Ugentic_Smart_Resolver
         // Common data attributes that contain paths
         $data_attrs = [
             'data-src',
-            'data-srcset',
             'data-bg',
             'data-background',
             'data-image',

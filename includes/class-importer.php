@@ -2322,6 +2322,13 @@ add_action('wp_ajax_ugentic_force_clear_import_lock', [$this, 'ajax_force_clear_
                 function ($attr) use ($tag, $opening, $page_url, $asset_dir, $asset_url, &$asset_cache, &$warnings, &$localized) {
                     $key = strtolower($attr[2]);
                     $value = html_entity_decode(($attr[4] ?? '') !== '' ? $attr[4] : (($attr[5] ?? '') !== '' ? $attr[5] : ($attr[6] ?? '')), ENT_QUOTES, 'UTF-8');
+                    // Candidate lists have already been localized by the srcset pass.
+                    // Widget state and Framer's boolean image-wrapper markers are
+                    // not URLs. Rewriting them also breaks exact-match CSS selectors.
+                    if (in_array($key, ['srcset', 'data-srcset', 'data-lazy-srcset', 'data-bgset', 'imagesrcset'], true)
+                        || (strpos($key, 'data-') === 0 && in_array(strtolower(trim($value)), ['true', 'false'], true))) {
+                        return $attr[0];
+                    }
                     $asset = in_array($key, ['src', 'poster', 'background', 'xlink:href', 'data-original', 'data-lazy'], true)
                         || (strpos($key, 'data-') === 0 && $this->clone_attribute_is_asset_hint($key))
                         || ($key === 'href' && $tag === 'link' && $this->clone_href_is_asset($tag, $opening, $value));

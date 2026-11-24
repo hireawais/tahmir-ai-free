@@ -4,7 +4,7 @@ Tags: html to wordpress, lovable to wordpress, gohighlevel, ai to wordpress, web
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.9
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ Free and Pro store submitted form entries in your WordPress database. Free sends
 Website privacy policy: https://www.tahmir.com/tahmir-ai-privacy-policy/
 
 == Changelog ==
+
+= 1.0.10 =
+
+* Keep Framer image-wrapper flags intact and avoid reprocessing responsive image lists during URL import.
+* Preserve inline image previews, comma-bearing image CDN URLs and lazy-loaded responsive image candidates during HTML ZIP import.
 
 = 1.0.9 =
 
