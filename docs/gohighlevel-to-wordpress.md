@@ -1,6 +1,6 @@
 # GoHighLevel to WordPress: move supported website and funnel pages
 
-Tahmir AI Free provides a public-URL workflow for bringing supported GoHighLevel website or funnel pages into WordPress. Start with a published page you own or are authorized to migrate. See Tahmir's official [GoHighLevel to WordPress converter guide](https://www.tahmir.com/gohighlevel-to-wordpress-converter/).
+Tahmir AI Free provides a public-URL workflow for bringing supported GoHighLevel website or funnel pages into WordPress. Start with a published page you own or are authorized to migrate. Follow the [GoHighLevel booking-page walkthrough](https://www.tahmir.com/how-to-move-a-gohighlevel-website-to-wordpress/) to check where the booking button sends a visitor after import.
 
 ## Plan the migration before importing
 

@@ -9,6 +9,8 @@ AI tools can help you create a finished-looking front end quickly. Tahmir AI Fre
 | Lovable | Deployed public website URL or supported built HTML export | Supabase, authentication and server functions |
 | Bolt or v0 | Deployed front end or supported static HTML output | Application routing, API calls and server dependencies |
 | Claude or Cursor | Finished HTML/CSS/JavaScript with its assets, or a public deployed site | Generated scripts, form actions and external services |
+
+Working with a Claude export? The [Screlio walkthrough](https://www.tahmir.com/how-to-convert-a-claude-website-to-wordpress/) shows which files to ZIP and how to test a visitor’s path through the imported page.
 | GoHighLevel | Published website or funnel page URL | CRM workflows, calendars, forms and checkout |
 
 Compatibility depends on the generated output, scripts and assets, not just the name of the source tool. Unbuilt source repositories and complete backend applications are outside static-page import support.

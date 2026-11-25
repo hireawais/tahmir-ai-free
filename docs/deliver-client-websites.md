@@ -21,6 +21,8 @@ Free importing is useful for an initial migration or publishing task. Visual edi
 - [ ] Demonstrate one real client edit and save it before handing over access.
 - [ ] Record approval, remaining tasks and who owns each item; publish after review.
 
+For a Webflow handoff, choose one portfolio item and trace it from its homepage card to its WordPress detail page. The [Webflow CMS project walkthrough](https://www.tahmir.com/how-to-migrate-from-webflow-to-wordpress/) shows how to bring across the design, create that first record and test its link on a phone.
+
 ## Why agencies add Pro
 
 Pro lets teams use the visual editor and page modules for routine content changes, replace logos and adjust shared menus in Manage, manage forms and entries, review SEO, and use analytics and client delivery tools. Keep Free active so imported pages and form data carry over. Match the licensed website allowance and any optional AI service costs to the client scope.

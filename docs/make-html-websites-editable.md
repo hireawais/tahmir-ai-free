@@ -14,6 +14,8 @@ Start with the HTML website or AI-built page your team has approved. **Tahmir AI
 
 Imported pages and form data carry over, so the upgrade does not require importing again. The Tahmir editor is the editing interface; this workflow does not promise automatic conversion to Gutenberg blocks, Elementor widgets or a new WordPress theme.
 
+For a portfolio, ask the editor to open a second project from the homepage. The [Framer portfolio walkthrough](https://www.tahmir.com/how-to-convert-a-framer-website-to-wordpress/) shows how to give each project a WordPress page and check that its card opens the right one.
+
 ## Changes the team can prepare with Pro
 
 | Need after import | Pro workflow |
