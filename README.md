@@ -17,7 +17,7 @@ This public repository contains **Tahmir AI Free only**, licensed under **GPL-2.
 | Approved client website | Import, compare, test and hand over the WordPress site | [Client website delivery checklist](docs/deliver-client-websites.md) | [Tahmir's agency delivery playbook](https://www.tahmir.com/ai-to-wordpress-agency-playbook/) |
 | HTML website that needs everyday visual edits | Import with Free; add licensed Pro for visual editing | [Make HTML websites editable](docs/make-html-websites-editable.md) | [Pro editing and delivery tools](https://www.tahmir.com/upgrade/) |
 
-For screenshots of the source and the imported WordPress page, choose your starting platform in the [WordPress migration tutorials](https://www.tahmir.com/ai-to-wordpress-guides/).
+For Claude, Bolt.new, Framer, Webflow and other specific inputs, use the [source platform guide](docs/source-platforms.md) to choose an import method and acceptance test. For screenshots, see the [WordPress migration tutorials](https://www.tahmir.com/ai-to-wordpress-guides/).
 
 ## What is included for free?
 
