@@ -1,6 +1,6 @@
 # Free HTML to WordPress converter plugin
 
-Tahmir AI Free imports supported HTML websites into WordPress from an HTML ZIP or public URL. Use it when you have a finished front end and want to keep the approved design while moving page display and management into WordPress. The [HTML ZIP walkthrough](https://www.tahmir.com/how-to-convert-html-to-wordpress/) shows how to arrange the files, save the imported pages as drafts and preview them in WordPress.
+Tahmir AI Free imports supported HTML websites into WordPress from an HTML ZIP or public URL. Use it when you have a finished front end and want to keep the approved design while moving page display and management into WordPress. See the official [free HTML to WordPress converter](https://www.tahmir.com/free-html-to-wordpress-converter/).
 
 ## Prepare an importable HTML website
 
@@ -25,6 +25,8 @@ assets/images/logo.png
 4. Check the WordPress result against the source at desktop and mobile sizes.
 5. Follow navigation links and check images, fonts, buttons, scripts and contact forms.
 6. Publish after reviewing the result on your WordPress hosting.
+
+The [HTML ZIP walkthrough](https://www.tahmir.com/how-to-convert-html-to-wordpress/) shows how to arrange the files, save the imported pages as drafts and preview them in WordPress.
 
 If the website is already public, use **Import from URL** instead. Start with one page that includes a hero, navigation, images and a form before scaling to the whole website.
 

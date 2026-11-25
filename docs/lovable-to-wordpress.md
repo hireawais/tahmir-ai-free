@@ -1,6 +1,6 @@
 # Lovable to WordPress with the free Tahmir AI plugin
 
-Use Tahmir AI Free to import supported public-facing pages from a deployed Lovable website into WordPress. Keep Lovable as your design and build workflow, then review the supported page output on your own WordPress hosting. The [Lovable homepage walkthrough](https://www.tahmir.com/how-to-convert-lovable-to-wordpress/) shows the original and imported homepages and how to check their project links.
+Use Tahmir AI Free to import supported public-facing pages from a deployed Lovable website into WordPress. Keep Lovable as your design and build workflow, then review the supported page output on your own WordPress hosting. The official [Lovable to WordPress converter guide](https://www.tahmir.com/lovable-to-wordpress-converter/) explains the broader workflow.
 
 ## Prepare the Lovable project
 
@@ -14,6 +14,8 @@ Publish the project to a public URL and test the routes you want to deliver. Cho
 4. Compare typography, images, spacing and mobile navigation with the approved source.
 5. Test links, scripts, contact forms and each required route.
 6. Publish after the client or project owner approves the WordPress result.
+
+The [Lovable homepage walkthrough](https://www.tahmir.com/how-to-convert-lovable-to-wordpress/) shows the original and imported homepages and how to check their project links.
 
 ## What comes across, and what needs separate work?
 
